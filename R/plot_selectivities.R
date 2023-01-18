@@ -13,14 +13,15 @@
 
 
 "plot_selectivities" <- function(model, selectivity_labels = NULL) {
-  full_DF = get_selectivities(model)
-  if(is.null(full_DF)) {
+  full_DF <- get_selectivities(model)
+  if (is.null(full_DF)) {
     message("No selectivies found in Casal2 output")
     return(NULL)
   }
-  if(!is.null(selectivity_labels))
-    full_DF = subset(full_DF, subset = full_DF$selectivity_label %in% selectivity_labels)
-  plt = ggplot(full_DF, aes(x = bin, group = selectivity_label, col = selectivity_label)) +
+  if (!is.null(selectivity_labels)) {
+    full_DF <- subset(full_DF, subset = full_DF$selectivity_label %in% selectivity_labels)
+  }
+  plt <- ggplot(full_DF, aes(x = bin, group = selectivity_label, col = selectivity_label)) +
     geom_line(aes(y = selectivity), size = 2) +
     facet_wrap(~selectivity_label)
   return(plt)

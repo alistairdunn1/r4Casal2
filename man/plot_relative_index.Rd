@@ -55,14 +55,15 @@ A plotting function for Casal2 fits to abundance or biomass observations
 \dontrun{
 library(casal2)
 # plotting Standard Output
-data <- extract.mpd(file = system.file("extdata", "estimate.out", package="casal2"))
+data <- extract.mpd(file = system.file("extdata", "estimate.out", package = "casal2"))
 names(data)
-par(mfrow = c(1,2))
+par(mfrow = c(1, 2))
 plot.fits(model = data, report_labels = "westF_at_age")
 plot.fits(model = data, report_labels = "eastF_at_age")
 # to create a user-specified plot, use plot.it = FALSE.
 Tangaroa_fits <- plot.fits(model = data, report_label = "eastF_at_age", plot.it = FALSE)
 }
+
 }
 \author{
 Craig Marsh

@@ -22,7 +22,7 @@ run_automatic_reweighting(
 
 \item{config_filename}{the config file that describes all Casal2 input files. Expected to be in 'config_dir'.}
 
-\item{weighting_folder_name}{A folder name created in 'config_dir' where re-estiamtion is done and output saved.}
+\item{weighting_folder_name}{A folder name created in 'config_dir' where re-estimation is done and output saved.}
 
 \item{mpd_file_name}{filename with mpd output to start calculating weights for. Expected to be in 'config_dir'.}
 
@@ -36,13 +36,13 @@ run_automatic_reweighting(
 
 \item{verbose}{print additional information to screen}
 
-\item{approximate_single_year_obs}{whether to try and approximate a weigth for observations with a single year}
+\item{approximate_single_year_obs}{whether to try and approximate a weight for observations with a single year}
 }
 \value{
 data frame of weights in each loop. Will also create estimated mpd output in weighting_folder_name with the format 'estimate_"iteration_number".log'
 }
 \description{
-a function that will automatically conduct an iterative reweighting re-esitmation.
+a function that will automatically conduct an iterative reweighting re-estimation.
 }
 \details{
 Sometimes users may have subdirectories containing config files. This function is untested for this config model structure.

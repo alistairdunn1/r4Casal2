@@ -8,8 +8,8 @@
 #' @param config_files vector of string names that correspond to Casal2
 #' @param output_folder folder directory label to write simulated reports into
 #' @param prefix prefex for simulated observations
-#' @param single_sim_filename optional filename, if provided then will report simulated observations into a single file, rather than seperate files.
-#' @param verbose true print out statements throught function to help debug
+#' @param single_sim_filename optional filename, if provided then will report simulated observations into a single file, rather than separate files.
+#' @param verbose true print out statements through function to help debug
 #' @return will create an output directory based on parameter output_folder and also a Casal2 report config called simulated_reports.csl2
 #' @rdname create_simulation_reports
 #' @export create_simulation_reports

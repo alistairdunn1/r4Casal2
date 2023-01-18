@@ -30,7 +30,7 @@ a vector of strings
 \description{
 A utility function for expanding short hand syntax in @category blocks in casal2 config files
 
-A utility function for expanding short hand syntax of categories used in subcommands throught casal2 config files
+A utility function for expanding short hand syntax of categories used in subcommands through casal2 config files
 }
 \examples{
 \dontrun{
@@ -39,13 +39,13 @@ expand_category_block("stock.male,female")
 expand_category_block("stock.male,female.untagged,1990")
 }
 \dontrun{
-expand_category_shorthand(shorthand_categories ="format=*.EN.*", reference_categories = c("BOP.EN.male"))
-expand_category_shorthand(shorthand_categories ="format=*.EN.*", reference_categories = c("BOP.EN.male", "BOP.EN.female"))
-expand_category_shorthand(shorthand_categories ="format=*.EN.*", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"))
-expand_category_shorthand(shorthand_categories ="format = *.EN.+", reference_categories = c("BOP.EN.male", "BOP.EN.female"))
-expand_category_shorthand(shorthand_categories ="format = *.EN.+", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"))
-expand_category_shorthand(shorthand_categories ="*", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"))
-expand_category_shorthand(shorthand_categories ="stock=BOP", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"), category_format = "stock.area.sex")
+expand_category_shorthand(shorthand_categories = "format=*.EN.*", reference_categories = c("BOP.EN.male"))
+expand_category_shorthand(shorthand_categories = "format=*.EN.*", reference_categories = c("BOP.EN.male", "BOP.EN.female"))
+expand_category_shorthand(shorthand_categories = "format=*.EN.*", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"))
+expand_category_shorthand(shorthand_categories = "format = *.EN.+", reference_categories = c("BOP.EN.male", "BOP.EN.female"))
+expand_category_shorthand(shorthand_categories = "format = *.EN.+", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"))
+expand_category_shorthand(shorthand_categories = "*", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"))
+expand_category_shorthand(shorthand_categories = "stock=BOP", reference_categories = c("BOP.EN.male", "BOP.EN.female", "HAGU.EN.male", "HAGU.EN.female"), category_format = "stock.area.sex")
 }
 }
 \author{

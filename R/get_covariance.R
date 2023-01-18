@@ -18,23 +18,25 @@
 #' @rdname get_covariance
 #' @method get_covariance casal2MPD
 #' @export
-"get_covariance.casal2MPD" = function(model) {
+"get_covariance.casal2MPD" <- function(model) {
   # can be -r or -r -i
-  multiple_iterations_in_a_report = FALSE
-  complete_df = NULL
-  reports_labels = reformat_default_labels(names(model))
-  for(i in 1:length(model)) {
-    if (reports_labels[i] == "header")
-      next;
-    this_report = model[[i]]
-    if(any(names(this_report) == "type")) {
-      if(this_report$type != "covariance_matrix")
-        next;
+  multiple_iterations_in_a_report <- FALSE
+  complete_df <- NULL
+  reports_labels <- reformat_default_labels(names(model))
+  for (i in 1:length(model)) {
+    if (reports_labels[i] == "header") {
+      next
+    }
+    this_report <- model[[i]]
+    if (any(names(this_report) == "type")) {
+      if (this_report$type != "covariance_matrix") {
+        next
+      }
       return(this_report$covariance_matrix)
-
     } else {
-      if(this_report[[1]]$type != "covariance_matrix")
-        next;
+      if (this_report[[1]]$type != "covariance_matrix") {
+        next
+      }
       return(this_report[[1]]$covariance_matrix)
     }
   }

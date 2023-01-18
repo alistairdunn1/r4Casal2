@@ -32,11 +32,12 @@ A plotting function for Casal2 derived_quantities
 \donttest{
 library(Casal2)
 # plotting Standard Output
-data <- extract.mpd(file = system.file("extdata", "estimate.out", package="r4Casal2"))
+data <- extract.mpd(file = system.file("extdata", "estimate.out", package = "r4Casal2"))
 names(data)
-par(mfrow = c(1,2))
+par(mfrow = c(1, 2))
 plot_derived_quantities(model = data)
 }
+
 }
 \author{
 Craig Marsh

@@ -14,36 +14,36 @@
 #' @references
 #' \insertAllCited{}
 calculate_composition_stage_two_weights <- function(model, observation_labels = NULL, approximate_single_year_obs = FALSE) {
-  #model = Casal2::extract.mpd("C:\\Users\\marshc\\OneDrive - NIWA\\22_23\\SNA1\\csl\\P30 Base HGBP\\Casal2\\estimate.log")
-  comp_obs = get_composition_observations(model)
-  comp_labels = unique(comp_obs$observation_label)
-  if(!is.null(observation_labels)) {
-    if(any(!(observation_labels %in% comp_labels))) {
+  # model = Casal2::extract.mpd("C:\\Users\\marshc\\OneDrive - NIWA\\22_23\\SNA1\\csl\\P30 Base HGBP\\Casal2\\estimate.log")
+  comp_obs <- get_composition_observations(model)
+  comp_labels <- unique(comp_obs$observation_label)
+  if (!is.null(observation_labels)) {
+    if (any(!(observation_labels %in% comp_labels))) {
       stop("Could not find some of the observation_labels supplied in model. Please check this or this function.")
     }
-    comp_labels = subset(comp_labels, subset = comp_labels %in% observation_labels)
+    comp_labels <- subset(comp_labels, subset = comp_labels %in% observation_labels)
   }
-  weights = vector()
-  Ns = NULL
-  NA_ns = vector();
-  for(i in 1:length(comp_labels)) {
-    this_obs = subset(comp_obs, subset = comp_obs$observation_label == comp_labels[i])
-    mean_N_by_year = tapply(this_obs$adjusted_error, this_obs$year, mean)
-    weights[i] = Method.TA1.8(model = model, observation_labels = comp_labels[i], plot.it = F)
-    if(!is.na(weights[i])) {
-      temp_df = data.frame(year = names(mean_N_by_year), N = mean_N_by_year, label = comp_labels[i], weight = weights[i])
-      Ns = rbind(Ns, temp_df)
-      NA_ns[i] = NA
+  weights <- vector()
+  Ns <- NULL
+  NA_ns <- vector()
+  for (i in 1:length(comp_labels)) {
+    this_obs <- subset(comp_obs, subset = comp_obs$observation_label == comp_labels[i])
+    mean_N_by_year <- tapply(this_obs$adjusted_error, this_obs$year, mean)
+    weights[i] <- Method.TA1.8(model = model, observation_labels = comp_labels[i], plot.it = F)
+    if (!is.na(weights[i])) {
+      temp_df <- data.frame(year = names(mean_N_by_year), N = mean_N_by_year, label = comp_labels[i], weight = weights[i])
+      Ns <- rbind(Ns, temp_df)
+      NA_ns[i] <- NA
     } else {
       ## usually NA due to only a single year
-      NA_ns[i] = (mean_N_by_year)
+      NA_ns[i] <- (mean_N_by_year)
     }
   }
-  if(approximate_single_year_obs & any(is.na(weights))) {
-    for(i in 1:length(weights)) {
-      if(is.na(weights[i])) {
-        ndx = which.min( abs(Ns$N - NA_ns[i]))
-        weights[i] = Ns$weight[ndx]
+  if (approximate_single_year_obs & any(is.na(weights))) {
+    for (i in 1:length(weights)) {
+      if (is.na(weights[i])) {
+        ndx <- which.min(abs(Ns$N - NA_ns[i]))
+        weights[i] <- Ns$weight[ndx]
       }
     }
   }

@@ -20,60 +20,63 @@
 #' @rdname get_selectivities_by_year
 #' @method get_selectivities_by_year casal2MPD
 #' @export
-"get_selectivities_by_year.casal2MPD" = function(model) {
+"get_selectivities_by_year.casal2MPD" <- function(model) {
   # can be -r or -r -i
-  multiple_iterations_in_a_report = FALSE
-  complete_df = NULL
-  reports_labels = reformat_default_labels(names(model))
-  for(i in 1:length(model)) {
-    if (reports_labels[i] == "header")
-      next;
-    this_report = model[[i]]
-    if(any(names(this_report) == "type")) {
-      if(this_report$type != "selectivity_by_year") {
-        next;
+  multiple_iterations_in_a_report <- FALSE
+  complete_df <- NULL
+  reports_labels <- reformat_default_labels(names(model))
+  for (i in 1:length(model)) {
+    if (reports_labels[i] == "header") {
+      next
+    }
+    this_report <- model[[i]]
+    if (any(names(this_report) == "type")) {
+      if (this_report$type != "selectivity_by_year") {
+        next
       }
-      temp_df = NULL
-      years = names(this_report)
-      for(y in 1:length(years)) {
-        if(years[y] == "type")
+      temp_df <- NULL
+      years <- names(this_report)
+      for (y in 1:length(years)) {
+        if (years[y] == "type") {
           next
-        this_df = melt(as.matrix(this_report[[y]]$Values))
-        colnames(this_df) = c("bin", "par_set", "selectivity")
-        this_df$type = this_report[[y]]$sub_type
-        this_df$selectivity_label = this_report[[y]]$selectivity
-        this_df$year = years[y]
-        temp_df = rbind(temp_df, this_df)
+        }
+        this_df <- melt(as.matrix(this_report[[y]]$Values))
+        colnames(this_df) <- c("bin", "par_set", "selectivity")
+        this_df$type <- this_report[[y]]$sub_type
+        this_df$selectivity_label <- this_report[[y]]$selectivity
+        this_df$year <- years[y]
+        temp_df <- rbind(temp_df, this_df)
       }
-      complete_df = rbind(complete_df, temp_df)
+      complete_df <- rbind(complete_df, temp_df)
     } else {
       multiple_iterations_in_a_report <- TRUE
       if (this_report[[1]]$type != "selectivity_by_year") {
-        next;
+        next
       }
-      n_runs = length(this_report)
-      iter_labs = names(this_report)
+      n_runs <- length(this_report)
+      iter_labs <- names(this_report)
 
-      for(dash_i in 1:n_runs) {
-        temp_df = NULL
-        this_par_df = this_report[[dash_i]]
-        years = names(this_par_df)
-        for(y in 1:length(years)) {
-          if(years[y] == "type")
+      for (dash_i in 1:n_runs) {
+        temp_df <- NULL
+        this_par_df <- this_report[[dash_i]]
+        years <- names(this_par_df)
+        for (y in 1:length(years)) {
+          if (years[y] == "type") {
             next
-          this_df = melt(as.matrix(this_par_df[[y]]$Values))
-          colnames(this_df) = c("bin", "par_set", "selectivity")
-          this_df$type = this_par_df[[y]]$sub_type
-          this_df$selectivity_label = this_par_df[[y]]$selectivity
-          this_df$year = years[y]
-          temp_df = rbind(temp_df, this_df)
+          }
+          this_df <- melt(as.matrix(this_par_df[[y]]$Values))
+          colnames(this_df) <- c("bin", "par_set", "selectivity")
+          this_df$type <- this_par_df[[y]]$sub_type
+          this_df$selectivity_label <- this_par_df[[y]]$selectivity
+          this_df$year <- years[y]
+          temp_df <- rbind(temp_df, this_df)
         }
-        temp_df$par_set = iter_labs[dash_i];
-        complete_df = rbind(complete_df, temp_df)
+        temp_df$par_set <- iter_labs[dash_i]
+        complete_df <- rbind(complete_df, temp_df)
       }
     }
   }
-  complete_df$bin = as.numeric(complete_df$bin)
+  complete_df$bin <- as.numeric(complete_df$bin)
   return(complete_df)
   invisible()
 }
@@ -84,20 +87,18 @@
 #' @rdname get_selectivities_by_year
 #' @method get_selectivities_by_year list
 #' @export
-"get_selectivities_by_year.list" = function(model) {
-  run_labs = names(model)
-  full_DF = NULL
+"get_selectivities_by_year.list" <- function(model) {
+  run_labs <- names(model)
+  full_DF <- NULL
   ## iterate over the models
-  for(i in 1:length(model)) {
-    if(class(model[[i]]) != "casal2MPD") {
+  for (i in 1:length(model)) {
+    if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD', you supplied = ", class(model[[i]])))
     }
-    this_sel = get_selectivities_by_year(model[[i]])
-    this_sel$model_label = run_labs[i]
-    full_DF = rbind(full_DF, this_sel);
+    this_sel <- get_selectivities_by_year(model[[i]])
+    this_sel$model_label <- run_labs[i]
+    full_DF <- rbind(full_DF, this_sel)
   }
   return(full_DF)
   invisible()
 }
-
-

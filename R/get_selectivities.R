@@ -10,7 +10,6 @@
 #' @export get_selectivities
 #' @importFrom reshape2 melt
 
-
 "get_selectivities" <-
   function(model) {
     UseMethod("get_selectivities", model)
@@ -124,13 +123,10 @@
     ## cut out selectivity
     selectivity_lab = unlist(lapply(strsplit(selectivity_lab, split = "[", fixed = T), FUN = function(x){x[2]}))
     selectivity_lab = substring(selectivity_lab, first = 1, last = nchar(selectivity_lab) - 1)
-
-
-
     sel_molten$bin = as.numeric(bin_labs)
     sel_molten$report_label = reports_labels[i]
     sel_molten$selectivity_label = selectivity_lab
-    complete_df = rbind(complete_df, sel_molten)
+    complete_df = rbind(complete_df, sel_molten) 
   }
   return(complete_df)
   invisible()

@@ -16,7 +16,7 @@ get_catchabilities(model)
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
 }
 \value{
-A data frame with all derived quantitiy reports from Casal2 model output
+A data frame with all derived quantity reports from Casal2 model output
 }
 \description{
 An accessor function that returns a data frame from a Casal2 model output of catchabilities

@@ -15,36 +15,33 @@
 #' \donttest{
 #' library(Casal2)
 #' # plotting Standard Output
-#' data <- extract.mpd(file = system.file("extdata", "estimate.out", package="r4Casal2"))
+#' data <- extract.mpd(file = system.file("extdata", "estimate.out", package = "r4Casal2"))
 #' names(data)
-#' par(mfrow = c(1,2))
+#' par(mfrow = c(1, 2))
 #' plot_derived_quantities(model = data)
 #' }
-
+#'
 "plot_derived_quantities" <- function(model) {
   UseMethod("plot_derived_quantities", model)
 }
-
 
 #'
 #' @rdname plot_derived_quantities
 #' @method plot_derived_quantities casal2MPD
 #' @export
 "plot_derived_quantities.casal2MPD" <- function(model) {
-  ssb_df = get_derived_quanitites(model)
-  ssb_df_percent = ssb_df
-  ssb_df_percent$values = ssb_df_percent$values / ssb_df_percent$initialisation_value * 100
-  ssb_df$type = "Absolute"
-  ssb_df_percent$type = "Percent initial"
-  full_ssb_df = rbind(ssb_df, ssb_df_percent)
+  ssb_df <- get_derived_quantities(model)
+  ssb_df_percent <- ssb_df
+  ssb_df_percent$values <- ssb_df_percent$values / ssb_df_percent$initialisation_value * 100
+  ssb_df$type <- "Absolute"
+  ssb_df_percent$type <- "Percent initial"
+  full_ssb_df <- rbind(ssb_df, ssb_df_percent)
   ggplot(full_ssb_df, aes(x = years, y = values, col = dq_label, linetype = dq_label)) +
     geom_line(size = 2) +
     ylim(0, NA) +
-    labs(colour="Label", linetype = "Label", x = "Years", y = "") +
+    labs(colour = "Label", linetype = "Label", x = "Years", y = "") +
     facet_wrap(~type, scales = "free_y")
 }
-
-
 
 #'
 #' @rdname plot_derived_quantities
@@ -59,16 +56,16 @@
 #' @method plot_derived_quantities list
 #' @export
 "plot_derived_quantities.list" <- function(model) {
-  #setwd("C://Software//r4Casal2")
-  ssb_df = get_derived_quanitites(model)
-  ssb_df_percent = ssb_df
-  ssb_df_percent$values = ssb_df_percent$values / ssb_df_percent$initialisation_value * 100
-  ssb_df$type = "Absolute"
-  ssb_df_percent$type = "Percent initial"
-  full_ssb_df = rbind(ssb_df, ssb_df_percent)
+  # setwd("C://Software//r4Casal2")
+  ssb_df <- get_derived_quantities(model)
+  ssb_df_percent <- ssb_df
+  ssb_df_percent$values <- ssb_df_percent$values / ssb_df_percent$initialisation_value * 100
+  ssb_df$type <- "Absolute"
+  ssb_df_percent$type <- "Percent initial"
+  full_ssb_df <- rbind(ssb_df, ssb_df_percent)
   ggplot(full_ssb_df, aes(x = years, y = values, col = model_label, linetype = model_label)) +
     geom_line(size = 2) +
     ylim(0, NA) +
-    labs(colour="Label", linetype = "Label", x = "Years", y = "") +
-    facet_wrap(label~type, scales="free_y", ncol = 2)
+    labs(colour = "Label", linetype = "Label", x = "Years", y = "") +
+    facet_wrap(label ~ type, scales = "free_y", ncol = 2)
 }

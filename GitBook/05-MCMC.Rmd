@@ -1,5 +1,5 @@
 # MCMC
-Casal2 MCMC estimation for a single model should be done using "multiple chains". A chain in this case is a seperate MCMC run, ideally starting from a different set of starting locations and with a different seed number. It is advised to create at least three chains per model. Most of the MCMC diagnostics in this package are designed for multiple chains. These include calculating Rhats (within and between chain variation in parameters) [@vehtari2021rank] and effective sample sizes which is a measure of effeciency in your mcmc sampler.
+Casal2 MCMC estimation for a single model should be done using "multiple chains". A chain in this case is a separate MCMC run, ideally starting from a different set of starting locations and with a different seed number. It is advised to create at least three chains per model. Most of the MCMC diagnostics in this package are designed for multiple chains. These include calculating Rhats (within and between chain variation in parameters) [@vehtari2021rank] and effective sample sizes which is a measure of efficiency in your mcmc sampler.
 
 ## Read in models
 ```{r read_model, results = 'hide', message=FALSE, warning=FALSE}
@@ -91,8 +91,8 @@ ggplot(quantile_selectivity_df, aes(x = bin)) +
 ### Derived quantities
 ```{r dqs, fig.width=6, fig.height=4}
 # plot Ssbs
-ssbs = get_derived_quanitites(model = cas2_tab)
-#ssbs_mpd = get_derived_quanitites(model = mpd)
+ssbs = get_derived_quantities(model = cas2_tab)
+#ssbs_mpd = get_derived_quantities(model = mpd)
 #head(ssbs)
 #ssbs_mpd$years = as.numeric(ssbs_mpd$years)
 

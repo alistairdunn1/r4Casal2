@@ -5,7 +5,7 @@
 \alias{plot_recruitment.casal2MPD}
 \alias{plot_recruitment.casal2TAB}
 \alias{plot_recruitment.list}
-\title{plot_recruitment plot recuitment}
+\title{plot_recruitment plot recruitment}
 \usage{
 plot_recruitment(model, report_label = NULL, quantity = "ycs_values")
 
@@ -18,7 +18,7 @@ plot_recruitment(model, report_label = NULL, quantity = "ycs_values")
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions using the Casal2 base library}
 
-\item{report_label}{<string> optional if you want to plot a specific recruitement report}
+\item{report_label}{<string> optional if you want to plot a specific recruitment report}
 
 \item{quantity}{\itemize{
   \item recruitment_multipliers
@@ -34,7 +34,7 @@ generate a plot over time uses get_BH_recruitment
 \code{NULL}
 }
 \description{
-A plotting function to plot recuitment for 'casal2TAB' and 'casal2MPD' objects.
+A plotting function to plot recruitment for 'casal2TAB' and 'casal2MPD' objects.
 }
 \details{
 If you have multiple time-steps and Recruitment

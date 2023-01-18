@@ -14,7 +14,7 @@ a names list of mpd that can be accessed with the get_ and plot_ methods.
 }
 \description{
 this function will read in a set of re-weighted models as list so you can
-plot and integreate the effect of data-weightings. This expects model outputs produced
+plot and integrate the effect of data-weightings. This expects model outputs produced
 by the function run_automatic_reweighting
 }
 \details{

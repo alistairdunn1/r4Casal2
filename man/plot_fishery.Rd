@@ -18,7 +18,7 @@ plot_fishery(model, fisheryLabels = NULL, quantity = "fishing_pressure")
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions using the Casal2 base library}
 
-\item{fisheryLabels}{if you only want to plot a subset of the fisheries supply a vecor of characters which corresponds to the fisheries you want to plot.}
+\item{fisheryLabels}{if you only want to plot a subset of the fisheries supply a vector of characters which corresponds to the fisheries you want to plot.}
 
 \item{quantity}{\itemize{
   \item fishing_pressure

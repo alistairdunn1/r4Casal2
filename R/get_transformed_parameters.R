@@ -65,13 +65,12 @@ get_transformed_parameters.casal2MPD <- function(model) {
           temp_df = data.frame(label = reports_labels[i], type = this_report[[dash_i]]$transformation_type, parameter = this_report[[dash_i]]$parameters, untransformed = this_report[[dash_i]]$parameter_values, transformed_value = c(this_report[[dash_i]]$log_total_parameter, this_report[[dash_i]]$total_proportion_parameter))
         }
         temp_df$par_set = iter_labs[dash_i]
-        parameter_df = rbind(parameter_df, temp_df)
+        parameter_df = rbind(parameter_df, temp_df) 
       }
     }
   }
   return(parameter_df)
 }
-
 
 #'
 #' @rdname get_transformed_parameters
@@ -95,7 +94,6 @@ get_transformed_parameters.casal2MPD <- function(model) {
   return(full_DF)
   invisible()
 }
-
 
 #'
 #' @rdname get_transformed_parameters

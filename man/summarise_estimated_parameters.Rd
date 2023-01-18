@@ -12,13 +12,13 @@ summarise_estimated_parameters(model, plot_it = F, ignore_ycs = F)
 \arguments{
 \item{model}{an mpd model}
 
-\item{plot_it}{if true plot MPD value, intial value, and prior, otherwise report MPD, init, lower_bound, upper_bound, prior_type}
+\item{plot_it}{if true plot MPD value, initial value, and prior, otherwise report MPD, init, lower_bound, upper_bound, prior_type}
 
 \item{ignore_ycs}{ignore YCS parameters}
 }
 \value{
 either a ggplot or a list with two elements. The first is for plotting, the second is a useful data frame
-outlining priors, bounds mpd values intitial values etc.
+outlining priors, bounds mpd values initial values etc.
 }
 \description{
 this function will find estimate_summary report and summarise the priors, mpd and initial value

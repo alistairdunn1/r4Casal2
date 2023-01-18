@@ -76,11 +76,11 @@ multi_run = extract.mpd("multi_start_init.log", path = working_dir)
 ## check if any didn't converge
 
 ## plot SSBS
-ssb_df = get_derived_quanitites(multi_est)
+ssb_df = get_derived_quantities(multi_est)
 ggplot(ssb_df, aes(x = years, y = values, col = par_set, linetype = par_set)) +
   geom_line(size = 1.5) +
   labs(x = "Years",y = "SSB", linetype = "Starting\nvalues", col = "Starting\nvalues")
-ssb_df = get_derived_quanitites(multi_run)
+ssb_df = get_derived_quantities(multi_run)
 ggplot(ssb_df, aes(x = years, y = values, col = par_set, linetype = par_set)) +
   geom_line(size = 1.5) +
   labs(x = "Years",y = "SSB", linetype = "Starting\nvalues", col = "Starting\nvalues")

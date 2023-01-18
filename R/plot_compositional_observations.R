@@ -72,7 +72,7 @@
         theme(legend.position = "bottom", axis.text = element_text(size = 14),
               axis.title = element_text(size = 16))
     } else {
-      stop(paste0(unique(this_obs$observation_label), " has unkown type for this plot '",unique(this_obs$observation_type), "'"))
+      stop(paste0(unique(this_obs$observation_label), " has unknown type for this plot '",unique(this_obs$observation_type), "'"))
     }
     print(plt)
   }

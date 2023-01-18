@@ -19,59 +19,56 @@
 #' @method get_timevarying_parameters casal2MPD
 #' @export
 get_timevarying_parameters.casal2MPD <- function(model) {
-  reports_labels = reformat_default_labels(names(model))
-  complete_df = NULL
-  for(i in 1:length(model)) {
+  reports_labels <- reformat_default_labels(names(model))
+  complete_df <- NULL
+  for (i in 1:length(model)) {
     if (reports_labels[i] == "header") {
       next
     }
-    this_report = model[[i]]
-    if(exists(x = "type", where = this_report)) {
-      if(this_report$type != "time_varying") {
-        next;
+    this_report <- model[[i]]
+    if (exists(x = "type", where = this_report)) {
+      if (this_report$type != "time_varying") {
+        next
       }
       ## these reports are bespoke which sucks
-      this_df = this_report$values
-      this_df$label = reports_labels[i]
-      this_df$par_set = 1
-      complete_df = rbind(complete_df, this_df)
-
+      this_df <- this_report$values
+      this_df$label <- reports_labels[i]
+      this_df$par_set <- 1
+      complete_df <- rbind(complete_df, this_df)
     } else {
       ## Multiple parameter inputs
-      n_runs = length(this_report)
-      iter_labs = names(this_report)
-      for(dash_i in 1:n_runs) {
+      n_runs <- length(this_report)
+      iter_labs <- names(this_report)
+      for (dash_i in 1:n_runs) {
         ## only a single trajectory
-        temp_df = this_report[[dash_i]]$values
-        temp_df$label = reports_labels[i]
-        temp_df$par_set = iter_labs[dash_i]
-        complete_df = rbind(complete_df, full_df)
+        temp_df <- this_report[[dash_i]]$values
+        temp_df$label <- reports_labels[i]
+        temp_df$par_set <- iter_labs[dash_i]
+        complete_df <- rbind(complete_df, full_df)
       }
     }
   }
   return(complete_df)
 }
 
-
-
 #'
 #' @rdname get_timevarying_parameters
 #' @method get_timevarying_parameters list
 #' @export
-"get_timevarying_parameters.list" = function(model) {
-  run_labs = names(model)
-  full_DF = NULL
+"get_timevarying_parameters.list" <- function(model) {
+  run_labs <- names(model)
+  full_DF <- NULL
   ## iterate over the models
-  for(i in 1:length(model)) {
-
-    if(class(model[[i]]) != "casal2MPD") {
+  for (i in 1:length(model)) {
+    if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_df = get_timevarying_parameters(model[[i]])
-    if(is.null(this_df))
-      next;
-    this_df$model_label = run_labs[i]
-    full_DF = rbind(full_DF, this_df);
+    this_df <- get_timevarying_parameters(model[[i]])
+    if (is.null(this_df)) {
+      next
+    }
+    this_df$model_label <- run_labs[i]
+    full_DF <- rbind(full_DF, this_df)
   }
   return(full_DF)
   invisible()

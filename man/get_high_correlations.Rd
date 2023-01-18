@@ -12,13 +12,13 @@ get_high_correlations(
 )
 }
 \arguments{
-\item{correlation_matrix}{symetric correlation matrix}
+\item{correlation_matrix}{symmetric correlation matrix}
 
 \item{max_correlation}{the max correlation value. must be a value between (0 - 1)}
 
 \item{labels}{parameter labels for the correlation matrix}
 
-\item{tol}{tolerance for symetric check, sometimes rounding can cause an issue when checking if symetric}
+\item{tol}{tolerance for symmetric check, sometimes rounding can cause an issue when checking if symmetric}
 }
 \value{
 data frame of row and column index and paramater label if labels supplied along with the correlation value

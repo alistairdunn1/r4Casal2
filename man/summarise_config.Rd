@@ -30,14 +30,14 @@ utility function that reads in config.csl2 file and summarises a model in table 
 \dontrun{
 library(r4Casal2)
 library(ggplot2)
-config_dir = system.file("extdata", "TestModelComplex", package = "r4Casal2", mustWork = TRUE)
-summary = summarise_config(config_dir, config_file = "config.csl2", quiet = T)
+config_dir <- system.file("extdata", "TestModelComplex", package = "r4Casal2", mustWork = TRUE)
+summary <- summarise_config(config_dir, config_file = "config.csl2", quiet = T)
 names(summary)
 # visualise observations in model
 ggplot(summary$obs_year_df, aes(x = year, y = observation, col = observation, size = active)) +
-geom_point() +
-guides(colour = "none", size = "none")
-config_dir = "C:\\\\Users\\\\marshc\\\\OneDrive - NIWA\\\\22_23\\\\SNA1\\\\csl\\\\P30 Base HGBP\\\\Casal2"
+  geom_point() +
+  guides(colour = "none", size = "none")
+config_dir <- "C:\\\\Users\\\\marshc\\\\OneDrive - NIWA\\\\22_23\\\\SNA1\\\\csl\\\\P30 Base HGBP\\\\Casal2"
 }
 }
 \author{

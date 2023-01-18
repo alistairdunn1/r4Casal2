@@ -10,12 +10,12 @@ aggregate_objective_report(objective_report)
 \item{objective_report}{casal2_objective_function which is a report from an extract.mpd() object}
 }
 \value{
-data frame of aggregrated objective function negative log-likelihood components
+data frame of aggregated objective function negative log-likelihood components
 }
 \description{
 aggregate_objective_report
 }
 \details{
-take a Casal2 objective_function report and aggregrate components so easier to handle with
+take a Casal2 objective_function report and aggregate components so easier to handle with
 visualising likelihood components
 }
