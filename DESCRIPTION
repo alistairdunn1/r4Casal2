@@ -20,7 +20,7 @@ Imports: dplyr,
     stats,
     randtests,
     RColorBrewer
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests: 
     Casal2
 RdMacros: Rdpack

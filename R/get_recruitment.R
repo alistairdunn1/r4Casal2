@@ -200,5 +200,5 @@
     recruit_df <- rbind(recruit_df, non_multi_column_df)
   }
   return(list(multi_column_df = recruit_multi_col_df, non_multi_column_df = recruit_df))
-  invisible()
+  invisible() 
 }

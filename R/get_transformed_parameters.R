@@ -118,5 +118,5 @@ get_transformed_parameters.casal2TAB <- function(model) {
     }
   }
   complete_df$sample = 1:nrow(complete_df)
-  return(complete_df)
+  return(complete_df) 
 }

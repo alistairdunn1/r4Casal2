@@ -24,7 +24,6 @@
 #'
 #' @export
 "get_initial_partition.casal2MPD" <- function(model) {
-
   # can be -r or -r -i
   multiple_iterations_in_a_report <- FALSE
   complete_df <- NULL

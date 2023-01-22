@@ -75,5 +75,5 @@
       stop(paste0(unique(this_obs$observation_label), " has unknown type for this plot '",unique(this_obs$observation_type), "'"))
     }
     print(plt)
-  }
+  } 
 }
