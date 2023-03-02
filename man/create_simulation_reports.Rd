@@ -36,9 +36,9 @@ A function to create a simulated report csl file so that you can add it with an 
 \donttest{
 library(Casal2)
 # plotting Standard Output
-config_dir = system.file("extdata", "PosteriorPredictiveChecks", package = "r4Casal2", mustWork = TRUE)
-config_files = "Observation.csl2"
-obs = create_simulation_reports(config_dir = config_dir, config_files = config_files)
+config_dir <- system.file("extdata", "PosteriorPredictiveChecks", package = "r4Casal2", mustWork = TRUE)
+config_files <- "Observation.csl2"
+obs <- create_simulation_reports(config_dir = config_dir, config_files = config_files)
 }
 }
 \author{

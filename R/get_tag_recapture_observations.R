@@ -34,7 +34,7 @@
       }
       if (this_report$observation_type %in% observation_type_allowed) {
         ## add it to full df
-        this_ob <- this_report$Values 
+        this_ob <- this_report$Values
         this_ob$observation_label <- reports_labels[i]
         this_ob$observation_type <- this_report$observation_type
         this_ob$likelihood <- this_report$likelihood
@@ -109,6 +109,3 @@
   return(full_DF)
   invisible()
 }
-
-
-

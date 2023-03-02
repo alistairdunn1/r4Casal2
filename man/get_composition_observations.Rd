@@ -13,7 +13,7 @@ get_composition_observations(model)
 \method{get_composition_observations}{list}(model)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
 }
 \value{
 dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')

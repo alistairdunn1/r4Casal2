@@ -4,7 +4,7 @@
 #' An accessor function that returns a data frame of all composition data sets in a model
 #'
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )
 #' @return dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 #' @rdname get_composition_observations
 #' @export get_composition_observations
@@ -26,7 +26,7 @@
   for (i in 1:length(model)) {
     if (reports_labels[i] == "header") {
       next
-    } 
+    }
     this_report <- model[[i]]
     if (any(names(this_report) == "type")) {
       if (this_report$type != "observation") {
@@ -116,7 +116,7 @@
 #' An accessor function that returns a data frame of mean age or length calculations
 #'
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )
 #' @param ignore_plus_group <bool> we will assume the max age or length is a plus group and remove it.
 #' @return dataframe with all mean age or length and standard errors
 #' @rdname get_composition_mean_bin

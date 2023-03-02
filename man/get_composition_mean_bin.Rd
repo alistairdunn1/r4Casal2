@@ -14,7 +14,7 @@ get_composition_mean_bin(model, ignore_plus_group = FALSE)
 \method{get_composition_mean_bin}{casal2MPD}(model, ignore_plus_group = FALSE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
 
 \item{ignore_plus_group}{<bool> we will assume the max age or length is a plus group and remove it.}
 }

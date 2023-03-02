@@ -30,6 +30,7 @@
     this_report <- model[[i]]
     if (any(names(this_report) == "type")) {
       if (this_report$type != "observation") {
+        next
       }
       if (this_report$observation_type %in% observation_type_allowed) {
         ## add it to full df

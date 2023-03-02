@@ -1,27 +1,18 @@
 #' @title get_initial_partition
-#'
-#'
-#' @description
-#' An accessor function that returns a data frame from a Casal2 model output of process type initialisation_partition
-#'
+#' @description An accessor function that returns a data frame from a Casal2 model output of process type initialisation_partition
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
 #' @rdname get_initial_partition
-#' @export get_initial_partition
+#' @export
 #' @importFrom reshape2 melt
-
-
 "get_initial_partition" <-
   function(model) {
     UseMethod("get_initial_partition", model)
   }
 
-#'
 #' @rdname get_initial_partition
-#'
 #' @method get_initial_partition casal2MPD
-#'
 #' @export
 "get_initial_partition.casal2MPD" <- function(model) {
   # can be -r or -r -i
@@ -62,11 +53,8 @@
   invisible()
 }
 
-#'
 #' @rdname get_initial_partition
-#'
 #' @method get_initial_partition list
-#'
 #' @export
 "get_initial_partition.list" <- function(model) {
   run_labs <- names(model)
