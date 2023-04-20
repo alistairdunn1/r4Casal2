@@ -113,7 +113,7 @@
   complete_df = NULL
   for(i in 1:length(model)) {
     this_report = model[[i]]
-    if(this_report$type != "selectivity") {
+    if(is.null(this_report$type) || this_report$type != "selectivity") {
       next;
     }
     sel_df = this_report$values
