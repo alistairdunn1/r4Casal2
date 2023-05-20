@@ -4,6 +4,7 @@
 \alias{get_estimated_values}
 \alias{get_estimated_values.casal2MPD}
 \alias{get_estimated_values.list}
+\alias{get_estimated_values.casal2TAB}
 \title{get_estimated_values}
 \usage{
 get_estimated_values(model)
@@ -11,6 +12,8 @@ get_estimated_values(model)
 \method{get_estimated_values}{casal2MPD}(model)
 
 \method{get_estimated_values}{list}(model)
+
+\method{get_estimated_values}{casal2TAB}(model)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}

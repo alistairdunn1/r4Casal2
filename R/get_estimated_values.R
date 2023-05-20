@@ -75,3 +75,30 @@
   return(full_DF)
   invisible()
 }
+
+#'
+#' @rdname get_estimated_values
+#' @method get_estimated_values casal2TAB
+#' @export
+"get_estimated_values.casal2TAB" <- function(model) {
+  reports_labels <- reformat_default_labels(names(model))
+  complete_df <- NULL
+  for (i in 1:length(model)) {
+    this_report <- model[[i]]
+    if (is.null(this_report$type) || this_report$type != "estimate_value") {
+      next
+    }
+    val_df <- this_report$values
+    val_df$iteration <- as.numeric(rownames(val_df))
+    XX <<- val_df
+
+    val_molten <- suppressMessages({
+      melt(as.matrix(val_df), variable.name = "colname", value.name = "estimate", factorsAsStrings = F)
+    })
+    colnames(val_molten) <- c("iteration", "label", "values")
+    val_molten$report_label <- reports_labels[i]
+    complete_df <- rbind(complete_df, val_molten)
+  }
+  return(complete_df)
+  invisible()
+}
