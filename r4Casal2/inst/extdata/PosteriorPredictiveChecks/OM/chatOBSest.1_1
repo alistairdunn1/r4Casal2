@@ -1,0 +1,32 @@
+@observation sim_chatOBSest
+ageing_error Normal_ageing 
+categories stock 
+likelihood multinomial
+max_age 21 
+method_of_removal FishingEest 
+min_age 4 
+mortality_instantaneous_process instant_mort 
+plus_group true 
+simulated_data_sum_to_one false 
+time_step step1 
+type process_removals_by_age 
+years 1992 1995 1997 1998 2001 2004 2007 
+table obs
+1992 0 1 1 3 2 4 2 2 1 1 1 0 0 0 0 1 0 0 
+1995 0 1 1 2 1 1 1 4 1 2 1 1 2 0 0 0 0 0 
+1997 0 1 2 3 0 2 1 1 1 1 0 1 1 0 0 1 0 0 
+1998 1 2 4 4 4 0 1 0 1 1 0 2 0 1 2 0 0 0 
+2001 1 2 1 5 12 7 10 1 5 0 1 3 0 1 1 1 2 0 
+2004 0 2 5 4 4 7 5 4 5 1 1 0 1 0 1 0 1 2 
+2007 3 6 2 3 1 3 5 0 2 4 9 3 0 0 0 0 0 1 
+end_table
+table error_values
+1992 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 19 
+1995 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 18 
+1997 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 
+1998 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 23 
+2001 53 53 53 53 53 53 53 53 53 53 53 53 53 53 53 53 53 53 
+2004 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 
+2007 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 
+end_table
+

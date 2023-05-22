@@ -1,0 +1,68 @@
+# Model structure {#inputs}
+
+## Read in necessary R libraries
+
+```{r install_packages, results = 'hide', message=FALSE, warning=FALSE}
+library(r4Casal2)
+library(Casal2)
+library(knitr)
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+```
+
+
+```{r set_path, eval = T, echo = F}
+csl_dir = "C:/Projects/Software/r4Casal2/r4Casal2/inst/testdata/SexedLengthBased"
+```
+```{r read_in_info, eval = T, echo = T, results = F}
+cas2_mpd = extract.mpd(file = 'estimate_betadiff.log', path = csl_dir)
+config_summary = summarise_config(config_file = 'config_betadiff.csl2', config_dir = csl_dir)
+```
+
+
+
+## Input catches
+
+```{r plot_input_catches, eval = T, echo = T, results = T,fig.cap = "Catch by fishery over time"}
+ggplot(config_summary$catch_df, aes(x = year, y = catch, col = fishery)) +
+  geom_line(size = 1.5) +
+  labs(x = "Year", y = "Catch (t)", col = "Fishery")
+```
+
+
+
+## Input Observations
+
+```{r plot_input_observations, eval = T, echo = T, results = T,fig.cap = "Years in which observations are calculated"}
+ggplot(config_summary$obs_year_df, aes(x = year, y = observation, col = observation, size = active)) +
+  geom_point() +
+  guides(colour = "none", size = "none")
+```
+
+
+
+## Annual cycle
+
+```{r table_annual_cycle, eval = T, echo = T, results = T}
+kable(x = config_summary$time_step_df,format = 'html', tab.attr = "style='width:100%;'")
+```
+
+
+
+## The Partition
+
+```{r table_partition, eval = T, echo = T, results = T}
+kable(x = config_summary$full_category_df,format = 'html', tab.attr = "style='width:100%;'")
+```
+
+
+
+## Estimated parameters
+
+```{r table_est_pars, eval = T, echo = T, results = T}
+kable(x = config_summary$estimate_df,format = 'html', tab.attr = "style='width:100%;'")
+```
+
+
+

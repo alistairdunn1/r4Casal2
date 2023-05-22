@@ -1,0 +1,146 @@
+
+[INFO] Setting the random number seed to 20
+[INFO] Estimable parameters were loaded from the free parameter file: 
+[WARNING] obs sum total (0.9998) for year (1993) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (1994) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (1995) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (1996) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (1998) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (2000) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (2001) doesn't sum to 1.0
+[WARNING] obs sum total (0.9997) for year (2002) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (2004) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (2007) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2009) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (2010) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (2011) doesn't sum to 1.0
+[WARNING] obs sum total (1.0003) for year (2013) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (2014) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (1992) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (1994) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (1995) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (1996) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (1997) doesn't sum to 1.0
+[WARNING] obs sum total (0.9997) for year (2000) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2001) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (2003) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2005) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2006) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (2008) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (2009) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (2010) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (2011) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2012) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2013) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2002) doesn't sum to 1.0
+[WARNING] obs sum total (1.0002) for year (2004) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (2005) doesn't sum to 1.0
+[WARNING] obs sum total (1.0004) for year (2006) doesn't sum to 1.0
+[WARNING] obs sum total (1.0001) for year (2007) doesn't sum to 1.0
+[WARNING] obs sum total (0.9998) for year (2008) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (1995) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (1996) doesn't sum to 1.0
+[WARNING] obs sum total (1.0003) for year (1997) doesn't sum to 1.0
+[WARNING] obs sum total (0.9999) for year (1998) doesn't sum to 1.0
+[WARNING] obs sum total (0.9997) for year (2000) doesn't sum to 1.0
+[WARNING] obs sum total (0.9997) for year (2001) doesn't sum to 1.0
+[INFO] Creating default report for derived quantity SSB
+[INFO] Creating default report for observation chatTANbiomass
+[INFO] Creating default report for observation Tangaroa_propn_at_age_Jan
+[INFO] Creating default report for observation trawl_propn_at_age
+[INFO] Creating default report for observation longline_propn_at_age
+[INFO] Creating default report for observation longline_propn_at_length
+[INFO] Creating default report for process Recruitment
+[INFO] Creating default report for process Ageing
+[INFO] Creating default report for process instant_mort
+[INFO] Creating default report for selectivity MaturationSel_male
+[INFO] Creating default report for selectivity MaturationSel_female
+[INFO] Creating default report for selectivity chatTANSel_m
+[INFO] Creating default report for selectivity chatTANSel_f
+[INFO] Creating default report for selectivity trwlFSel_m
+[INFO] Creating default report for selectivity trwlFSel_f
+[INFO] Creating default report for selectivity lineFSel
+[INFO] Creating default report for selectivity One
+[INFO] Initiating point estimate run mode
+[INFO] Estimation_phase 1
+[INFO] Estimation with the adolc minimiser
+[INFO] Convergence check value = 1.46865. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.445137. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.142976. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.197212. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.104959. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0598921. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0618652. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.063966. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0659591. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0663736. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.066742. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0678144. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0659432. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0591912. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0513141. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0396978. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0242443. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0237945. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0307419. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0192442. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0191129. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0156598. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0171781. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0107893. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0214527. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0206055. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.017428. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0270003. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0226796. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0203533. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0206647. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0165839. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0233063. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.013786. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00966833. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0122776. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00990278. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0146423. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0172485. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0213455. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0211925. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0171577. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0134067. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0107255. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0091928. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00686929. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00411514. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00652076. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00616907. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00266694. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00346144. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00311664. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00233631. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.0023128. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00167478. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00075009. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000794077. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000439735. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000700863. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000535956. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000257236. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000136324. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000187093. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.00027245. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 0.000207858. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 5.95279e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 3.1509e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.86005e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 4.69261e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 3.66946e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.34618e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.05046e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.36087e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.64452e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 1.28004e-05. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.61687e-06. Convergence tolerance   = 1e-06
+[INFO] Convergence check value = 2.57678e-07. Convergence tolerance   = 1e-06
+[WARNING] estimated parameter 'selectivity[chatTANSel_m].sigma_r' was within 0.001 of upper bound 200
+[INFO] Completed
+[INFO] Total elapsed time: 7 seconds

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 MCMC | r4Casal2</title>
+  <meta name="description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 MCMC | r4Casal2" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
+  <meta name="github-repo" content="https://github.com/NIWAFisheriesModelling/r4Casal2" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 MCMC | r4Casal2" />
+  
+  <meta name="twitter:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
+  
+
+<meta name="author" content="C.Marsh" />
+
+
+<meta name="date" content="2023-05-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="summarisemultipleinputs.html"/>
+<link rel="next" href="PPC.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">r4Casal2</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcolme to <strong>r4Casal2</strong></a></li>
+<li class="chapter" data-level="2" data-path="functionlist.html"><a href="functionlist.html"><i class="fa fa-check"></i><b>2</b> A list of key functions in the <code>r4Casal2</code> package</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functionlist.html"><a href="functionlist.html#accessor-functions"><i class="fa fa-check"></i><b>2.1</b> Accessor functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functionlist.html"><a href="functionlist.html#other-useful-functions"><i class="fa fa-check"></i><b>2.2</b> Other useful functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summariseinputs.html"><a href="summariseinputs.html"><i class="fa fa-check"></i><b>3</b> Summarise configuration inputs</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="summariseinputs.html"><a href="summariseinputs.html#example-files"><i class="fa fa-check"></i><b>3.1</b> Example files</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="mpd-summaries.html"><a href="mpd-summaries.html"><i class="fa fa-check"></i><b>4</b> MPD summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="mpd-summaries.html"><a href="mpd-summaries.html#single-model-output"><i class="fa fa-check"></i><b>4.1</b> Single Model Output</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="mpd-summaries.html"><a href="mpd-summaries.html#model-convergence"><i class="fa fa-check"></i><b>4.1.1</b> Model Convergence</a></li>
+<li class="chapter" data-level="4.1.2" data-path="mpd-summaries.html"><a href="mpd-summaries.html#data-weighting"><i class="fa fa-check"></i><b>4.1.2</b> Data Weighting</a></li>
+<li class="chapter" data-level="4.1.3" data-path="mpd-summaries.html"><a href="mpd-summaries.html#model-quantities"><i class="fa fa-check"></i><b>4.1.3</b> Model quantities</a></li>
+<li class="chapter" data-level="4.1.4" data-path="mpd-summaries.html"><a href="mpd-summaries.html#plotting-fits"><i class="fa fa-check"></i><b>4.1.4</b> Plotting Fits</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="mpd-summaries.html"><a href="mpd-summaries.html#multiple-casal2-runs-with--i-or--s"><i class="fa fa-check"></i><b>4.2</b> Multiple Casal2 runs with -i or -s</a>
+<ul>
+<li class="chapter" data-level="" data-path="mpd-summaries.html"><a href="mpd-summaries.html#plotting-selectivities-1"><i class="fa fa-check"></i>Plotting selectivities</a></li>
+<li class="chapter" data-level="" data-path="mpd-summaries.html"><a href="mpd-summaries.html#plotting-fits-1"><i class="fa fa-check"></i>Plotting Fits</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html"><i class="fa fa-check"></i><b>5</b> Comparing multiple MPD runs</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#read-in-models"><i class="fa fa-check"></i><b>5.1</b> Read in models</a></li>
+<li class="chapter" data-level="5.2" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#compare-model-outputs"><i class="fa fa-check"></i><b>5.2</b> Compare model outputs</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#selectivities"><i class="fa fa-check"></i><b>5.2.1</b> selectivities</a></li>
+<li class="chapter" data-level="5.2.2" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#derived-quantities"><i class="fa fa-check"></i><b>5.2.2</b> Derived quantities</a></li>
+<li class="chapter" data-level="5.2.3" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#recruitment"><i class="fa fa-check"></i><b>5.2.3</b> Recruitment</a></li>
+<li class="chapter" data-level="5.2.4" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#abundance-fits"><i class="fa fa-check"></i><b>5.2.4</b> Abundance fits</a></li>
+<li class="chapter" data-level="5.2.5" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#compare-objective-function"><i class="fa fa-check"></i><b>5.2.5</b> Compare objective function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mcmc.html"><a href="mcmc.html"><i class="fa fa-check"></i><b>6</b> MCMC</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mcmc.html"><a href="mcmc.html#read-in-models-1"><i class="fa fa-check"></i><b>6.1</b> Read in models</a></li>
+<li class="chapter" data-level="6.2" data-path="mcmc.html"><a href="mcmc.html#diagnostics"><i class="fa fa-check"></i><b>6.2</b> Diagnostics</a></li>
+<li class="chapter" data-level="6.3" data-path="mcmc.html"><a href="mcmc.html#plotting-quantities"><i class="fa fa-check"></i><b>6.3</b> Plotting quantities</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="mcmc.html"><a href="mcmc.html#selectivities-1"><i class="fa fa-check"></i><b>6.3.1</b> selectivities</a></li>
+<li class="chapter" data-level="6.3.2" data-path="mcmc.html"><a href="mcmc.html#derived-quantities-1"><i class="fa fa-check"></i><b>6.3.2</b> Derived quantities</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="PPC.html"><a href="PPC.html"><i class="fa fa-check"></i><b>7</b> Posterior Predictive Checks</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="PPC.html"><a href="PPC.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="PPC.html"><a href="PPC.html#estimation"><i class="fa fa-check"></i><b>7.2</b> Estimation</a></li>
+<li class="chapter" data-level="7.3" data-path="PPC.html"><a href="PPC.html#simulations"><i class="fa fa-check"></i><b>7.3</b> Simulations</a></li>
+<li class="chapter" data-level="7.4" data-path="PPC.html"><a href="PPC.html#summarising-simulated-data-in-r"><i class="fa fa-check"></i><b>7.4</b> Summarising simulated data in R</a></li>
+<li class="chapter" data-level="7.5" data-path="PPC.html"><a href="PPC.html#posterior-predictive-checks"><i class="fa fa-check"></i><b>7.5</b> Posterior predictive checks</a></li>
+<li class="chapter" data-level="7.6" data-path="PPC.html"><a href="PPC.html#pit-residuals"><i class="fa fa-check"></i><b>7.6</b> PIT residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="presentwithBookdown.html"><a href="presentwithBookdown.html"><i class="fa fa-check"></i><b>8</b> Presenting Models using Bookdown</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/NIWAFisheriesModelling/r4Casal2" target="blank">Github Repo here</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">r4Casal2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mcmc" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> MCMC<a href="mcmc.html#mcmc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Casal2 MCMC estimation for a single model should be done using “multiple chains”. A chain in this case is a separate MCMC run, ideally starting from a different set of starting locations and with a different seed number. It is advised to create at least three chains per model. Most of the MCMC diagnostics in this package are designed for multiple chains. These include calculating Rhats (within and between chain variation in parameters) <span class="citation">(<a href="#ref-vehtari2021rank" role="doc-biblioref">Vehtari et al. 2021</a>)</span> and effective sample sizes which is a measure of efficiency in your mcmc sampler.</p>
+<div id="read-in-models-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Read in models<a href="mcmc.html#read-in-models-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="mcmc.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">## extra packages</span></span>
+<span id="cb49-2"><a href="mcmc.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb49-3"><a href="mcmc.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb49-4"><a href="mcmc.html#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="mcmc.html#cb49-5" aria-hidden="true" tabindex="-1"></a>cas2_file_dir <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;multi_chain_mcmc&quot;</span>, <span class="at">package =</span> <span class="st">&quot;r4Casal2&quot;</span>, <span class="at">mustWork =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb49-6"><a href="mcmc.html#cb49-6" aria-hidden="true" tabindex="-1"></a>mcmc_1 <span class="ot">=</span> <span class="fu">extract.mcmc</span>(<span class="at">path =</span> cas2_file_dir, <span class="at">samples.file =</span> <span class="st">&quot;samples.4&quot;</span>, <span class="at">objectives.file =</span> <span class="st">&quot;objectives.4&quot;</span>)</span>
+<span id="cb49-7"><a href="mcmc.html#cb49-7" aria-hidden="true" tabindex="-1"></a>mcmc_2 <span class="ot">=</span> <span class="fu">extract.mcmc</span>(<span class="at">path =</span> cas2_file_dir, <span class="at">samples.file =</span> <span class="st">&quot;samples.5&quot;</span>, <span class="at">objectives.file =</span> <span class="st">&quot;objectives.5&quot;</span>)</span>
+<span id="cb49-8"><a href="mcmc.html#cb49-8" aria-hidden="true" tabindex="-1"></a>mcmc_3 <span class="ot">=</span> <span class="fu">extract.mcmc</span>(<span class="at">path =</span> cas2_file_dir, <span class="at">samples.file =</span> <span class="st">&quot;samples.6&quot;</span>, <span class="at">objectives.file =</span> <span class="st">&quot;objectives.6&quot;</span>)</span>
+<span id="cb49-9"><a href="mcmc.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="do">## assign chain label</span></span>
+<span id="cb49-10"><a href="mcmc.html#cb49-10" aria-hidden="true" tabindex="-1"></a>mcmc_1<span class="sc">$</span>chain <span class="ot">=</span> <span class="st">&quot;1&quot;</span></span>
+<span id="cb49-11"><a href="mcmc.html#cb49-11" aria-hidden="true" tabindex="-1"></a>mcmc_2<span class="sc">$</span>chain <span class="ot">=</span> <span class="st">&quot;2&quot;</span></span>
+<span id="cb49-12"><a href="mcmc.html#cb49-12" aria-hidden="true" tabindex="-1"></a>mcmc_3<span class="sc">$</span>chain <span class="ot">=</span> <span class="st">&quot;3&quot;</span></span>
+<span id="cb49-13"><a href="mcmc.html#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Remove Burnin</span></span>
+<span id="cb49-14"><a href="mcmc.html#cb49-14" aria-hidden="true" tabindex="-1"></a>mcmc_post_1 <span class="ot">=</span> mcmc_1 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;mcmc&quot;</span>)</span>
+<span id="cb49-15"><a href="mcmc.html#cb49-15" aria-hidden="true" tabindex="-1"></a>mcmc_post_2 <span class="ot">=</span> mcmc_2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;mcmc&quot;</span>)</span>
+<span id="cb49-16"><a href="mcmc.html#cb49-16" aria-hidden="true" tabindex="-1"></a>mcmc_post_3 <span class="ot">=</span> mcmc_3 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;mcmc&quot;</span>)</span>
+<span id="cb49-17"><a href="mcmc.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="do">## combine</span></span>
+<span id="cb49-18"><a href="mcmc.html#cb49-18" aria-hidden="true" tabindex="-1"></a>mcmc_all <span class="ot">=</span> <span class="fu">rbind</span>(mcmc_1, mcmc_2, mcmc_3)</span>
+<span id="cb49-19"><a href="mcmc.html#cb49-19" aria-hidden="true" tabindex="-1"></a>mcmc_non_burn_in <span class="ot">=</span> mcmc_all <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;mcmc&quot;</span>)</span>
+<span id="cb49-20"><a href="mcmc.html#cb49-20" aria-hidden="true" tabindex="-1"></a>n_posterior_samples <span class="ot">=</span>  <span class="fu">nrow</span>(mcmc_post_1) <span class="sc">+</span> <span class="fu">nrow</span>(mcmc_post_2) <span class="sc">+</span> <span class="fu">nrow</span>(mcmc_post_3)</span>
+<span id="cb49-21"><a href="mcmc.html#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="do">## do some modifying so we have just parameters available</span></span>
+<span id="cb49-22"><a href="mcmc.html#cb49-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">TODO</span><span class="do">: change parameter labels so they are not so large and easier to read on figures</span></span>
+<span id="cb49-23"><a href="mcmc.html#cb49-23" aria-hidden="true" tabindex="-1"></a>pars <span class="ot">=</span> <span class="fu">colnames</span>(mcmc_post_1[,<span class="dv">12</span><span class="sc">:</span>(<span class="fu">ncol</span>(mcmc_non_burn_in) <span class="sc">-</span> <span class="dv">1</span>)])</span>
+<span id="cb49-24"><a href="mcmc.html#cb49-24" aria-hidden="true" tabindex="-1"></a>iters <span class="ot">=</span> <span class="fu">max</span>(<span class="fu">nrow</span>(mcmc_post_1), <span class="fu">nrow</span>(mcmc_post_2), <span class="fu">nrow</span>(mcmc_post_3))</span>
+<span id="cb49-25"><a href="mcmc.html#cb49-25" aria-hidden="true" tabindex="-1"></a>bayes_array <span class="ot">=</span> <span class="fu">array</span>(<span class="at">dim =</span> <span class="fu">c</span>(iters, <span class="dv">3</span>, <span class="fu">length</span>(pars)), <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span>iters, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, pars))</span>
+<span id="cb49-26"><a href="mcmc.html#cb49-26" aria-hidden="true" tabindex="-1"></a>bayes_array[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mcmc_post_1),<span class="dv">1</span>,] <span class="ot">=</span> <span class="fu">as.matrix</span>(mcmc_post_1[,<span class="dv">12</span><span class="sc">:</span>(<span class="fu">ncol</span>(mcmc_non_burn_in) <span class="sc">-</span> <span class="dv">1</span>)])</span>
+<span id="cb49-27"><a href="mcmc.html#cb49-27" aria-hidden="true" tabindex="-1"></a>bayes_array[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mcmc_post_2),<span class="dv">2</span>,] <span class="ot">=</span> <span class="fu">as.matrix</span>(mcmc_post_2[,<span class="dv">12</span><span class="sc">:</span>(<span class="fu">ncol</span>(mcmc_non_burn_in) <span class="sc">-</span> <span class="dv">1</span>)])</span>
+<span id="cb49-28"><a href="mcmc.html#cb49-28" aria-hidden="true" tabindex="-1"></a>bayes_array[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mcmc_post_3),<span class="dv">3</span>,] <span class="ot">=</span> <span class="fu">as.matrix</span>(mcmc_post_3[,<span class="dv">12</span><span class="sc">:</span>(<span class="fu">ncol</span>(mcmc_non_burn_in) <span class="sc">-</span> <span class="dv">1</span>)])</span>
+<span id="cb49-29"><a href="mcmc.html#cb49-29" aria-hidden="true" tabindex="-1"></a><span class="do">## cut off at min</span></span>
+<span id="cb49-30"><a href="mcmc.html#cb49-30" aria-hidden="true" tabindex="-1"></a>min_cutoff <span class="ot">=</span> <span class="fu">min</span>(<span class="fu">nrow</span>(mcmc_post_1), <span class="fu">nrow</span>(mcmc_post_2), <span class="fu">nrow</span>(mcmc_post_3))</span>
+<span id="cb49-31"><a href="mcmc.html#cb49-31" aria-hidden="true" tabindex="-1"></a>bayes_array <span class="ot">=</span> bayes_array[<span class="dv">1</span><span class="sc">:</span>min_cutoff, ,]</span></code></pre></div>
+</div>
+<div id="diagnostics" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Diagnostics<a href="mcmc.html#diagnostics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="mcmc.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get Rhats</span></span>
+<span id="cb50-2"><a href="mcmc.html#cb50-2" aria-hidden="true" tabindex="-1"></a>rhats <span class="ot">=</span> <span class="fu">apply</span>(bayes_array, <span class="at">MARGIN =</span> <span class="dv">3</span>, Rhat)</span>
+<span id="cb50-3"><a href="mcmc.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="do">## get effective sample sizes</span></span>
+<span id="cb50-4"><a href="mcmc.html#cb50-4" aria-hidden="true" tabindex="-1"></a>n_eff_bulk <span class="ot">=</span> <span class="fu">apply</span>(bayes_array, <span class="at">MARGIN =</span> <span class="dv">3</span>, ess_bulk)</span>
+<span id="cb50-5"><a href="mcmc.html#cb50-5" aria-hidden="true" tabindex="-1"></a>n_eff_tail <span class="ot">=</span> <span class="fu">apply</span>(bayes_array, <span class="at">MARGIN =</span> <span class="dv">3</span>, ess_tail)</span>
+<span id="cb50-6"><a href="mcmc.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">TODO</span><span class="do">: need to think about what is a good general rule of thumb. </span></span>
+<span id="cb50-7"><a href="mcmc.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="do">## I was thinking you would want n_eff of at least 200.</span></span></code></pre></div>
+<p>The <code>Rhat</code> function produces R-hat convergence diagnostic, which compares the between- and within-chain estimates for model parameters and other univariate quantities of interest. Chains that have not mixed well (i.e., the between-and within-chain estimates don’t agree) will result in R-hat larger than 1.1. The <code>ess_bulk</code> function produces an estimated Bulk Effective Sample Size (bulk-ESS) using rank normalized draws. Bulk-ESS is useful measure for sampling efficiency in the bulk of the distribution (related e.g. to efficiency of mean and median estimates), and is well defined even if the chains do not have finite mean or variance. The <code>ess_tail</code> function produces an estimated Tail Effective Sample Size (tail-ESS) by computing the minimum of effective sample sizes for 5% and 95% quantiles. Tail-ESS is useful measure for sampling efficiency in the tails of the distribution (related e.g. to efficiency of variance and tail quantile estimates).</p>
+<p>Once you have calculated these quantities you can use <code>bayesplot</code> plotting functions. Need to work on changing parameter labels from the Casal2 model. They make some of these plots difficult to read</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="mcmc.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc_rhat</span>(rhats)</span></code></pre></div>
+<pre><code>## Warning: Dropped 6 NAs from &#39;new_rhat(rhat)&#39;.</code></pre>
+<p><img src="_main_files/figure-html/plot_rhats-1.png" width="768" /></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="mcmc.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#mcmc_neff(n_eff_bulk)</span></span>
+<span id="cb53-2"><a href="mcmc.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#mcmc_neff(n_eff_tail)</span></span></code></pre></div>
+</div>
+<div id="plotting-quantities" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Plotting quantities<a href="mcmc.html#plotting-quantities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="mcmc.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This function helps create 95% CIs for quantities</span></span>
+<span id="cb54-2"><a href="mcmc.html#cb54-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span>) <span class="do">## confidence intervals</span></span>
+<span id="cb54-3"><a href="mcmc.html#cb54-3" aria-hidden="true" tabindex="-1"></a>p_names <span class="ot">&lt;-</span> <span class="fu">map_chr</span>(p, <span class="sc">~</span><span class="fu">paste0</span>(.x<span class="sc">*</span><span class="dv">100</span>, <span class="st">&quot;%&quot;</span>))</span>
+<span id="cb54-4"><a href="mcmc.html#cb54-4" aria-hidden="true" tabindex="-1"></a>p_funs <span class="ot">&lt;-</span> <span class="fu">map</span>(p, <span class="sc">~</span><span class="fu">partial</span>(quantile, <span class="at">probs =</span> .x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-5"><a href="mcmc.html#cb54-5" aria-hidden="true" tabindex="-1"></a>  rlang<span class="sc">::</span><span class="fu">set_names</span>(<span class="at">nm =</span> <span class="fu">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;mid&quot;</span>, <span class="st">&quot;upp&quot;</span>))</span>
+<span id="cb54-6"><a href="mcmc.html#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co">#p_funs</span></span>
+<span id="cb54-7"><a href="mcmc.html#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-8"><a href="mcmc.html#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Bring in derived quantities</span></span>
+<span id="cb54-9"><a href="mcmc.html#cb54-9" aria-hidden="true" tabindex="-1"></a>cas2_file_name <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;tabular.log&quot;</span>, <span class="at">package =</span> <span class="st">&quot;r4Casal2&quot;</span>, <span class="at">mustWork =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb54-10"><a href="mcmc.html#cb54-10" aria-hidden="true" tabindex="-1"></a>cas2_tab <span class="ot">=</span> <span class="fu">extract.tabular</span>(<span class="at">file =</span> cas2_file_name, <span class="at">quiet =</span> T)</span>
+<span id="cb54-11"><a href="mcmc.html#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="do">## cut off burn-in the first 50 samples</span></span>
+<span id="cb54-12"><a href="mcmc.html#cb54-12" aria-hidden="true" tabindex="-1"></a>cas2_tab <span class="ot">=</span> <span class="fu">burn.in.tabular</span>(cas2_tab, <span class="at">Row =</span> <span class="dv">50</span>)</span></code></pre></div>
+<div id="selectivities-1" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> selectivities<a href="mcmc.html#selectivities-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="mcmc.html#cb55-1" aria-hidden="true" tabindex="-1"></a>selectivity_df <span class="ot">=</span> <span class="fu">get_selectivities</span>(cas2_tab)</span>
+<span id="cb55-2"><a href="mcmc.html#cb55-2" aria-hidden="true" tabindex="-1"></a>quantile_selectivity_df <span class="ot">=</span> selectivity_df <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="mcmc.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bin, selectivity_label) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-4"><a href="mcmc.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize_at</span>(<span class="fu">vars</span>(selectivity), p_funs)</span>
+<span id="cb55-5"><a href="mcmc.html#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="mcmc.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(quantile_selectivity_df, <span class="fu">aes</span>(<span class="at">x =</span> bin)) <span class="sc">+</span></span>
+<span id="cb55-7"><a href="mcmc.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymax  =</span> low, <span class="at">ymin =</span> upp, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">col =</span> selectivity_label, <span class="at">fill =</span> selectivity_label), <span class="at">lwd=</span><span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb55-8"><a href="mcmc.html#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> mid, <span class="at">col =</span> selectivity_label, <span class="at">group =</span> selectivity_label), <span class="at">size =</span><span class="dv">2</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb55-9"><a href="mcmc.html#cb55-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>selectivity_label) <span class="sc">+</span></span>
+<span id="cb55-10"><a href="mcmc.html#cb55-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Ogive&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Model&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;Model&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/selectivities-1.png" width="576" /></p>
+</div>
+<div id="derived-quantities-1" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Derived quantities<a href="mcmc.html#derived-quantities-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="mcmc.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot Ssbs</span></span>
+<span id="cb56-2"><a href="mcmc.html#cb56-2" aria-hidden="true" tabindex="-1"></a>ssbs <span class="ot">=</span> <span class="fu">get_derived_quantities</span>(<span class="at">model =</span> cas2_tab)</span></code></pre></div>
+<pre><code>## getting values for  SSB_E 
+## getting values for  SSB_W</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="mcmc.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ssbs_mpd = get_derived_quantities(model = mpd)</span></span>
+<span id="cb58-2"><a href="mcmc.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="co">#head(ssbs)</span></span>
+<span id="cb58-3"><a href="mcmc.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ssbs_mpd$years = as.numeric(ssbs_mpd$years)</span></span>
+<span id="cb58-4"><a href="mcmc.html#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="mcmc.html#cb58-5" aria-hidden="true" tabindex="-1"></a>ssbs<span class="sc">$</span>years[ssbs<span class="sc">$</span>years <span class="sc">==</span> <span class="st">&quot;initialisation_phase_1&quot;</span>] <span class="ot">=</span> <span class="dv">1971</span></span>
+<span id="cb58-6"><a href="mcmc.html#cb58-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-7"><a href="mcmc.html#cb58-7" aria-hidden="true" tabindex="-1"></a>quantile_ssb_df <span class="ot">=</span> ssbs <span class="sc">%&gt;%</span> </span>
+<span id="cb58-8"><a href="mcmc.html#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(years, dq_label) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-9"><a href="mcmc.html#cb58-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize_at</span>(<span class="fu">vars</span>(values), p_funs)</span>
+<span id="cb58-10"><a href="mcmc.html#cb58-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-11"><a href="mcmc.html#cb58-11" aria-hidden="true" tabindex="-1"></a>quantile_ssb_df<span class="sc">$</span>years <span class="ot">=</span> <span class="fu">as.numeric</span>(quantile_ssb_df<span class="sc">$</span>years)</span>
+<span id="cb58-12"><a href="mcmc.html#cb58-12" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb58-13"><a href="mcmc.html#cb58-13" aria-hidden="true" tabindex="-1"></a>quant_ssb_plot <span class="ot">=</span> <span class="fu">ggplot</span>(quantile_ssb_df, <span class="fu">aes</span>(<span class="at">x =</span> years)) <span class="sc">+</span> </span>
+<span id="cb58-14"><a href="mcmc.html#cb58-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymax  =</span> low, <span class="at">ymin =</span> upp, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">col =</span> dq_label, <span class="at">fill =</span> dq_label), <span class="at">lwd=</span><span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb58-15"><a href="mcmc.html#cb58-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb58-16"><a href="mcmc.html#cb58-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> mid, <span class="at">col =</span> dq_label, <span class="at">group =</span> dq_label), <span class="at">size =</span><span class="dv">2</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb58-17"><a href="mcmc.html#cb58-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-18"><a href="mcmc.html#cb58-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;SSB&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-19"><a href="mcmc.html#cb58-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">2500000</span>) <span class="sc">+</span></span>
+<span id="cb58-20"><a href="mcmc.html#cb58-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">1970</span>, <span class="dv">2020</span>) <span class="sc">+</span> </span>
+<span id="cb58-21"><a href="mcmc.html#cb58-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">guide =</span> <span class="st">&#39;none&#39;</span>) <span class="sc">+</span></span>
+<span id="cb58-22"><a href="mcmc.html#cb58-22" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_line(data = ssbs_mpd, aes(x = years, y = values), inherit.aes = F, col = &quot;black&quot;, size = 1.5) +</span></span>
+<span id="cb58-23"><a href="mcmc.html#cb58-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dq_label)</span>
+<span id="cb58-24"><a href="mcmc.html#cb58-24" aria-hidden="true" tabindex="-1"></a>quant_ssb_plot</span></code></pre></div>
+<p><img src="_main_files/figure-html/dqs-1.png" width="576" /></p>
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-vehtari2021rank" class="csl-entry">
+Vehtari, Aki, Andrew Gelman, Daniel Simpson, Bob Carpenter, and Paul-Christian Bürkner. 2021. <span>“Rank-Normalization, Folding, and Localization: An Improved ̂r for Assessing Convergence of MCMC (with Discussion).”</span> <em>Bayesian Analysis</em> 16 (2): 667–718.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="summarisemultipleinputs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="PPC.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/NIWAFisheriesModelling/r4Casal2/edit/main/05-MCMC.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

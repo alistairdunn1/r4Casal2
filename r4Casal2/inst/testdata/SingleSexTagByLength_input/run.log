@@ -1,0 +1,222 @@
+Casal2
+Call: C:\Software\CASAL2\BuildSystem/Casal2/casal2.exe -r -I pars.out 
+Date: Mon Sep 12 12:37:55 2022
+Seed: 43075
+Version: v22.09 (2022-09-11)
+Copyright (c) 2017-2022, NIWA (www.niwa.co.nz)
+Environment: User=marshc Machine=NIWA-1008960 OS=Windows_NT PID=23316
+
+
+*objective_function[obj]
+values {vector}
+observation->CAA-shelfcatch->1999 22.6281
+observation->CAA-shelfcatch->2000 29.7251
+observation->CAA-shelfcatch->2001 15.351
+observation->CAA-shelfcatch->2002 15.2748
+observation->CAA-shelfcatch->2003 19.9049
+observation->CAA-shelfcatch->2004 32.8982
+observation->CAA-shelfcatch->2005 12.7317
+observation->CAA-shelfcatch->2006 33.9095
+observation->CAA-shelfcatch->2007 28.6311
+observation->CAA-shelfcatch->2008 29.448
+observation->CAA-shelfcatch->2009 24.8302
+observation->CAA-shelfcatch->2010 32.0131
+observation->CAA-shelfcatch->2011 29.9485
+observation->CAA-shelfcatch->2012 14.6003
+observation->CAA-shelfcatch->2013 22.1486
+observation->CAA-shelfcatch->2014 14.4117
+observation->CAA-shelfcatch->2015 14.6336
+observation->CAA-slopecatch->1998 27.6277
+observation->CAA-slopecatch->1999 15.4331
+observation->CAA-slopecatch->2000 18.1559
+observation->CAA-slopecatch->2001 15.337
+observation->CAA-slopecatch->2002 15.2849
+observation->CAA-slopecatch->2003 38.1267
+observation->CAA-slopecatch->2004 18.5314
+observation->CAA-slopecatch->2005 41.3136
+observation->CAA-slopecatch->2006 19.8195
+observation->CAA-slopecatch->2007 22.4674
+observation->CAA-slopecatch->2008 20.379
+observation->CAA-slopecatch->2009 16.096
+observation->CAA-slopecatch->2010 19.4731
+observation->CAA-slopecatch->2011 14.9115
+observation->CAA-slopecatch->2012 20.9623
+observation->CAA-slopecatch->2013 21.2738
+observation->CAA-slopecatch->2014 20.2475
+observation->CAA-slopecatch->2015 20.5382
+observation->CAA-northcatch->1998 19.9761
+observation->CAA-northcatch->1999 25.2372
+observation->CAA-northcatch->2001 16.0023
+observation->CAA-northcatch->2002 41.7884
+observation->CAA-northcatch->2003 16.9683
+observation->CAA-northcatch->2004 37.5673
+observation->CAA-northcatch->2005 34.1416
+observation->CAA-northcatch->2006 33.6946
+observation->CAA-northcatch->2007 15.1795
+observation->CAA-northcatch->2008 35.0054
+observation->CAA-northcatch->2009 8.26436
+observation->CAA-northcatch->2010 36.7794
+observation->CAA-northcatch->2011 29.0701
+observation->CAA-northcatch->2012 33.7311
+observation->CAA-northcatch->2013 32.6439
+observation->CAA-northcatch->2014 36.2094
+observation->Tag2001->2002 0.107323
+observation->Tag2001->2003 0.104992
+observation->Tag2001->2004 0.199247
+observation->Tag2001->2005 0.376336
+observation->Tag2001->2006 0.398898
+observation->Tag2001->2007 0.414604
+observation->Tag2002->2003 0.476719
+observation->Tag2002->2004 0.699096
+observation->Tag2002->2005 1.26662
+observation->Tag2002->2006 1.23498
+observation->Tag2002->2007 1.28683
+observation->Tag2002->2008 0.975248
+observation->Tag2003->2004 1.47231
+observation->Tag2003->2005 2.52837
+observation->Tag2003->2006 2.10651
+observation->Tag2003->2007 2.09153
+observation->Tag2003->2008 1.45835
+observation->Tag2003->2009 1.37775
+observation->Tag2004->2005 2.71917
+observation->Tag2004->2006 2.79383
+observation->Tag2004->2007 3.16465
+observation->Tag2004->2008 2.63222
+observation->Tag2004->2009 2.23609
+observation->Tag2004->2010 2.77815
+observation->Tag2005->2006 4.54119
+observation->Tag2005->2007 5.28346
+observation->Tag2005->2008 4.55349
+observation->Tag2005->2009 3.7903
+observation->Tag2005->2010 4.98267
+observation->Tag2005->2011 4.37767
+observation->Tag2006->2007 7.22479
+observation->Tag2006->2008 5.61071
+observation->Tag2006->2009 4.97322
+observation->Tag2006->2010 5.69203
+observation->Tag2006->2011 4.77867
+observation->Tag2006->2012 4.12893
+observation->Tag2007->2008 6.35283
+observation->Tag2007->2009 5.36675
+observation->Tag2007->2010 7.22108
+observation->Tag2007->2011 6.57763
+observation->Tag2007->2012 5.84874
+observation->Tag2007->2013 4.49586
+observation->Tag2008->2009 3.7878
+observation->Tag2008->2010 5.44925
+observation->Tag2008->2011 5.12915
+observation->Tag2008->2012 4.60085
+observation->Tag2008->2013 3.59843
+observation->Tag2008->2014 3.21846
+observation->Tag2009->2010 5.85835
+observation->Tag2009->2011 5.81916
+observation->Tag2009->2012 5.31913
+observation->Tag2009->2013 4.2517
+observation->Tag2009->2014 3.67873
+observation->Tag2009->2015 2.83188
+observation->Tag2010->2011 7.32246
+observation->Tag2010->2012 6.50307
+observation->Tag2010->2013 4.97947
+observation->Tag2010->2014 4.52537
+observation->Tag2010->2015 3.40711
+observation->Tag2011->2012 7.63913
+observation->Tag2011->2013 5.98953
+observation->Tag2011->2014 5.33873
+observation->Tag2011->2015 4.05388
+observation->Tag2012->2013 4.38335
+observation->Tag2012->2014 3.53311
+observation->Tag2012->2015 2.85796
+observation->Tag2013->2014 4.46775
+observation->Tag2013->2015 3.46942
+observation->Tag2014 4.34468
+penalty->event_mortality_penalty 0
+penalty->tagging_penalty 0
+prior->selectivity[Shelfsel].mu 0
+prior->selectivity[Shelfsel].sigma_l 0
+prior->selectivity[Shelfsel].sigma_r 0
+prior->selectivity[Slopesel].mu 0
+prior->selectivity[Slopesel].sigma_l 0
+prior->selectivity[Slopesel].sigma_r 0
+prior->selectivity[Northsel].mu 0
+prior->selectivity[Northsel].sigma_l 0
+prior->selectivity[Northsel].sigma_r 0
+prior->process[Recruitment].recruitment_multipliers{2004} -0.789585
+prior->process[Recruitment].recruitment_multipliers{2005} -0.786937
+prior->process[Recruitment].recruitment_multipliers{2006} -0.784081
+prior->process[Recruitment].recruitment_multipliers{2007} -0.778491
+prior->process[Recruitment].recruitment_multipliers{2008} -0.766501
+prior->process[Recruitment].recruitment_multipliers{2009} -0.784186
+prior->process[Recruitment].recruitment_multipliers{2010} -0.723151
+total_score 1482.97
+*end
+
+*info[messages_encountered]
+Values {string}
+Setting the random number seed to 43075
+Estimable parameters were loaded from the free parameter file: pars.out
+Initiating basic run mode
+*end
+
+*important[messages_encountered]
+Values {string}
+1 additional non-estimated addressable parameters were found in the free parameter file: pars.out
+*end
+
+*warnings[messages_encountered]
+Values {string}
+in @process 2001Tags_shelf you have specified compatibility_option = casal this is not recommended unless you validating for backwards compatibility reasons
+obs sum total (1) for year (1999) doesn't sum to 1.0
+obs sum total (0.999999) for year (2000) doesn't sum to 1.0
+obs sum total (1) for year (2001) doesn't sum to 1.0
+obs sum total (1) for year (2002) doesn't sum to 1.0
+obs sum total (1) for year (2003) doesn't sum to 1.0
+obs sum total (0.999999) for year (2004) doesn't sum to 1.0
+obs sum total (1) for year (2005) doesn't sum to 1.0
+obs sum total (1) for year (2006) doesn't sum to 1.0
+obs sum total (1) for year (2007) doesn't sum to 1.0
+obs sum total (1) for year (2008) doesn't sum to 1.0
+obs sum total (1) for year (2009) doesn't sum to 1.0
+obs sum total (1) for year (2010) doesn't sum to 1.0
+obs sum total (1) for year (2011) doesn't sum to 1.0
+obs sum total (1) for year (2012) doesn't sum to 1.0
+obs sum total (1) for year (2013) doesn't sum to 1.0
+obs sum total (1) for year (2014) doesn't sum to 1.0
+obs sum total (1) for year (2015) doesn't sum to 1.0
+obs sum total (1) for year (1998) doesn't sum to 1.0
+obs sum total (1) for year (1999) doesn't sum to 1.0
+obs sum total (0.999999) for year (2000) doesn't sum to 1.0
+obs sum total (1) for year (2001) doesn't sum to 1.0
+obs sum total (1) for year (2002) doesn't sum to 1.0
+obs sum total (1) for year (2003) doesn't sum to 1.0
+obs sum total (1) for year (2004) doesn't sum to 1.0
+obs sum total (1) for year (2005) doesn't sum to 1.0
+obs sum total (1) for year (2006) doesn't sum to 1.0
+obs sum total (1) for year (2007) doesn't sum to 1.0
+obs sum total (1) for year (2008) doesn't sum to 1.0
+obs sum total (1) for year (2009) doesn't sum to 1.0
+obs sum total (1) for year (2010) doesn't sum to 1.0
+obs sum total (1) for year (2011) doesn't sum to 1.0
+obs sum total (1) for year (2012) doesn't sum to 1.0
+obs sum total (1) for year (2013) doesn't sum to 1.0
+obs sum total (1) for year (2014) doesn't sum to 1.0
+obs sum total (1) for year (2015) doesn't sum to 1.0
+obs sum total (1) for year (1998) doesn't sum to 1.0
+obs sum total (1) for year (1999) doesn't sum to 1.0
+obs sum total (1) for year (2001) doesn't sum to 1.0
+obs sum total (1) for year (2002) doesn't sum to 1.0
+obs sum total (1) for year (2003) doesn't sum to 1.0
+obs sum total (1) for year (2004) doesn't sum to 1.0
+obs sum total (1) for year (2005) doesn't sum to 1.0
+obs sum total (1) for year (2006) doesn't sum to 1.0
+obs sum total (1) for year (2007) doesn't sum to 1.0
+obs sum total (1) for year (2008) doesn't sum to 1.0
+obs sum total (1) for year (2009) doesn't sum to 1.0
+obs sum total (1) for year (2010) doesn't sum to 1.0
+obs sum total (1) for year (2011) doesn't sum to 1.0
+obs sum total (1) for year (2012) doesn't sum to 1.0
+obs sum total (1) for year (2013) doesn't sum to 1.0
+obs sum total (1) for year (2014) doesn't sum to 1.0
+Estimates were removed because of matching lower and upper bounds. Originally had 33 estimates, now have 16
+The categories 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 were not used in @process[type=recruitment]. This may be expected for models that have categories that are not used at the beginning of the model e.g. tagged categories.
+*end
+

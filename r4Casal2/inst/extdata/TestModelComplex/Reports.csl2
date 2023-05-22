@@ -1,0 +1,18 @@
+@report summary
+type estimate_value
+
+@report default_report
+type default
+processes true
+selectivities true
+observations true
+catchabilities true
+
+@report mpd_covariance
+type covariance_matrix
+
+@report hessian_matrix
+type hessian_matrix
+
+@report objective
+type objective_function

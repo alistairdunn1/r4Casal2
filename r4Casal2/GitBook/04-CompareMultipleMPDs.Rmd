@@ -1,0 +1,85 @@
+# Comparing multiple MPD runs {#summarisemultipleinputs}
+
+
+
+## Read in models
+```{r read_multiple_models, fig.width=6, fig.height=4, results = 'hide', message=FALSE, warning=FALSE}
+file_name_low_m = system.file("extdata", "SimpleTestModel" ,"LowM.log", 
+                              package = "r4Casal2", mustWork = TRUE)
+low_m_mpd = extract.mpd(file = file_name_low_m)
+file_name_high_m = system.file("extdata", "SimpleTestModel", "highM.log", 
+                               package = "r4Casal2", mustWork = TRUE)
+high_m_mpd = extract.mpd(file = file_name_high_m)
+## create a named list
+models = list("M = 0.22" = low_m_mpd, "M = 0.44" = high_m_mpd)
+```
+
+
+## Compare model outputs
+### selectivities
+```{r compare_selectivities, fig.width=6, fig.height=6}
+selectivity_df = get_selectivities(models)
+ggplot(selectivity_df, aes(x = bin, y = selectivity, col = model_label, linetype = model_label)) +
+  geom_line(size = 1.5) +
+  facet_wrap(~selectivity_label) +
+  labs(x = "Age", y = "Ogive", col = "Model", linetype = "Model")
+```
+
+### Derived quantities
+```{r compare_dqs, fig.width=6, fig.height=6}
+dq_df = get_dqs(models)
+dq_df$years = as.numeric(dq_df$years)
+ggplot(dq_df, aes(x = years, y = values, col = model_label, linetype = model_label)) +
+  geom_line(size = 1.5) +
+  facet_wrap(~dq_label) +
+  labs(x = "Year", y = "SSB", col = "Model", linetype = "Model")
+
+```
+
+### Recruitment
+```{r compare_recruit, fig.width=6, fig.height=6}
+recruit_df = get_BH_recruitment(models)
+ggplot(recruit_df, aes(x = model_year, y = standardised_recruitment_multipliers, col = model_label, linetype = model_label)) +
+  geom_line(size = 1.3) +
+  labs(x = "Recruited year", y = "standardised recruitment multipliers", col = "Model", linetype = "Model")
+```
+
+
+
+### Abundance fits
+```{r compare_abundance, fig.width=6, fig.height=6}
+abundance_obs_df = get_abundance_observations(models)
+ggplot(abundance_obs_df, aes(x = year)) +
+  geom_point(aes(y = observed), size = 1.4) +
+  geom_line(aes(y = expected, col = model_label)) +
+  labs(x = "year", y = "Abundance", col = "Model", linetype = "Model") +
+  facet_wrap(~observation_label, scales = "free")
+```
+
+### Compare objective function
+```{r obj_table, fig.width=6, fig.height=6}
+cas2_obj = get_objective_function(models)
+compar_obj = cas2_obj %>% pivot_wider(values_from = negative_loglik, names_from = model_label, id_cols = component, values_fill	= NA)
+head(compar_obj, n = 10)
+```
+
+```{r obj_plot, fig.width=6, fig.height=6}
+## rescale objective score so the model with the best fit (lowest score)
+## will have zero for a given component and others will have be reference from that
+obj_df = cas2_obj %>% group_by(component) %>% 
+  mutate(rescaled_obj = negative_loglik - min(negative_loglik, na.rm = T))
+## plot it for each component
+ggplot(obj_df, aes(x = rescaled_obj, y = component, col = model_label, shape = model_label)) +
+  geom_point(size = 2) +
+  labs(x = "Objective function - min (objective function)", y = "") +
+  geom_vline(xintercept = 0, col = "gray", linetype = "dashed", size = 1) +
+  theme(legend.position = "bottom", 
+        axis.text = element_text(size = 12), 
+        axis.title = element_text(size = 12),
+        strip.text = element_text(size=16),
+        title=element_blank(),
+        legend.text = element_text(size=14))
+```
+
+
+

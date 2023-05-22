@@ -1,0 +1,15 @@
+# Model fit to observations {#modelfit}
+## Abundance/Biomass 
+
+```{r abundance_fits, eval = T, echo = T}
+plot_relative_index(cas2_mpd, plot_type = 'classic')
+plot_relative_index(cas2_mpd, plot_type = 'classic_ribbon')
+plot_relative_index(cas2_mpd, plot_type = 'residual')
+``` 
+
+## Composition 
+
+```{r comp_fits, eval = T, echo = T}
+plot_compositional_observations(cas2_mpd)
+``` 
+

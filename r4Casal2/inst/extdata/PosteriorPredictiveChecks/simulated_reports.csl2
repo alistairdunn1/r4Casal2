@@ -1,0 +1,24 @@
+@report sim_chatOBSest
+type simulated_observation
+observation chatOBSest
+file_name simulated_observations/sim_chatOBSest
+
+
+@report sim_chatOBSwst
+type simulated_observation
+observation chatOBSwst
+file_name simulated_observations/sim_chatOBSwst
+
+
+@report sim_chatTANage
+type simulated_observation
+observation chatTANage
+file_name simulated_observations/sim_chatTANage
+
+
+@report sim_chatTANbiomass
+type simulated_observation
+observation chatTANbiomass
+file_name simulated_observations/sim_chatTANbiomass
+
+

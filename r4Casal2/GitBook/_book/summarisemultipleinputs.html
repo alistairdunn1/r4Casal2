@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Comparing multiple MPD runs | r4Casal2</title>
+  <meta name="description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Comparing multiple MPD runs | r4Casal2" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
+  <meta name="github-repo" content="https://github.com/NIWAFisheriesModelling/r4Casal2" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Comparing multiple MPD runs | r4Casal2" />
+  
+  <meta name="twitter:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
+  
+
+<meta name="author" content="C.Marsh" />
+
+
+<meta name="date" content="2023-05-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mpd-summaries.html"/>
+<link rel="next" href="mcmc.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">r4Casal2</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcolme to <strong>r4Casal2</strong></a></li>
+<li class="chapter" data-level="2" data-path="functionlist.html"><a href="functionlist.html"><i class="fa fa-check"></i><b>2</b> A list of key functions in the <code>r4Casal2</code> package</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="functionlist.html"><a href="functionlist.html#accessor-functions"><i class="fa fa-check"></i><b>2.1</b> Accessor functions</a></li>
+<li class="chapter" data-level="2.2" data-path="functionlist.html"><a href="functionlist.html#other-useful-functions"><i class="fa fa-check"></i><b>2.2</b> Other useful functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summariseinputs.html"><a href="summariseinputs.html"><i class="fa fa-check"></i><b>3</b> Summarise configuration inputs</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="summariseinputs.html"><a href="summariseinputs.html#example-files"><i class="fa fa-check"></i><b>3.1</b> Example files</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="mpd-summaries.html"><a href="mpd-summaries.html"><i class="fa fa-check"></i><b>4</b> MPD summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="mpd-summaries.html"><a href="mpd-summaries.html#single-model-output"><i class="fa fa-check"></i><b>4.1</b> Single Model Output</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="mpd-summaries.html"><a href="mpd-summaries.html#model-convergence"><i class="fa fa-check"></i><b>4.1.1</b> Model Convergence</a></li>
+<li class="chapter" data-level="4.1.2" data-path="mpd-summaries.html"><a href="mpd-summaries.html#data-weighting"><i class="fa fa-check"></i><b>4.1.2</b> Data Weighting</a></li>
+<li class="chapter" data-level="4.1.3" data-path="mpd-summaries.html"><a href="mpd-summaries.html#model-quantities"><i class="fa fa-check"></i><b>4.1.3</b> Model quantities</a></li>
+<li class="chapter" data-level="4.1.4" data-path="mpd-summaries.html"><a href="mpd-summaries.html#plotting-fits"><i class="fa fa-check"></i><b>4.1.4</b> Plotting Fits</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="mpd-summaries.html"><a href="mpd-summaries.html#multiple-casal2-runs-with--i-or--s"><i class="fa fa-check"></i><b>4.2</b> Multiple Casal2 runs with -i or -s</a>
+<ul>
+<li class="chapter" data-level="" data-path="mpd-summaries.html"><a href="mpd-summaries.html#plotting-selectivities-1"><i class="fa fa-check"></i>Plotting selectivities</a></li>
+<li class="chapter" data-level="" data-path="mpd-summaries.html"><a href="mpd-summaries.html#plotting-fits-1"><i class="fa fa-check"></i>Plotting Fits</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html"><i class="fa fa-check"></i><b>5</b> Comparing multiple MPD runs</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#read-in-models"><i class="fa fa-check"></i><b>5.1</b> Read in models</a></li>
+<li class="chapter" data-level="5.2" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#compare-model-outputs"><i class="fa fa-check"></i><b>5.2</b> Compare model outputs</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#selectivities"><i class="fa fa-check"></i><b>5.2.1</b> selectivities</a></li>
+<li class="chapter" data-level="5.2.2" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#derived-quantities"><i class="fa fa-check"></i><b>5.2.2</b> Derived quantities</a></li>
+<li class="chapter" data-level="5.2.3" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#recruitment"><i class="fa fa-check"></i><b>5.2.3</b> Recruitment</a></li>
+<li class="chapter" data-level="5.2.4" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#abundance-fits"><i class="fa fa-check"></i><b>5.2.4</b> Abundance fits</a></li>
+<li class="chapter" data-level="5.2.5" data-path="summarisemultipleinputs.html"><a href="summarisemultipleinputs.html#compare-objective-function"><i class="fa fa-check"></i><b>5.2.5</b> Compare objective function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mcmc.html"><a href="mcmc.html"><i class="fa fa-check"></i><b>6</b> MCMC</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mcmc.html"><a href="mcmc.html#read-in-models-1"><i class="fa fa-check"></i><b>6.1</b> Read in models</a></li>
+<li class="chapter" data-level="6.2" data-path="mcmc.html"><a href="mcmc.html#diagnostics"><i class="fa fa-check"></i><b>6.2</b> Diagnostics</a></li>
+<li class="chapter" data-level="6.3" data-path="mcmc.html"><a href="mcmc.html#plotting-quantities"><i class="fa fa-check"></i><b>6.3</b> Plotting quantities</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="mcmc.html"><a href="mcmc.html#selectivities-1"><i class="fa fa-check"></i><b>6.3.1</b> selectivities</a></li>
+<li class="chapter" data-level="6.3.2" data-path="mcmc.html"><a href="mcmc.html#derived-quantities-1"><i class="fa fa-check"></i><b>6.3.2</b> Derived quantities</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="PPC.html"><a href="PPC.html"><i class="fa fa-check"></i><b>7</b> Posterior Predictive Checks</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="PPC.html"><a href="PPC.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="PPC.html"><a href="PPC.html#estimation"><i class="fa fa-check"></i><b>7.2</b> Estimation</a></li>
+<li class="chapter" data-level="7.3" data-path="PPC.html"><a href="PPC.html#simulations"><i class="fa fa-check"></i><b>7.3</b> Simulations</a></li>
+<li class="chapter" data-level="7.4" data-path="PPC.html"><a href="PPC.html#summarising-simulated-data-in-r"><i class="fa fa-check"></i><b>7.4</b> Summarising simulated data in R</a></li>
+<li class="chapter" data-level="7.5" data-path="PPC.html"><a href="PPC.html#posterior-predictive-checks"><i class="fa fa-check"></i><b>7.5</b> Posterior predictive checks</a></li>
+<li class="chapter" data-level="7.6" data-path="PPC.html"><a href="PPC.html#pit-residuals"><i class="fa fa-check"></i><b>7.6</b> PIT residuals</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="presentwithBookdown.html"><a href="presentwithBookdown.html"><i class="fa fa-check"></i><b>8</b> Presenting Models using Bookdown</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/NIWAFisheriesModelling/r4Casal2" target="blank">Github Repo here</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">r4Casal2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="summarisemultipleinputs" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Comparing multiple MPD runs<a href="summarisemultipleinputs.html#summarisemultipleinputs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="read-in-models" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Read in models<a href="summarisemultipleinputs.html#read-in-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="summarisemultipleinputs.html#cb41-1" aria-hidden="true" tabindex="-1"></a>file_name_low_m <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;SimpleTestModel&quot;</span> ,<span class="st">&quot;LowM.log&quot;</span>, </span>
+<span id="cb41-2"><a href="summarisemultipleinputs.html#cb41-2" aria-hidden="true" tabindex="-1"></a>                              <span class="at">package =</span> <span class="st">&quot;r4Casal2&quot;</span>, <span class="at">mustWork =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-3"><a href="summarisemultipleinputs.html#cb41-3" aria-hidden="true" tabindex="-1"></a>low_m_mpd <span class="ot">=</span> <span class="fu">extract.mpd</span>(<span class="at">file =</span> file_name_low_m)</span>
+<span id="cb41-4"><a href="summarisemultipleinputs.html#cb41-4" aria-hidden="true" tabindex="-1"></a>file_name_high_m <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;SimpleTestModel&quot;</span>, <span class="st">&quot;highM.log&quot;</span>, </span>
+<span id="cb41-5"><a href="summarisemultipleinputs.html#cb41-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">package =</span> <span class="st">&quot;r4Casal2&quot;</span>, <span class="at">mustWork =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-6"><a href="summarisemultipleinputs.html#cb41-6" aria-hidden="true" tabindex="-1"></a>high_m_mpd <span class="ot">=</span> <span class="fu">extract.mpd</span>(<span class="at">file =</span> file_name_high_m)</span>
+<span id="cb41-7"><a href="summarisemultipleinputs.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="do">## create a named list</span></span>
+<span id="cb41-8"><a href="summarisemultipleinputs.html#cb41-8" aria-hidden="true" tabindex="-1"></a>models <span class="ot">=</span> <span class="fu">list</span>(<span class="st">&quot;M = 0.22&quot;</span> <span class="ot">=</span> low_m_mpd, <span class="st">&quot;M = 0.44&quot;</span> <span class="ot">=</span> high_m_mpd)</span></code></pre></div>
+</div>
+<div id="compare-model-outputs" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Compare model outputs<a href="summarisemultipleinputs.html#compare-model-outputs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="selectivities" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> selectivities<a href="summarisemultipleinputs.html#selectivities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="summarisemultipleinputs.html#cb42-1" aria-hidden="true" tabindex="-1"></a>selectivity_df <span class="ot">=</span> <span class="fu">get_selectivities</span>(models)</span>
+<span id="cb42-2"><a href="summarisemultipleinputs.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(selectivity_df, <span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> selectivity, <span class="at">col =</span> model_label, <span class="at">linetype =</span> model_label)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="summarisemultipleinputs.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="summarisemultipleinputs.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>selectivity_label) <span class="sc">+</span></span>
+<span id="cb42-5"><a href="summarisemultipleinputs.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Ogive&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Model&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;Model&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/compare_selectivities-1.png" width="576" /></p>
+</div>
+<div id="derived-quantities" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Derived quantities<a href="summarisemultipleinputs.html#derived-quantities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="summarisemultipleinputs.html#cb43-1" aria-hidden="true" tabindex="-1"></a>dq_df <span class="ot">=</span> <span class="fu">get_dqs</span>(models)</span>
+<span id="cb43-2"><a href="summarisemultipleinputs.html#cb43-2" aria-hidden="true" tabindex="-1"></a>dq_df<span class="sc">$</span>years <span class="ot">=</span> <span class="fu">as.numeric</span>(dq_df<span class="sc">$</span>years)</span>
+<span id="cb43-3"><a href="summarisemultipleinputs.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dq_df, <span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> values, <span class="at">col =</span> model_label, <span class="at">linetype =</span> model_label)) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="summarisemultipleinputs.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb43-5"><a href="summarisemultipleinputs.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dq_label) <span class="sc">+</span></span>
+<span id="cb43-6"><a href="summarisemultipleinputs.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;SSB&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Model&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;Model&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/compare_dqs-1.png" width="576" /></p>
+</div>
+<div id="recruitment" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Recruitment<a href="summarisemultipleinputs.html#recruitment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="summarisemultipleinputs.html#cb44-1" aria-hidden="true" tabindex="-1"></a>recruit_df <span class="ot">=</span> <span class="fu">get_BH_recruitment</span>(models)</span>
+<span id="cb44-2"><a href="summarisemultipleinputs.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(recruit_df, <span class="fu">aes</span>(<span class="at">x =</span> model_year, <span class="at">y =</span> standardised_recruitment_multipliers, <span class="at">col =</span> model_label, <span class="at">linetype =</span> model_label)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="summarisemultipleinputs.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.3</span>) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="summarisemultipleinputs.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Recruited year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;standardised recruitment multipliers&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Model&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;Model&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/compare_recruit-1.png" width="576" /></p>
+</div>
+<div id="abundance-fits" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Abundance fits<a href="summarisemultipleinputs.html#abundance-fits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="summarisemultipleinputs.html#cb45-1" aria-hidden="true" tabindex="-1"></a>abundance_obs_df <span class="ot">=</span> <span class="fu">get_abundance_observations</span>(models)</span>
+<span id="cb45-2"><a href="summarisemultipleinputs.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(abundance_obs_df, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
+<span id="cb45-3"><a href="summarisemultipleinputs.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> observed), <span class="at">size =</span> <span class="fl">1.4</span>) <span class="sc">+</span></span>
+<span id="cb45-4"><a href="summarisemultipleinputs.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> expected, <span class="at">col =</span> model_label)) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="summarisemultipleinputs.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Abundance&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Model&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;Model&quot;</span>) <span class="sc">+</span></span>
+<span id="cb45-6"><a href="summarisemultipleinputs.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>observation_label, <span class="at">scales =</span> <span class="st">&quot;free&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/compare_abundance-1.png" width="576" /></p>
+</div>
+<div id="compare-objective-function" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Compare objective function<a href="summarisemultipleinputs.html#compare-objective-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="summarisemultipleinputs.html#cb46-1" aria-hidden="true" tabindex="-1"></a>cas2_obj <span class="ot">=</span> <span class="fu">get_objective_function</span>(models)</span>
+<span id="cb46-2"><a href="summarisemultipleinputs.html#cb46-2" aria-hidden="true" tabindex="-1"></a>compar_obj <span class="ot">=</span> cas2_obj <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">values_from =</span> negative_loglik, <span class="at">names_from =</span> model_label, <span class="at">id_cols =</span> component, <span class="at">values_fill =</span> <span class="cn">NA</span>)</span>
+<span id="cb46-3"><a href="summarisemultipleinputs.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(compar_obj, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##    component                   `M = 0.22`  `M = 0.44`
+##    &lt;chr&gt;                            &lt;dbl&gt;       &lt;dbl&gt;
+##  1 observation-chatTANbiomass -20.2       -19.7      
+##  2 observation-chatTANage     339.        346.       
+##  3 observation-chatOBSwst     227.        227.       
+##  4 observation-chatOBSest     127.        127.       
+##  5 penalty-CatchMustBeTaken1    0           0        
+##  6 prior-B0                    11.2        11.2      
+##  7 prior-chatTANq              -2.32       -1.80     
+##  8 prior-TANSel_mu              0.256       3.50     
+##  9 prior-TANSel_sig_l           0.0000171   0.0000502
+## 10 prior-TANSel_sig_r           0.0000148   0.0177</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="summarisemultipleinputs.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## rescale objective score so the model with the best fit (lowest score)</span></span>
+<span id="cb48-2"><a href="summarisemultipleinputs.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="do">## will have zero for a given component and others will have be reference from that</span></span>
+<span id="cb48-3"><a href="summarisemultipleinputs.html#cb48-3" aria-hidden="true" tabindex="-1"></a>obj_df <span class="ot">=</span> cas2_obj <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(component) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a href="summarisemultipleinputs.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rescaled_obj =</span> negative_loglik <span class="sc">-</span> <span class="fu">min</span>(negative_loglik, <span class="at">na.rm =</span> T))</span>
+<span id="cb48-5"><a href="summarisemultipleinputs.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="do">## plot it for each component</span></span>
+<span id="cb48-6"><a href="summarisemultipleinputs.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(obj_df, <span class="fu">aes</span>(<span class="at">x =</span> rescaled_obj, <span class="at">y =</span> component, <span class="at">col =</span> model_label, <span class="at">shape =</span> model_label)) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="summarisemultipleinputs.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb48-8"><a href="summarisemultipleinputs.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Objective function - min (objective function)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb48-9"><a href="summarisemultipleinputs.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb48-10"><a href="summarisemultipleinputs.html#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, </span>
+<span id="cb48-11"><a href="summarisemultipleinputs.html#cb48-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>), </span>
+<span id="cb48-12"><a href="summarisemultipleinputs.html#cb48-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb48-13"><a href="summarisemultipleinputs.html#cb48-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>),</span>
+<span id="cb48-14"><a href="summarisemultipleinputs.html#cb48-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">title=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb48-15"><a href="summarisemultipleinputs.html#cb48-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/obj_plot-1.png" width="576" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mpd-summaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mcmc.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/NIWAFisheriesModelling/r4Casal2/edit/main/04-CompareMultipleMPDs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

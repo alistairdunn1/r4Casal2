@@ -1,0 +1,42 @@
+# Summarise configuration inputs {#summariseinputs}
+
+The `r4Casal2` has some functions that summarise a set of input files and returns a summary of the key model attributes. It can be difficult to know all the working parts in a Casal2 model. This is compouned when users often make tweaks during an assessment and so the initial assumptions will not correspond to the final assumptions. The key function is `summarise_config`
+
+## Example files
+
+```{r summarise}
+config_dir = system.file("extdata", "TestModelComplex", package = "r4Casal2", mustWork = TRUE)
+## This function is the key function will read a Casal config file and report useful information
+## should be used when describing model structures and assumptions
+## as well as validation.
+summary = summarise_config(config_dir, config_file = "config.csl2", quiet = T)
+names(summary)
+```
+
+```{r input_catches, fig.width=6, fig.height=4}
+ggplot(summary$catch_df, aes(x = year, y = catch, col = fishery)) +
+  geom_line(size = 1.5) +
+  labs(x = "Year", y = "Catch (t)", col = "Fishery")
+```
+
+```{r input_observations, fig.width=6, fig.height=4}
+ggplot(summary$obs_year_df, aes(x = year, y = observation, col = observation, size = active)) +
+  geom_point() +
+  guides(colour = "none", size = "none")
+```
+
+
+```{r annual_cycle}
+kable(x = summary$time_step_df, caption = "Annual cycle")
+```
+
+```{r categories}
+kable(x = summary$full_category_df, caption = "Category information")
+```
+
+
+```{r estimates}
+kable(x = summary$estimate_df, caption = "Estimate summary")
+```
+
+

@@ -1,0 +1,48 @@
+@report obj
+type objective_function
+
+@report estimate_summary
+type estimate_summary
+
+@report default_reports
+type default
+derived_quantities t
+observations t
+selectivities t
+processes t
+
+@report covar
+type covariance_matrix
+
+@report hess
+type hessian_matrix
+
+@report estimate_value
+type estimate_value
+/*
+@report time_vary
+type time_varying
+time_varying chat_mean_selectivity
+*/
+@report sim_chatTANage
+type simulated_observation
+observation chatTANage
+file_name simulated_observations/sim_chatTANage
+
+@report sim_chatTANbiomass
+type simulated_observation
+observation chatTANbiomass
+file_name simulated_observations/sim_chatTANbiomass
+
+@report sim_chatOBSwst
+type simulated_observation
+observation chatOBSwst
+file_name simulated_observations/sim_chatOBSwst
+
+@report sim_chatOBSest
+type simulated_observation
+observation chatOBSest
+file_name simulated_observations/sim_chatOBSest
+
+
+

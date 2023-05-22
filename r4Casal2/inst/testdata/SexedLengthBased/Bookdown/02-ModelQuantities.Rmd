@@ -1,0 +1,29 @@
+# Model quantities {#modelquantities}
+## SSB 
+
+```{r ssb, eval = T, echo = T}
+plot_derived_quantities(cas2_mpd)
+``` 
+
+## Recruitment 
+
+```{r recruit, eval = T, echo = T}
+plot_recruitment(model = cas2_mpd, quantity = 'recruitment_multipliers') + ylab('Recruitment multipliers')
+plot_recruitment(model = cas2_mpd, quantity = 'standardised_recruitment_multipliers') + ylab('Standardised recruitment multipliers')
+plot_recruitment(model = cas2_mpd, quantity = 'recruits') + ylab('Recruits (000)')
+``` 
+
+## Exploitation 
+
+```{r exploitation, eval = T, echo = T}
+plot_fishery(model = cas2_mpd, quantity = 'fishing_pressure') + ylab('Fishing Pressure')
+plot_fishery(model = cas2_mpd, quantity = 'exploitation') + ylab('Exploitation')
+plot_fishery(model = cas2_mpd, quantity = 'actual_catch') + ylab('Actual Catch')
+``` 
+
+## Selectivities 
+
+```{r selectivities, eval = T, echo = T}
+plot_selectivities(model = cas2_mpd)
+``` 
+
