@@ -257,13 +257,15 @@ div.csl-indent {
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="summariseinputs.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary<span class="sc">$</span>catch_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> catch, <span class="at">col =</span> fishery)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="summariseinputs.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
 <span id="cb4-3"><a href="summariseinputs.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Catch (t)&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Fishery&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## i Please use `linewidth` instead.</code></pre>
 <p><img src="_main_files/figure-html/input_catches-1.png" width="576" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="summariseinputs.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary<span class="sc">$</span>obs_year_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> observation, <span class="at">col =</span> observation, <span class="at">size =</span> active)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="summariseinputs.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-3"><a href="summariseinputs.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="st">&quot;none&quot;</span>, <span class="at">size =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="summariseinputs.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary<span class="sc">$</span>obs_year_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> observation, <span class="at">col =</span> observation, <span class="at">size =</span> active)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="summariseinputs.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="summariseinputs.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="st">&quot;none&quot;</span>, <span class="at">size =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 509 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="_main_files/figure-html/input_observations-1.png" width="576" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="summariseinputs.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>time_step_df, <span class="at">caption =</span> <span class="st">&quot;Annual cycle&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="summariseinputs.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>time_step_df, <span class="at">caption =</span> <span class="st">&quot;Annual cycle&quot;</span>)</span></code></pre></div>
 <table style="width:100%;">
 <caption>(#tab:annual_cycle)Annual cycle</caption>
 <colgroup>
@@ -327,7 +329,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="summariseinputs.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>full_category_df, <span class="at">caption =</span> <span class="st">&quot;Category information&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="summariseinputs.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>full_category_df, <span class="at">caption =</span> <span class="st">&quot;Category information&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:categories">Table 3.1: </span>Category information</caption>
 <colgroup>
@@ -407,7 +409,7 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="summariseinputs.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>estimate_df, <span class="at">caption =</span> <span class="st">&quot;Estimate summary&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="summariseinputs.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>estimate_df, <span class="at">caption =</span> <span class="st">&quot;Estimate summary&quot;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:estimates">Table 3.2: </span>Estimate summary</caption>
 <colgroup>

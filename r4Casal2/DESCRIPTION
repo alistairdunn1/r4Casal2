@@ -1,5 +1,5 @@
 Package: r4Casal2
-Title: r4Casal2 R package for post proccessing Casal2 model runs
+Title: r4Casal2 R package for post processing Casal2 model runs
 Version: 1.0.2
 Author: C Marsh & A Dunn
 Description: Accessor and utility functions to support the Casal2 R Library.

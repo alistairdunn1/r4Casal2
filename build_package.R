@@ -5,7 +5,7 @@ library(roxygen2)
 
 source("r4Casal2_make_version.R")
 
-document("r4Casal2");
+document("r4Casal2")
 build("r4Casal2")
 # devtools::install()
 # devtools::check() # doesn't like how we have put Casal2 in the Suggests:
@@ -14,5 +14,4 @@ testthat::test_dir("r4Casal2/tests/testthat/")
 bookdown::render_book(input = "r4Casal2/GitBook/")
 
 # Final build for clean version for distribution
-devtools::build("r4Casal2", binary = TRUE, args = c('--preclean'))
-
+devtools::build("r4Casal2", binary = TRUE, args = c("--preclean"))
