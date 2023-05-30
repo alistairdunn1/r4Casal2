@@ -33,7 +33,7 @@
       if (this_report$type != "estimate_value") {
         next
       }
-      temp_df <- data.frame(par_set = 1, parameters = names(this_report$values), values = as.numeric(this_report$values))
+      temp_df <- data.frame(par_set = 1, parameter = names(this_report$values), value = as.numeric(this_report$values))
       complete_df <- rbind(complete_df, temp_df)
     } else {
       if (this_report[[1]]$type != "estimate_value") {
@@ -42,7 +42,7 @@
       n_runs <- length(this_report)
       iter_labs <- names(this_report)
       for (dash_i in 1:n_runs) {
-        temp_df <- data.frame(par_set = iter_labs[dash_i], parameters = names(this_report[[dash_i]]$values), values = as.numeric(this_report[[dash_i]]$values))
+        temp_df <- data.frame(par_set = iter_labs[dash_i], parameter = names(this_report[[dash_i]]$values), value = as.numeric(this_report[[dash_i]]$values))
         complete_df <- rbind(complete_df, temp_df)
       }
       complete_df$par_set <- factor(complete_df$par_set, ordered = T)
@@ -95,7 +95,7 @@
     val_molten <- suppressMessages({
       melt(as.matrix(val_df), variable.name = "colname", value.name = "estimate", factorsAsStrings = F)
     })
-    colnames(val_molten) <- c("iteration", "label", "values")
+    colnames(val_molten) <- c("iteration", "parameter", "value")
     val_molten$report_label <- reports_labels[i]
     complete_df <- rbind(complete_df, val_molten)
   }

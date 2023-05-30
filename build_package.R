@@ -2,6 +2,9 @@
 # this builds all the help files
 library(devtools)
 library(roxygen2)
+
+source("r4Casal2_make_version.R")
+
 document("r4Casal2");
 build("r4Casal2")
 # devtools::install()

@@ -20,7 +20,7 @@ create_simulation_reports(
 
 \item{output_folder}{folder directory label to write simulated reports into}
 
-\item{prefix}{prefex for simulated observations}
+\item{prefix}{prefix for simulated observations}
 
 \item{single_sim_filename}{optional filename, if provided then will report simulated observations into a single file, rather than separate files.}
 
