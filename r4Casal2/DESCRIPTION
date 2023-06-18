@@ -1,6 +1,7 @@
 Package: r4Casal2
-Title: r4Casal2 R package for post processing Casal2 model runs
+Title: R package for post processing Casal2 model output
 Version: 1.0.2
+Date: 2023-05-30
 Author: C Marsh & A Dunn
 Description: Accessor and utility functions to support the Casal2 R Library.
 Maintainer: Casal2 Development Team <casal2@niwa.co.nz>  Alistair Dunn <alistair.dunn@oceanenvironmental.co.nz>

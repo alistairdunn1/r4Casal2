@@ -3,8 +3,10 @@ source("Version.R")
 
 # Build DESCRIPTION file
 filename <- "r4Casal2/DESCRIPTION"
-cat("Package: r4Casal2\nTitle: r4Casal2 R package for post processing Casal2 model runs\nVersion: ", file = filename)
+cat("Package: r4Casal2\nTitle: R package for post processing Casal2 model output\nVersion: ", file = filename)
 cat(VersionNumber, file = filename, append = TRUE)
+cat("\nDate: ",file = filename, append = TRUE)
+cat(Date, file = filename, append = TRUE)
 cat("\n", file = filename, append = TRUE)
 cat("Author: C Marsh & A Dunn\n", file = filename, append = TRUE)
 cat("Description: Accessor and utility functions to support the Casal2 R Library.\n", file = filename, append = TRUE)
