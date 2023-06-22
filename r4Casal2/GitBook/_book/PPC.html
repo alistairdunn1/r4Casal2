@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
-  <meta name="github-repo" content="https://github.com/NIWAFisheriesModelling/r4Casal2" />
+  <meta name="github-repo" content="https://github.com/alistairdunn1/r4Casal2" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 7 Posterior Predictive Checks | r4Casal2" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
   
 
-<meta name="author" content="C.Marsh" />
+<meta name="author" content="C. Marsh &amp; A. Dunn" />
 
 
-<meta name="date" content="2023-06-18" />
+<meta name="date" content="2023-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -217,7 +217,7 @@ div.csl-indent {
 <li class="chapter" data-level="8" data-path="presentwithBookdown.html"><a href="presentwithBookdown.html"><i class="fa fa-check"></i><b>8</b> Presenting Models using Bookdown</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/NIWAFisheriesModelling/r4Casal2" target="blank">Github Repo here</a></li>
+<li><a href="https://github.com/alistairdunn1/r4Casal2" target="blank">Github Repo here</a></li>
 
 </ul>
 
@@ -249,7 +249,7 @@ div.csl-indent {
 </div>
 <div id="estimation" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Estimation<a href="PPC.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Before looking at data goodness of fit you should be checking if the model has converged. We assume that the estimated model has satisfied this criteria i.e. invertable covariance, acceptable gradient (close to zero) and global minima (apposed to local try jittering start values).</p>
+<p>Before looking at data goodness of fit you should be checking if the model has converged. We assume that the estimated model has satisfied this criteria i.e. invertable covariance, acceptable gradient (close to zero) and global minima (as opposed to local - try re-estimating with jittered start values to test for this).</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="PPC.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DHARMa)</span>
 <span id="cb58-2"><a href="PPC.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm) <span class="do">## if simulating obs at MPD</span></span>
 <span id="cb58-3"><a href="PPC.html#cb58-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -262,11 +262,12 @@ div.csl-indent {
 ## The Casal2 R package is compatible with Casal2 v23.06</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="PPC.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Report labels</span></span>
 <span id="cb60-2"><a href="PPC.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mpd)</span></code></pre></div>
-<pre><code>##  [1] &quot;header&quot;               &quot;obj&quot;                  &quot;estimate_summary&quot;     &quot;covar&quot;                &quot;hess&quot;                 &quot;estimate_value&quot;      
-##  [7] &quot;biomass_t1&quot;           &quot;chatOBSest&quot;           &quot;chatOBSwst&quot;           &quot;chatTANage&quot;           &quot;chatTANbiomass&quot;       &quot;Recruitment&quot;         
-## [13] &quot;Ageing&quot;               &quot;instant_mort&quot;         &quot;MaturationSel&quot;        &quot;westFSel&quot;             &quot;eastFSel&quot;             &quot;chatTANSel&quot;          
-## [19] &quot;One&quot;                  &quot;messages_encountered&quot;</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="PPC.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is covariance symetric</span></span>
+<pre><code>##  [1] &quot;header&quot;               &quot;obj&quot;                  &quot;estimate_summary&quot;     &quot;covar&quot;               
+##  [5] &quot;hess&quot;                 &quot;estimate_value&quot;       &quot;biomass_t1&quot;           &quot;chatOBSest&quot;          
+##  [9] &quot;chatOBSwst&quot;           &quot;chatTANage&quot;           &quot;chatTANbiomass&quot;       &quot;Recruitment&quot;         
+## [13] &quot;Ageing&quot;               &quot;instant_mort&quot;         &quot;MaturationSel&quot;        &quot;westFSel&quot;            
+## [17] &quot;eastFSel&quot;             &quot;chatTANSel&quot;           &quot;One&quot;                  &quot;messages_encountered&quot;</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="PPC.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is covariance symmetric</span></span>
 <span id="cb62-2"><a href="PPC.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">isSymmetric</span>(mpd<span class="sc">$</span>covar<span class="sc">$</span>covariance_matrix)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="PPC.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># is hessian invertable</span></span>
@@ -290,10 +291,10 @@ div.csl-indent {
 <span id="cb66-12"><a href="PPC.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="co"># system(paste0(&quot;cd &quot;, config_dir, &quot;; casal2 -s 100 -i pars&quot; ))</span></span></code></pre></div>
 <p>If you don’t have these reports in your configuration files, Casal2 will not save simulated observations. Tips when specifying this report class</p>
 <ol style="list-style-type: decimal">
-<li>Save each simulated observation into a seperate <code>file_name</code></li>
+<li>Save each simulated observation into a separate <code>file_name</code></li>
 <li>Create a directory to save simulated data sets in.</li>
 <li>Have the report label the same as the <code>file_name</code> (see example below)</li>
-<li>Avoid haveing periods/dots (“.”) in <code>file_name</code></li>
+<li>Avoid the use of periods/dots (“.”) in <code>file_name</code></li>
 </ol>
 <p>An example report structure would look like</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb67-1"><a href="PPC.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@report</span> sim_chatTANage</span>
@@ -348,7 +349,7 @@ div.csl-indent {
 </div>
 <div id="posterior-predictive-checks" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">7.5</span> Posterior predictive checks<a href="PPC.html#posterior-predictive-checks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once simulated data has been read into the R environment, we want to compare where the observed values fall relative to the posterior predictive distributions. We recommend using the DHarma r package for this. To intepret P-values or understand the test-statistics that DHARMa does copy this into your R console <code>vignette("DHARMa", package="DHARMa")</code> (Assuming you have installed this package).</p>
+<p>Once simulated data has been read into the R environment, we want to compare where the observed values fall relative to the posterior predictive distributions. We recommend using the DHarma r package for this. To interpret P-values or understand the test-statistics that DHARMa does copy this into your R console <code>vignette("DHARMa", package="DHARMa")</code> (Assuming you have installed this package).</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="PPC.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create DHARMa objects and P-values</span></span>
 <span id="cb79-2"><a href="PPC.html#cb79-2" aria-hidden="true" tabindex="-1"></a>DHARMaResbio <span class="ot">=</span> <span class="fu">createDHARMa</span>(<span class="at">simulatedResponse =</span> sim_vals<span class="sc">$</span>sim_obs<span class="sc">$</span>sim_chatTANbiomass, </span>
 <span id="cb79-3"><a href="PPC.html#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">observedResponse =</span> mpd<span class="sc">$</span>chatTANbiomass<span class="sc">$</span>Values<span class="sc">$</span>observed, </span>
@@ -472,7 +473,7 @@ div.csl-indent {
 </div>
 <div id="pit-residuals" class="section level2 hasAnchor" number="7.6">
 <h2><span class="header-section-number">7.6</span> PIT residuals<a href="PPC.html#pit-residuals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Pearson residuals for multinomial distributed random variables can be difficult to intepret for a lot of reasons, data-weighting for mean age to standardised residuals = 1 <span class="citation">(<a href="#ref-francis2011data" role="doc-biblioref">Francis 2011</a>)</span>, sparsity can create funny patterns etc. An alternative is to use randomised quantile PIT residuals <span class="citation">(<a href="#ref-warton2017pit" role="doc-biblioref">Warton, Thibaut, and Wang 2017</a>; <a href="#ref-dunn1996randomized" role="doc-biblioref">Dunn and Smyth 1996</a>)</span></p>
+<p>Pearson residuals for multinomial distributed random variables can be difficult to interpret for a lot of reasons, data-weighting for mean age to standardised residuals = 1 <span class="citation">(<a href="#ref-francis2011data" role="doc-biblioref">Francis 2011</a>)</span>, sparsity can create funny patterns etc. An alternative is to use randomised quantile PIT residuals <span class="citation">(<a href="#ref-warton2017pit" role="doc-biblioref">Warton, Thibaut, and Wang 2017</a>; <a href="#ref-dunn1996randomized" role="doc-biblioref">Dunn and Smyth 1996</a>)</span></p>
 <p>Assuming we have data denoted by <span class="math inline">\(y\)</span> which has cumulative distribution function <span class="math inline">\(F(y; \theta), u = F(y; \theta) \sim Uniform(0,1)\)</span>. For discrete variables the following adjustment can be made
 <span class="math display">\[\begin{align}
 u_i = q_i F(y; \theta) + (1 - q_i) F(y^{-}; \theta)
@@ -509,7 +510,7 @@ they do not behave like residuals in the usual sense they are centred around a v
 <span id="cb97-28"><a href="PPC.html#cb97-28" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb97-29"><a href="PPC.html#cb97-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(PITResiduals, altPITResiduals)</span></code></pre></div>
 <p><img src="_main_files/figure-html/illustrate_PIT-1.png" width="672" /></p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="PPC.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is assumed that PIT resiudals are from uniform(0,1)</span></span>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="PPC.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is assumed that PIT residuals are from uniform(0,1)</span></span>
 <span id="cb98-2"><a href="PPC.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="co"># most people transform them to normal distribution for testing</span></span>
 <span id="cb98-3"><a href="PPC.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for familiarity more than anything.</span></span>
 <span id="cb98-4"><a href="PPC.html#cb98-4" aria-hidden="true" tabindex="-1"></a>normal_transformed <span class="ot">=</span> <span class="fu">qnorm</span>(PITResiduals)</span>
@@ -577,7 +578,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/NIWAFisheriesModelling/r4Casal2/edit/main/06-PosteriorPredictiveChecks.Rmd",
+"link": "https://github.com/alistairdunn1/r4Casal2/edit/main/06-PosteriorPredictiveChecks.Rmd",
 "text": "Edit"
 },
 "history": {

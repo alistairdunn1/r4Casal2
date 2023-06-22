@@ -1,6 +1,6 @@
 # Summarise configuration inputs {#summariseinputs}
 
-The `r4Casal2` has some functions that summarise a set of input files and returns a summary of the key model attributes. It can be difficult to know all the working parts in a Casal2 model. This is compouned when users often make tweaks during an assessment and so the initial assumptions will not correspond to the final assumptions. The key function is `summarise_config`
+The `r4Casal2` has some functions that summarise a set of input files and returns a summary of the key model attributes. It can be difficult to know all the working parts in a Casal2 model. This is compounded when users make tweaks during an assessment and so the initial assumptions will not correspond to the final assumptions. The key function is `summarise_config`
 
 ## Example files
 
@@ -25,8 +25,7 @@ ggplot(summary$obs_year_df, aes(x = year, y = observation, col = observation, si
   guides(colour = "none", size = "none")
 ```
 
-
-```{r annual_cycle}
+```{r $annual_cycle$}
 kable(x = summary$time_step_df, caption = "Annual cycle")
 ```
 
@@ -38,5 +37,3 @@ kable(x = summary$full_category_df, caption = "Category information")
 ```{r estimates}
 kable(x = summary$estimate_df, caption = "Estimate summary")
 ```
-
-

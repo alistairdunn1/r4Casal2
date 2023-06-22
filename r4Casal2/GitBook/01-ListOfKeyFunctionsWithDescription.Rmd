@@ -4,7 +4,7 @@
 
 ## Accessor functions
 
-* `get_derived_quantities()` or for lazy people (like myself) `get_dqs()`. These will return all the derived quantities for a model output.
+* `get_derived_quantities()` (or in shorthand form `get_dqs()`). These will return all the derived quantities for a model output.
 
 * `get_selectivities` will return a data frame with all the selectivity reports for a model output.
 

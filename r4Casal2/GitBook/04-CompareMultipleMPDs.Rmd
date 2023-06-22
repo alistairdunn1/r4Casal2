@@ -1,7 +1,5 @@
 # Comparing multiple MPD runs {#summarisemultipleinputs}
 
-
-
 ## Read in models
 ```{r read_multiple_models, fig.width=6, fig.height=4, results = 'hide', message=FALSE, warning=FALSE}
 file_name_low_m = system.file("extdata", "SimpleTestModel" ,"LowM.log", 

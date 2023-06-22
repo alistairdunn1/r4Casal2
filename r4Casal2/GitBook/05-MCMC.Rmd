@@ -15,7 +15,7 @@ mcmc_3 = extract.mcmc(path = cas2_file_dir, samples.file = "samples.6", objectiv
 mcmc_1$chain = "1"
 mcmc_2$chain = "2"
 mcmc_3$chain = "3"
-## Remove Burnin
+## Remove burn-in iterations
 mcmc_post_1 = mcmc_1 %>% filter(state == "mcmc")
 mcmc_post_2 = mcmc_2 %>% filter(state == "mcmc")
 mcmc_post_3 = mcmc_3 %>% filter(state == "mcmc")

@@ -10,7 +10,7 @@ The following vignette uses the Casal2 model embedded into this R package. If yo
 
 
 ## Estimation
-Before looking at data goodness of fit you should be checking if the model has converged. We assume that the estimated model has satisfied this criteria i.e. invertable covariance, acceptable gradient (close to zero) and global minima (apposed to local try jittering start values).
+Before looking at data goodness of fit you should be checking if the model has converged. We assume that the estimated model has satisfied this criteria i.e. invertable covariance, acceptable gradient (close to zero) and global minima (as opposed to local - try re-estimating with jittered start values to test for this).
 
 ```{r check_mpd, fig.width=6, fig.height=4}
 library(DHARMa)
@@ -21,7 +21,7 @@ mpd_file_name = system.file("extdata", "PosteriorPredictiveChecks","estimate.log
 mpd = extract.mpd(file = mpd_file_name)
 # Report labels
 names(mpd)
-# is covariance symetric
+# is covariance symmetric
 isSymmetric(mpd$covar$covariance_matrix)
 # is hessian invertable
 is_matrix_invertable(mpd$hess$hessian_matrix)
@@ -49,10 +49,10 @@ if(FALSE)
 
 If you don't have these reports in your configuration files, Casal2 will not save simulated observations. Tips when specifying this report class
 
-1. Save each simulated observation into a seperate `file_name`
+1. Save each simulated observation into a separate `file_name`
 2. Create a directory to save simulated data sets in.
 3. Have the report label the same as the `file_name` (see example below)
-4. Avoid haveing periods/dots (".") in `file_name`
+4. Avoid the use of periods/dots (".") in `file_name`
 
 An example report structure would look like
 ```{bash report_example, eval = F}
@@ -109,7 +109,7 @@ sim_vals_alt$failed_files
 names(sim_vals_alt$sim_obs)
 ```
 ## Posterior predictive checks
-Once simulated data has been read into the R environment, we want to compare where the observed values fall relative to the posterior predictive distributions. We recommend using the DHarma r package for this. To intepret P-values or understand the test-statistics that DHARMa does copy this into your R console `vignette("DHARMa", package="DHARMa")` (Assuming you have installed this package).
+Once simulated data has been read into the R environment, we want to compare where the observed values fall relative to the posterior predictive distributions. We recommend using the DHarma r package for this. To interpret P-values or understand the test-statistics that DHARMa does copy this into your R console `vignette("DHARMa", package="DHARMa")` (Assuming you have installed this package).
 
 ```{r ppp, fig.width=8, fig.height=4}
 ## Create DHARMa objects and P-values
@@ -229,7 +229,7 @@ my_plot = my_plot + xlab("SSB") + ylim(0, 120000)
 
 
 ## PIT residuals
-Pearson residuals for multinomial distributed random variables can be difficult to intepret for a lot of reasons, data-weighting for mean age to standardised residuals = 1 [@francis2011data], sparsity can create funny patterns etc. An alternative is to use randomised quantile PIT residuals [@warton2017pit; @dunn1996randomized] 
+Pearson residuals for multinomial distributed random variables can be difficult to interpret for a lot of reasons, data-weighting for mean age to standardised residuals = 1 [@francis2011data], sparsity can create funny patterns etc. An alternative is to use randomised quantile PIT residuals [@warton2017pit; @dunn1996randomized] 
 
 Assuming we have data denoted by $y$ which has cumulative distribution function $F(y; \theta), u = F(y; \theta) \sim Uniform(0,1)$. For discrete variables the following adjustment can be made
 \begin{align}
@@ -268,7 +268,7 @@ for (i in 1:n){
   altPITResiduals[i] = qi * cum_ecdf + (1 - qi) * lower_limit
 }
 plot(PITResiduals, altPITResiduals)
-# It is assumed that PIT resiudals are from uniform(0,1)
+# It is assumed that PIT residuals are from uniform(0,1)
 # most people transform them to normal distribution for testing
 # for familiarity more than anything.
 normal_transformed = qnorm(PITResiduals)

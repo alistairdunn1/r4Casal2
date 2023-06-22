@@ -30,7 +30,7 @@ mpd_file_name = system.file("extdata", "PosteriorPredictiveChecks","estimate.log
                             package = "r4Casal2", mustWork = TRUE)
 # read in output
 mpd = extract.mpd(file = mpd_file_name)
-# is covariance symetric
+# is covariance symmetric
 isSymmetric(mpd$covar$covariance_matrix)
 # is hessian invertable
 is_matrix_invertable(mpd$hess$hessian_matrix)
@@ -41,7 +41,7 @@ corr_df = get_high_correlations(correlation_matrix = correlation_matrix, max_cor
 corr_df$correlation = round(corr_df$correlation, 3)
 ```
 
-```{r correlated_params}
+```{r $correlated_params$}
 kable(x = corr_df[,c("correlation", "row_param", "col_param")], 
       caption = "Correlated Parameters")
 ```
@@ -101,10 +101,6 @@ A useful diagnostic that is encouraged to explore is to run Casal2 as an age-str
 
 This runs will help you explore the fit and production assumptions in the data. The idea is to understand what parameters are informing what population signals and how perhaps identify misspecifications. For more information on this diagnostic we recommend users read @MINTEVERA2017114.
 
-
-
-
-
 ### Data Weighting
 Some pseudo r code to help with data weighting according to @francis2011data with multinomial data.
 ```{r data_weighting,eval=F}
@@ -134,7 +130,7 @@ plot_recruitment(MPD_list, quantity = "standardised_recruitment_multipliers")
 #### Fishing Pressures {-}
 Below illustrates code to plot fishing pressure, but you can also easily adapt the code to plot catches. One thing to note, is Casal2 will report both `exploitation_rate` (actual a proportion also called harvest rate) and `fishing_pressures`. For models that only have a single fishery per time-step and area these quantities will be the same. If there are multiple fisheries interacting with the partition in the same time-step then these quantities will differ. Fishing pressure is the maximum exploitation applied to the partition for that time-step. See the Casal2 user manual for more detail on the difference. `exploitation_rate` reported is just
 \[
-\frac{catch}{vunerable}
+\frac{catch}{vulnerable}
 \]
 
 Some R-code used to summarise fishing pressures.
@@ -209,7 +205,7 @@ ggplot(selectivity_df, aes(x = bin, y = selectivity, col = selectivity_label)) +
 ```{r growth_df, fig.width=6, fig.height=4}
 growth_df = get_growth(mpd)
 head(growth_df)
-## if time-varying or type data summaris mean length and weight by year
+## if time-varying or type data summarise mean length and weight by year
 avg_summarises = growth_df %>% group_by(year) %>% summarise(
   mean_length = mean(mean_length_at_age), 
   mean_weight = mean(mean_weight_at_age))
@@ -242,8 +238,8 @@ ggplot(growth_df %>% filter(year == 1990)) +
 #### Relative abundance {-}
 ```{r plot_relative_index, fig.width=8, fig.height=6}
 ## define a palette
-obs_pallete <- c("#E69F00", "#56B4E9","#009E73")
-names(obs_pallete) = c("Observed", "Predicted","Pearson's Residuals")
+obs_palette <- c("#E69F00", "#56B4E9","#009E73")
+names(obs_palette) = c("Observed", "Predicted","Pearson's Residuals")
 ## get abundance data frames
 abundance_obs = get_abundance_observations(mpd)
 abundance_obs_label = unique((abundance_obs$observation_label))
@@ -265,7 +261,7 @@ ggplot(abundance_obs, aes(x = year)) +
           axis.title = element_text(size = 14),
           strip.text = element_text(size=14),
           legend.text = element_text(size=14)) +
-    scale_color_manual(values = obs_pallete[1:2])
+    scale_color_manual(values = obs_palette[1:2])
 ```
 
 ```{r plot_resid_index, fig.width=8, fig.height=6}
@@ -312,7 +308,7 @@ unique(comp_obs$observation_label)
 ## and the first 12 years
 this_obs = comp_obs %>% filter(observation_label == "chatTANage")
 years_to_plot = unique(this_obs$year)[1:12]
-## calcualte effective N for plot
+## calculate effective N for plot
 this_obs = this_obs %>% group_by(year, observation_label) %>% 
   mutate(Nassumed = mean(adjusted_error))
   this_obs$label = paste0(this_obs$year, " N = ", round(this_obs$Nassumed,1))
@@ -329,14 +325,14 @@ ggplot(this_obs, aes(x = age)) +
         axis.title = element_text(size = 14),
         strip.text = element_text(size=14),
         legend.text = element_text(size=14)) +
-  scale_color_manual(values = obs_pallete[1:2])
+  scale_color_manual(values = obs_palette[1:2])
 ```
 
 
 ```{r plot_mean_age_fit, fig.width=10, fig.height=10}
 mean_age_df = get_composition_mean_bin(mpd)
 n_obs = unique(mean_age_df$observation_label)
-## create a nice plot with seperate axis
+## create a nice plot with separate axis
 ggplot(mean_age_df, aes(x = year, col = observation_label)) +
   geom_errorbar(aes(ymin = Oy-2*SEy, ymax = Oy + 2*SEy), width=.5, 
                 position = position_dodge(width=0)) +

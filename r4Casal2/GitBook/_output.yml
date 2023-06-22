@@ -5,8 +5,8 @@ bookdown::gitbook:
       before: |
         <li><a href="./">r4Casal2</a></li>
       after: |
-        <li><a href="https://github.com/NIWAFisheriesModelling/r4Casal2" target="blank">Github Repo here</a></li>
-    edit: https://github.com/NIWAFisheriesModelling/r4Casal2/edit/main/%s
+        <li><a href="https://github.com/alistairdunn1/r4Casal2" target="blank">Github Repo here</a></li>
+    edit: https://github.com/alistairdunn1/r4Casal2/edit/main/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

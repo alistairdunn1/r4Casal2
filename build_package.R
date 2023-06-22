@@ -13,7 +13,7 @@ build("r4Casal2")
 testthat::test_dir("r4Casal2/tests/testthat/")
 ## build bookdown locally
 bookdown::render_book(input = "r4Casal2/GitBook/")
-#bookdown::render_book(input = "r4Casal2/GitBook/", "bookdown::pdf_book")
+bookdown::render_book(input = "r4Casal2/GitBook/", "bookdown::pdf_book")
 
 # Final build for clean version for distribution
 devtools::build("r4Casal2", binary = TRUE, args = c("--preclean"))

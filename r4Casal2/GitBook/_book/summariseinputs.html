@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
-  <meta name="github-repo" content="https://github.com/NIWAFisheriesModelling/r4Casal2" />
+  <meta name="github-repo" content="https://github.com/alistairdunn1/r4Casal2" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Summarise configuration inputs | r4Casal2" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
   
 
-<meta name="author" content="C.Marsh" />
+<meta name="author" content="C. Marsh &amp; A. Dunn" />
 
 
-<meta name="date" content="2023-06-18" />
+<meta name="date" content="2023-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -217,7 +217,7 @@ div.csl-indent {
 <li class="chapter" data-level="8" data-path="presentwithBookdown.html"><a href="presentwithBookdown.html"><i class="fa fa-check"></i><b>8</b> Presenting Models using Bookdown</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/NIWAFisheriesModelling/r4Casal2" target="blank">Github Repo here</a></li>
+<li><a href="https://github.com/alistairdunn1/r4Casal2" target="blank">Github Repo here</a></li>
 
 </ul>
 
@@ -238,7 +238,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="summariseinputs" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Summarise configuration inputs<a href="summariseinputs.html#summariseinputs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The <code>r4Casal2</code> has some functions that summarise a set of input files and returns a summary of the key model attributes. It can be difficult to know all the working parts in a Casal2 model. This is compouned when users often make tweaks during an assessment and so the initial assumptions will not correspond to the final assumptions. The key function is <code>summarise_config</code></p>
+<p>The <code>r4Casal2</code> has some functions that summarise a set of input files and returns a summary of the key model attributes. It can be difficult to know all the working parts in a Casal2 model. This is compounded when users make tweaks during an assessment and so the initial assumptions will not correspond to the final assumptions. The key function is <code>summarise_config</code></p>
 <div id="example-files" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Example files<a href="summariseinputs.html#example-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="summariseinputs.html#cb2-1" aria-hidden="true" tabindex="-1"></a>config_dir <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;TestModelComplex&quot;</span>, <span class="at">package =</span> <span class="st">&quot;r4Casal2&quot;</span>, <span class="at">mustWork =</span> <span class="cn">TRUE</span>)</span>
@@ -247,8 +247,9 @@ div.csl-indent {
 <span id="cb2-4"><a href="summariseinputs.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## as well as validation.</span></span>
 <span id="cb2-5"><a href="summariseinputs.html#cb2-5" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">=</span> <span class="fu">summarise_config</span>(config_dir, <span class="at">config_file =</span> <span class="st">&quot;config.csl2&quot;</span>, <span class="at">quiet =</span> T)</span>
 <span id="cb2-6"><a href="summariseinputs.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(summary)</span></code></pre></div>
-<pre><code>##  [1] &quot;category_df&quot;           &quot;estimate_df&quot;           &quot;full_category_df&quot;      &quot;method_df&quot;             &quot;catch_df&quot;              &quot;time_step_df&quot;         
-##  [7] &quot;time_step_df_just_lab&quot; &quot;obs_year_df&quot;           &quot;model_years&quot;           &quot;model_ages&quot;            &quot;model_length_bins&quot;     &quot;M_by_category&quot;        
+<pre><code>##  [1] &quot;category_df&quot;           &quot;estimate_df&quot;           &quot;full_category_df&quot;      &quot;method_df&quot;            
+##  [5] &quot;catch_df&quot;              &quot;time_step_df&quot;          &quot;time_step_df_just_lab&quot; &quot;obs_year_df&quot;          
+##  [9] &quot;model_years&quot;           &quot;model_ages&quot;            &quot;model_length_bins&quot;     &quot;M_by_category&quot;        
 ## [13] &quot;model_block&quot;</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="summariseinputs.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary<span class="sc">$</span>catch_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> catch, <span class="at">col =</span> fishery)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="summariseinputs.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
@@ -261,7 +262,7 @@ div.csl-indent {
 <p><img src="_main_files/figure-html/input_observations-1.png" width="576" /></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="summariseinputs.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> summary<span class="sc">$</span>time_step_df, <span class="at">caption =</span> <span class="st">&quot;Annual cycle&quot;</span>)</span></code></pre></div>
 <table style="width:100%;">
-<caption>(#tab:annual_cycle)Annual cycle</caption>
+<caption>(#tab:<span class="math inline">\(annual_cycle\)</span>)Annual cycle</caption>
 <colgroup>
 <col width="3%" />
 <col width="45%" />
@@ -738,7 +739,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/NIWAFisheriesModelling/r4Casal2/edit/main/02-ModelSummaries.Rmd",
+"link": "https://github.com/alistairdunn1/r4Casal2/edit/main/02-ModelSummaries.Rmd",
 "text": "Edit"
 },
 "history": {

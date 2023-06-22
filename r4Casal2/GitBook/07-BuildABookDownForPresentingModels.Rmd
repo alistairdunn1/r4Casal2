@@ -5,8 +5,3 @@ Recently there has been a lot of development with respect to using R Shiny apps 
 Often when presenting Casal2 models we present a suite of models. This means each presentation will be bespoke to the problem as you may want to emphasis different model characteristics. That being said, this chapter will walk through an example that I have recently been working on, with the aim of providing a template for others to use. 
 
 The main function that has been created for this task is `?build_assessment_bookdown`.
-
-
-
-
-

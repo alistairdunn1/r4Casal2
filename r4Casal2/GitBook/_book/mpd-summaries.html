@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
-  <meta name="github-repo" content="https://github.com/NIWAFisheriesModelling/r4Casal2" />
+  <meta name="github-repo" content="https://github.com/alistairdunn1/r4Casal2" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 4 MPD summaries | r4Casal2" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="This book demonstrates how to use r4Casal2 to make your Casal2 experience better." />
   
 
-<meta name="author" content="C.Marsh" />
+<meta name="author" content="C. Marsh &amp; A. Dunn" />
 
 
-<meta name="date" content="2023-06-18" />
+<meta name="date" content="2023-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -217,7 +217,7 @@ div.csl-indent {
 <li class="chapter" data-level="8" data-path="presentwithBookdown.html"><a href="presentwithBookdown.html"><i class="fa fa-check"></i><b>8</b> Presenting Models using Bookdown</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/NIWAFisheriesModelling/r4Casal2" target="blank">Github Repo here</a></li>
+<li><a href="https://github.com/alistairdunn1/r4Casal2" target="blank">Github Repo here</a></li>
 
 </ul>
 
@@ -258,7 +258,7 @@ div.csl-indent {
 <span id="cb12-3"><a href="mpd-summaries.html#cb12-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">package =</span> <span class="st">&quot;r4Casal2&quot;</span>, <span class="at">mustWork =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb12-4"><a href="mpd-summaries.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># read in output</span></span>
 <span id="cb12-5"><a href="mpd-summaries.html#cb12-5" aria-hidden="true" tabindex="-1"></a>mpd <span class="ot">=</span> <span class="fu">extract.mpd</span>(<span class="at">file =</span> mpd_file_name)</span>
-<span id="cb12-6"><a href="mpd-summaries.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># is covariance symetric</span></span>
+<span id="cb12-6"><a href="mpd-summaries.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># is covariance symmetric</span></span>
 <span id="cb12-7"><a href="mpd-summaries.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">isSymmetric</span>(mpd<span class="sc">$</span>covar<span class="sc">$</span>covariance_matrix)</span>
 <span id="cb12-8"><a href="mpd-summaries.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># is hessian invertable</span></span>
 <span id="cb12-9"><a href="mpd-summaries.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">is_matrix_invertable</span>(mpd<span class="sc">$</span>hess<span class="sc">$</span>hessian_matrix)</span>
@@ -270,7 +270,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="mpd-summaries.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> corr_df[,<span class="fu">c</span>(<span class="st">&quot;correlation&quot;</span>, <span class="st">&quot;row_param&quot;</span>, <span class="st">&quot;col_param&quot;</span>)], </span>
 <span id="cb13-2"><a href="mpd-summaries.html#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">&quot;Correlated Parameters&quot;</span>)</span></code></pre></div>
 <table>
-<caption>(#tab:correlated_params)Correlated Parameters</caption>
+<caption>(#tab:<span class="math inline">\(correlated_params\)</span>)Correlated Parameters</caption>
 <colgroup>
 <col width="13%" />
 <col width="43%" />
@@ -406,7 +406,7 @@ div.csl-indent {
 <h4>Fishing Pressures<a href="mpd-summaries.html#fishing-pressures" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Below illustrates code to plot fishing pressure, but you can also easily adapt the code to plot catches. One thing to note, is Casal2 will report both <code>exploitation_rate</code> (actual a proportion also called harvest rate) and <code>fishing_pressures</code>. For models that only have a single fishery per time-step and area these quantities will be the same. If there are multiple fisheries interacting with the partition in the same time-step then these quantities will differ. Fishing pressure is the maximum exploitation applied to the partition for that time-step. See the Casal2 user manual for more detail on the difference. <code>exploitation_rate</code> reported is just
 <span class="math display">\[
-\frac{catch}{vunerable}
+\frac{catch}{vulnerable}
 \]</span></p>
 <p>Some R-code used to summarise fishing pressures.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="mpd-summaries.html#cb16-1" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;SimpleTestModel&quot;</span>, <span class="st">&quot;estimate.log&quot;</span>, </span>
@@ -478,7 +478,7 @@ Flexibility using standard ggplot functions</p>
 ## 4   4 1975     step1        0.1            63.8482        0.001789010 age_length_step1       1
 ## 5   5 1975     step1        0.1            70.5854        0.002488050 age_length_step1       1
 ## 6   6 1975     step1        0.1            76.1440        0.003192290 age_length_step1       1</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="mpd-summaries.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## if time-varying or type data summaris mean length and weight by year</span></span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="mpd-summaries.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## if time-varying or type data summarise mean length and weight by year</span></span>
 <span id="cb23-2"><a href="mpd-summaries.html#cb23-2" aria-hidden="true" tabindex="-1"></a>avg_summarises <span class="ot">=</span> growth_df <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(</span>
 <span id="cb23-3"><a href="mpd-summaries.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean_length =</span> <span class="fu">mean</span>(mean_length_at_age), </span>
 <span id="cb23-4"><a href="mpd-summaries.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean_weight =</span> <span class="fu">mean</span>(mean_weight_at_age))</span>
@@ -507,8 +507,8 @@ Flexibility using standard ggplot functions</p>
 <div id="relative-abundance" class="section level4 unnumbered hasAnchor">
 <h4>Relative abundance<a href="mpd-summaries.html#relative-abundance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="mpd-summaries.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## define a palette</span></span>
-<span id="cb26-2"><a href="mpd-summaries.html#cb26-2" aria-hidden="true" tabindex="-1"></a>obs_pallete <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>,<span class="st">&quot;#009E73&quot;</span>)</span>
-<span id="cb26-3"><a href="mpd-summaries.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obs_pallete) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Observed&quot;</span>, <span class="st">&quot;Predicted&quot;</span>,<span class="st">&quot;Pearson&#39;s Residuals&quot;</span>)</span>
+<span id="cb26-2"><a href="mpd-summaries.html#cb26-2" aria-hidden="true" tabindex="-1"></a>obs_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#E69F00&quot;</span>, <span class="st">&quot;#56B4E9&quot;</span>,<span class="st">&quot;#009E73&quot;</span>)</span>
+<span id="cb26-3"><a href="mpd-summaries.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(obs_palette) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Observed&quot;</span>, <span class="st">&quot;Predicted&quot;</span>,<span class="st">&quot;Pearson&#39;s Residuals&quot;</span>)</span>
 <span id="cb26-4"><a href="mpd-summaries.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="do">## get abundance data frames</span></span>
 <span id="cb26-5"><a href="mpd-summaries.html#cb26-5" aria-hidden="true" tabindex="-1"></a>abundance_obs <span class="ot">=</span> <span class="fu">get_abundance_observations</span>(mpd)</span>
 <span id="cb26-6"><a href="mpd-summaries.html#cb26-6" aria-hidden="true" tabindex="-1"></a>abundance_obs_label <span class="ot">=</span> <span class="fu">unique</span>((abundance_obs<span class="sc">$</span>observation_label))</span>
@@ -530,7 +530,7 @@ Flexibility using standard ggplot functions</p>
 <span id="cb26-22"><a href="mpd-summaries.html#cb26-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
 <span id="cb26-23"><a href="mpd-summaries.html#cb26-23" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>),</span>
 <span id="cb26-24"><a href="mpd-summaries.html#cb26-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>)) <span class="sc">+</span></span>
-<span id="cb26-25"><a href="mpd-summaries.html#cb26-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> obs_pallete[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<span id="cb26-25"><a href="mpd-summaries.html#cb26-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> obs_palette[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="_main_files/figure-html/plot_relative_index-1.png" width="768" /></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="mpd-summaries.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plot pearsons residuals</span></span>
 <span id="cb27-2"><a href="mpd-summaries.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(abundance_obs, <span class="fu">aes</span>(<span class="at">x =</span> year)) <span class="sc">+</span></span>
@@ -578,7 +578,7 @@ Flexibility using standard ggplot functions</p>
 <span id="cb34-2"><a href="mpd-summaries.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="do">## and the first 12 years</span></span>
 <span id="cb34-3"><a href="mpd-summaries.html#cb34-3" aria-hidden="true" tabindex="-1"></a>this_obs <span class="ot">=</span> comp_obs <span class="sc">%&gt;%</span> <span class="fu">filter</span>(observation_label <span class="sc">==</span> <span class="st">&quot;chatTANage&quot;</span>)</span>
 <span id="cb34-4"><a href="mpd-summaries.html#cb34-4" aria-hidden="true" tabindex="-1"></a>years_to_plot <span class="ot">=</span> <span class="fu">unique</span>(this_obs<span class="sc">$</span>year)[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>]</span>
-<span id="cb34-5"><a href="mpd-summaries.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="do">## calcualte effective N for plot</span></span>
+<span id="cb34-5"><a href="mpd-summaries.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="do">## calculate effective N for plot</span></span>
 <span id="cb34-6"><a href="mpd-summaries.html#cb34-6" aria-hidden="true" tabindex="-1"></a>this_obs <span class="ot">=</span> this_obs <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(year, observation_label) <span class="sc">%&gt;%</span> </span>
 <span id="cb34-7"><a href="mpd-summaries.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Nassumed =</span> <span class="fu">mean</span>(adjusted_error))</span>
 <span id="cb34-8"><a href="mpd-summaries.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  this_obs<span class="sc">$</span>label <span class="ot">=</span> <span class="fu">paste0</span>(this_obs<span class="sc">$</span>year, <span class="st">&quot; N = &quot;</span>, <span class="fu">round</span>(this_obs<span class="sc">$</span>Nassumed,<span class="dv">1</span>))</span>
@@ -595,11 +595,11 @@ Flexibility using standard ggplot functions</p>
 <span id="cb34-19"><a href="mpd-summaries.html#cb34-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
 <span id="cb34-20"><a href="mpd-summaries.html#cb34-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>),</span>
 <span id="cb34-21"><a href="mpd-summaries.html#cb34-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>)) <span class="sc">+</span></span>
-<span id="cb34-22"><a href="mpd-summaries.html#cb34-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> obs_pallete[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<span id="cb34-22"><a href="mpd-summaries.html#cb34-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> obs_palette[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="_main_files/figure-html/plot_comp_fit-1.png" width="960" /></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="mpd-summaries.html#cb35-1" aria-hidden="true" tabindex="-1"></a>mean_age_df <span class="ot">=</span> <span class="fu">get_composition_mean_bin</span>(mpd)</span>
 <span id="cb35-2"><a href="mpd-summaries.html#cb35-2" aria-hidden="true" tabindex="-1"></a>n_obs <span class="ot">=</span> <span class="fu">unique</span>(mean_age_df<span class="sc">$</span>observation_label)</span>
-<span id="cb35-3"><a href="mpd-summaries.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## create a nice plot with seperate axis</span></span>
+<span id="cb35-3"><a href="mpd-summaries.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## create a nice plot with separate axis</span></span>
 <span id="cb35-4"><a href="mpd-summaries.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mean_age_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">col =</span> observation_label)) <span class="sc">+</span></span>
 <span id="cb35-5"><a href="mpd-summaries.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Oy<span class="dv">-2</span><span class="sc">*</span>SEy, <span class="at">ymax =</span> Oy <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>SEy), <span class="at">width=</span>.<span class="dv">5</span>, </span>
 <span id="cb35-6"><a href="mpd-summaries.html#cb35-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width=</span><span class="dv">0</span>)) <span class="sc">+</span></span>
@@ -713,7 +713,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/NIWAFisheriesModelling/r4Casal2/edit/main/03-MPD.Rmd",
+"link": "https://github.com/alistairdunn1/r4Casal2/edit/main/03-MPD.Rmd",
 "text": "Edit"
 },
 "history": {
