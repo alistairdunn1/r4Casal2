@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: r4Casal2.tar.gz
-          path: r4Casal2_1.0.1.tar.gz
+          path: r4Casal2_1.0.2.tar.gz
 
       - name: Install r4Casal2
         env:

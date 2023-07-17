@@ -81,7 +81,7 @@
 #' @rdname get_aggregated_composition_values_by_blocks
 #' @method get_aggregated_composition_values_by_blocks casal2MPD
 #' @export
-"get_aggregated_composition_values_by_blocks.casal2MPD" <- function(model, n_year_blocks) {
+"get_aggregated_composition_values_by_blocks.casal2MPD" <- function(model, n_year_blocks = 5) {
   comp_df <- get_composition_observations(model)
   comp_df$number_observed <- comp_df$observed * comp_df$adjusted_error
   comp_df$number_expected <- comp_df$expected * comp_df$adjusted_error
@@ -116,7 +116,7 @@
 #' @rdname get_aggregated_composition_values_by_blocks
 #' @method get_aggregated_composition_values_by_blocks list
 #' @export
-"get_aggregated_composition_values_by_blocks.list" <- function(model, n_year_blocks) {
+"get_aggregated_composition_values_by_blocks.list" <- function(model, n_year_blocks = 5) {
   run_labs <- names(model)
   full_DF <- NULL
   ## iterate over the models
