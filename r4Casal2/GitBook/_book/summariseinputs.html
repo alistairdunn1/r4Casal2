@@ -23,7 +23,7 @@
 <meta name="author" content="C. Marsh &amp; A. Dunn" />
 
 
-<meta name="date" content="2023-06-22" />
+<meta name="date" content="2023-07-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -247,10 +247,9 @@ div.csl-indent {
 <span id="cb2-4"><a href="summariseinputs.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## as well as validation.</span></span>
 <span id="cb2-5"><a href="summariseinputs.html#cb2-5" aria-hidden="true" tabindex="-1"></a>summary <span class="ot">=</span> <span class="fu">summarise_config</span>(config_dir, <span class="at">config_file =</span> <span class="st">&quot;config.csl2&quot;</span>, <span class="at">quiet =</span> T)</span>
 <span id="cb2-6"><a href="summariseinputs.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(summary)</span></code></pre></div>
-<pre><code>##  [1] &quot;category_df&quot;           &quot;estimate_df&quot;           &quot;full_category_df&quot;      &quot;method_df&quot;            
-##  [5] &quot;catch_df&quot;              &quot;time_step_df&quot;          &quot;time_step_df_just_lab&quot; &quot;obs_year_df&quot;          
-##  [9] &quot;model_years&quot;           &quot;model_ages&quot;            &quot;model_length_bins&quot;     &quot;M_by_category&quot;        
-## [13] &quot;model_block&quot;</code></pre>
+<pre><code>##  [1] &quot;category_df&quot;           &quot;estimate_df&quot;           &quot;full_category_df&quot;      &quot;method_df&quot;             &quot;catch_df&quot;             
+##  [6] &quot;time_step_df&quot;          &quot;time_step_df_just_lab&quot; &quot;obs_year_df&quot;           &quot;model_years&quot;           &quot;model_ages&quot;           
+## [11] &quot;model_length_bins&quot;     &quot;M_by_category&quot;         &quot;model_block&quot;</code></pre>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="summariseinputs.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summary<span class="sc">$</span>catch_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> catch, <span class="at">col =</span> fishery)) <span class="sc">+</span></span>
 <span id="cb4-2"><a href="summariseinputs.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
 <span id="cb4-3"><a href="summariseinputs.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Catch (t)&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Fishery&quot;</span>)</span></code></pre></div>

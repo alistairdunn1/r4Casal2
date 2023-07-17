@@ -286,8 +286,8 @@ ggplot(abundance_obs, aes(x = year)) +
         axis.title = element_text(size = 14),
         strip.text = element_text(size=14),
         legend.text = element_text(size=14)),
-  scale_color_manual(values = obs_pallete[3]),
-  scale_fill_manual(values = obs_pallete[3]))
+  scale_color_manual(values = obs_palette[3]),
+  scale_fill_manual(values = obs_palette[3]))
 ```
 ```{r runs_test, fig.width=8, fig.height=6}
 ## complete a Wald-Wolfowitz Runs Test

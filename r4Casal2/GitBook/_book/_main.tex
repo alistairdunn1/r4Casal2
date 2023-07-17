@@ -117,7 +117,7 @@
 
 \title{r4Casal2}
 \author{C. Marsh \& A. Dunn}
-\date{2023-06-22}
+\date{2023-07-18}
 
 \begin{document}
 \maketitle
@@ -256,10 +256,9 @@ The \texttt{r4Casal2} has some functions that summarise a set of input files and
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "category_df"           "estimate_df"           "full_category_df"      "method_df"            
-##  [5] "catch_df"              "time_step_df"          "time_step_df_just_lab" "obs_year_df"          
-##  [9] "model_years"           "model_ages"            "model_length_bins"     "M_by_category"        
-## [13] "model_block"
+##  [1] "category_df"           "estimate_df"           "full_category_df"      "method_df"             "catch_df"             
+##  [6] "time_step_df"          "time_step_df_just_lab" "obs_year_df"           "model_years"           "model_ages"           
+## [11] "model_length_bins"     "M_by_category"         "model_block"
 \end{verbatim}
 
 \begin{Shaded}
@@ -840,8 +839,8 @@ Flexibility using standard ggplot functions
         \AttributeTok{axis.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
         \AttributeTok{strip.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{14}\NormalTok{),}
         \AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{14}\NormalTok{)),}
-  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ obs\_pallete[}\DecValTok{3}\NormalTok{]),}
-  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ obs\_pallete[}\DecValTok{3}\NormalTok{]))}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ obs\_palette[}\DecValTok{3}\NormalTok{]),}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ obs\_palette[}\DecValTok{3}\NormalTok{]))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1360,11 +1359,10 @@ Before looking at data goodness of fit you should be checking if the model has c
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "header"               "obj"                  "estimate_summary"     "covar"               
-##  [5] "hess"                 "estimate_value"       "biomass_t1"           "chatOBSest"          
-##  [9] "chatOBSwst"           "chatTANage"           "chatTANbiomass"       "Recruitment"         
-## [13] "Ageing"               "instant_mort"         "MaturationSel"        "westFSel"            
-## [17] "eastFSel"             "chatTANSel"           "One"                  "messages_encountered"
+##  [1] "header"               "obj"                  "estimate_summary"     "covar"                "hess"                
+##  [6] "estimate_value"       "biomass_t1"           "chatOBSest"           "chatOBSwst"           "chatTANage"          
+## [11] "chatTANbiomass"       "Recruitment"          "Ageing"               "instant_mort"         "MaturationSel"       
+## [16] "westFSel"             "eastFSel"             "chatTANSel"           "One"                  "messages_encountered"
 \end{verbatim}
 
 \begin{Shaded}

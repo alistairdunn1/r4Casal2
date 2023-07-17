@@ -30,7 +30,7 @@ jobs:
       - name: Install Casal2
         env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # https://github.com/settings/tokens
-        run: Rscript -e 'devtools::install_github("https://github.com/NIWAFisheriesModelling/CASAL2", subdir="R-libraries/casal2", ref = "HEAD")'
+        run: Rscript -e 'devtools::install_github("https://github.com/alistairdunn1/CASAL2", subdir="R-libraries/casal2", ref = "HEAD")'
 
       - name: Build r4Casal2
         env:
@@ -46,7 +46,7 @@ jobs:
       - name: Install r4Casal2
         env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # https://github.com/settings/tokens
-        run: Rscript -e "devtools::install_github('NIWAFisheriesModelling/r4Casal2', build_vignettes  = F,dependencies = F)"
+        run: Rscript -e "devtools::install_github('alistairdunn1/r4Casal2', build_vignettes  = F,dependencies = F)"
 
       - name: Render Gitbook
         run: Rscript -e 'bookdown::render_book(input = "GitBook")'
@@ -109,12 +109,12 @@ jobs:
       - name: Install Casal2
         env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # https://github.com/settings/tokens
-        run: Rscript -e "remotes::install_github(repo = 'NIWAFisheriesModelling/CASAL2', subdir='R-libraries/casal2', ref = 'HEAD', dependencies = F)"
+        run: Rscript -e "remotes::install_github(repo = 'alistairdunn1/CASAL2', subdir='R-libraries/casal2', ref = 'HEAD', dependencies = F)"
 
       - name: Install r4Casal2
         env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # https://github.com/settings/tokens
-        run: Rscript -e "remotes::install_github(repo = 'NIWAFisheriesModelling/r4Casal2', dependencies = F)"
+        run: Rscript -e "remotes::install_github(repo = 'alistairdunn1/r4Casal2', dependencies = F)"
 
       - name: Run Unittests for r4Casal2
         run: Rscript -e "library(r4Casal2); testthat::test_dir(path = file.path('tests', 'testthat'))"
