@@ -34,7 +34,8 @@ error_value_table <- function(model, as.table = TRUE) {
       colnames(obs_error) <- c("year", "error_value", "process_error", "adjusted_error")
       temp_df <- data.frame(
         label = obs_label, type = obs_type, likelihood = obs_likelihood, error_value = obs_error$error_value,
-        process_error = obs_error$process_error, adjusted_error = obs_error$adjusted_error, year = obs_error$year
+        process_error = obs_error$process_error, error_value_multiplier = this_report$error_value_multiplier,
+        likelihood_multiplier = this_report$likelihood_multiplier, adjusted_error = obs_error$adjusted_error, year = obs_error$year
       )
       complete_df <- rbind(complete_df, temp_df)
     }
@@ -58,8 +59,9 @@ error_value_table <- function(model, as.table = TRUE) {
       group_by(year, label) %>%
       select(!c(error_value, process_error)) %>%
       pivot_wider(names_from = year, names_expand = T, values_from = adjusted_error, values_fill = NA)
-    df <- list(observation_error, process_error, adjusted_error)
-    names(df) <- c("observation_error", "process_error", "adjusted_error")
+    df <- list(observation_error, process_error, this_report$error_value_multiplier, this_report$likelihood_multiplier,
+               adjusted_error)
+    names(df) <- c("observation_error", "process_error", "error_value_multiplier", "likelihood_multiplier", "adjusted_error")
   } else {
     df <- complete_df
   }
