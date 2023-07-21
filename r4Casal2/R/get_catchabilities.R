@@ -85,12 +85,10 @@
 
   for (i in 1:length(model)) {
     this_report <- model[[i]]
-    if (is.null(this_report$type) || this_report$type != "catchabilities") {
+    if (is.null(this_report$type) || reports_labels[i] != "catchabilities") {
       next
     }
     val_df <- this_report$values
-
-    val_df$iteration <- as.numeric(rownames(val_df))
     val_molten <- suppressMessages({
       melt(as.matrix(val_df), variable.name = "colname", value.name = "catchability", factorsAsStrings = F)
     })
