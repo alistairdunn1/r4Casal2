@@ -74,3 +74,30 @@
   return(full_DF)
   invisible()
 }
+
+#'
+#' @rdname get_catchabilities
+#' @method get_catchabilities casal2TAB
+#' @export
+"get_catchabilities.casal2TAB" <- function(model) {
+  reports_labels <- reformat_default_labels(names(model))
+  complete_df <- NULL
+
+  for (i in 1:length(model)) {
+    this_report <- model[[i]]
+    if (is.null(this_report$type) || this_report$type != "catchabilities") {
+      next
+    }
+    val_df <- this_report$values
+
+    val_df$iteration <- as.numeric(rownames(val_df))
+    val_molten <- suppressMessages({
+      melt(as.matrix(val_df), variable.name = "colname", value.name = "catchability", factorsAsStrings = F)
+    })
+    colnames(val_molten) <- c("iteration", "parameter", "value")
+    val_molten$report_label <- reports_labels[i]
+    complete_df <- rbind(complete_df, val_molten)
+  }
+  return(complete_df)
+  invisible()
+}

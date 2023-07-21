@@ -4,6 +4,7 @@
 \alias{get_catchabilities}
 \alias{get_catchabilities.casal2MPD}
 \alias{get_catchabilities.list}
+\alias{get_catchabilities.casal2TAB}
 \title{get_catchabilities}
 \usage{
 get_catchabilities(model)
@@ -11,6 +12,8 @@ get_catchabilities(model)
 \method{get_catchabilities}{casal2MPD}(model)
 
 \method{get_catchabilities}{list}(model)
+
+\method{get_catchabilities}{casal2TAB}(model)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}

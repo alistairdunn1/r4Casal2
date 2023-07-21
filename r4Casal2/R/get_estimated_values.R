@@ -90,7 +90,6 @@
     }
     val_df <- this_report$values
     val_df$iteration <- as.numeric(rownames(val_df))
-    XX <<- val_df
 
     val_molten <- suppressMessages({
       melt(as.matrix(val_df), variable.name = "colname", value.name = "estimate", factorsAsStrings = F)

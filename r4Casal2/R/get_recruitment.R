@@ -49,6 +49,9 @@
         true_ycs = this_report$true_ycs,
         r0 = this_report$r0,
         b0 = this_report$b0,
+        recruit_event_SSB = this_report$recruit_event_SSB,
+        recruit_event_SSB_percent = this_report$recruit_event_SSB_percent,
+        ssb = this_report$ssb,
         par_set = 1,
         ssb_offset = this_report$ssb_offset,
         label = reports_labels[i]
@@ -83,6 +86,9 @@
           true_ycs = this_report[[dash_i]]$true_ycs,
           r0 = this_report[[dash_i]]$r0,
           b0 = this_report[[dash_i]]$b0,
+          recruit_event_SSB = this_report[[dash_i]]$recruit_event_SSB,
+          recruit_event_SSB_percent = this_report[[dash_i]]$recruit_event_SSB_percent,
+          ssb = this_report[[dash_i]]$ssb,
           par_set = iter_labs[dash_i],
           # age = this_report[[dash_i]]$age,
           ssb_offset = this_report[[dash_i]]$ssb_offset,
@@ -200,5 +206,5 @@
     recruit_df <- rbind(recruit_df, non_multi_column_df)
   }
   return(list(multi_column_df = recruit_multi_col_df, non_multi_column_df = recruit_df))
-  invisible() 
+  invisible()
 }
