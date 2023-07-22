@@ -1,10 +1,10 @@
-Casal2
-Call: casal2 -e 
-Date: Fri Sep 16 08:45:28 2022
-Seed: 74728
-Version: v22.09 (2022-09-14)
-Copyright (c) 2017-2022, NIWA (www.niwa.co.nz)
-Environment: User=marshc Machine=NIWA-1008960 OS=Windows_NT PID=17728
+Casal2 (https://github.com/alistairdunn1/CASAL2)
+Call: Casal2 -e 
+Date: Sun Jul 23 09:56:57 2023
+Seed: 63017
+Version: v23.07 (2023-07-11)
+Copyright (c) 2017-2023, NIWA (www.niwa.co.nz)
+Environment: User=alist Machine=QUIET-5950X OS=Windows_NT PID=12792
 
 
 *partition[partition_step1]
@@ -2061,6 +2061,7 @@ recruitment_multipliers: 1 1.02472 1.04658 1.06324 1.07299 1.07458 1.06541 1.043
 true_ycs: 1 1.68979 1.7256 1.75238 1.76806 1.77094 1.7565 1.7214 1.68189 1.65892 0.707207 0.790649 0.863901 0.634913 0.876112 0.73992 1.12021 1.66665 1.26219 1.08157 0.979021 0.805243 0.528409 0.498431 0.36338 0.545878 0.359728 0.53648 1.50592 0.853688 0.703502 0.301076 0.492131 0.415819 0.370182 0.417447 2.91983 2.92019 
 recruits: 4.64515e+06 7.84935e+06 8.01567e+06 8.14009e+06 8.21289e+06 8.22629e+06 8.15919e+06 7.99614e+06 7.81264e+06 7.70594e+06 3.28508e+06 3.67268e+06 4.01295e+06 2.94926e+06 4.06967e+06 3.43704e+06 5.20356e+06 7.74182e+06 5.86305e+06 5.02403e+06 4.5477e+06 3.74048e+06 2.45454e+06 2.31528e+06 1.68795e+06 2.53568e+06 1.67099e+06 2.49203e+06 6.99524e+06 3.96551e+06 3.26787e+06 1.39854e+06 2.28602e+06 1.93154e+06 1.71955e+06 1.9391e+06 1.3563e+07 1.35647e+07 
 recruit_event_SSB: 52583 52507 52229.6 51510.1 51115.6 51387.1 52078.5 53614.4 56011 59143.8 62593.6 65861.4 68818.8 71284.1 72861.8 73058.3 71627.1 68954.8 65266.6 60629.4 55702.8 51344.4 48130.8 46116.8 45061 43286.7 40638.8 38097.7 35701.4 33638.8 30963.7 27427.5 25330.1 25323.1 25814.5 26210.9 26443.5 26505.6 
+recruit_event_SSB_percent: 100 99.8556 99.3279 97.9596 97.2094 97.7258 99.0405 101.961 106.519 112.477 119.038 125.252 130.877 135.565 138.565 138.939 136.217 131.135 124.121 115.302 105.933 97.6445 91.5331 87.7029 85.6951 82.3208 77.2852 72.4526 67.8954 63.9728 58.8854 52.1604 48.1717 48.1583 49.0928 49.8467 50.2891 50.4072 
 ssb_offset: 1
 *end
 
@@ -2132,6 +2133,7 @@ Values {vector}
 
 *selectivity[westFSel]
 alpha: 1 
+beta: 0 
 intervals: 5 
 label: westFSel 
 length_based: 0 
@@ -2174,6 +2176,7 @@ Values {vector}
 
 *selectivity[eastFSel]
 alpha: 1 
+beta: 0 
 intervals: 5 
 label: eastFSel 
 length_based: 0 
@@ -2216,6 +2219,7 @@ Values {vector}
 
 *selectivity[chatTANSel]
 alpha: 1 
+beta: 0 
 intervals: 5 
 label: chatTANSel 
 length_based: 0 
@@ -2257,6 +2261,7 @@ Values {vector}
 *end
 
 *selectivity[One]
+beta: 0 
 c: 1 
 intervals: 5 
 label: One 
@@ -2297,8 +2302,8 @@ Values {vector}
 
 *info[messages_encountered]
 Values {string}
-Setting the random number seed to 74728
-Estimable parameters were loaded from the free parameter file: 
+Setting the random number seed to 63017
+Estimable parameters were set from the input configuration files
 Creating default report for derived quantity biomass_t1
 Creating default report for observation chatTANbiomass
 Creating default report for observation chatTANage
@@ -2315,43 +2320,44 @@ Creating default report for selectivity One
 Initiating point estimate run mode
 Estimation_phase 1
 Estimation with the betadiff minimiser
+Assert Passed: The Assert with label 'obj' for the Objective Function had value 682.978 and 682.978 was expected.
 *end
 
 *warnings[messages_encountered]
 Values {string}
-obs sum total (0.9999) for year (1990) doesn't sum to 1.0
-obs sum total (1.0001) for year (1993) doesn't sum to 1.0
-obs sum total (1.0002) for year (1994) doesn't sum to 1.0
-obs sum total (1.0002) for year (1995) doesn't sum to 1.0
-obs sum total (0.9999) for year (1997) doesn't sum to 1.0
-obs sum total (1.0002) for year (1999) doesn't sum to 1.0
-obs sum total (0.9999) for year (2000) doesn't sum to 1.0
-obs sum total (1.0001) for year (2001) doesn't sum to 1.0
-obs sum total (0.9998) for year (2002) doesn't sum to 1.0
-obs sum total (1.0002) for year (2003) doesn't sum to 1.0
-obs sum total (0.9999) for year (2005) doesn't sum to 1.0
-obs sum total (1.0001) for year (2006) doesn't sum to 1.0
-obs sum total (0.9999) for year (2007) doesn't sum to 1.0
-obs sum total (0.9999) for year (2008) doesn't sum to 1.0
-obs sum total (0.9999) for year (2009) doesn't sum to 1.0
-obs sum total (1.0003) for year (2011) doesn't sum to 1.0
-obs sum total (0.9998) for year (1992) doesn't sum to 1.0
-obs sum total (0.9999) for year (1995) doesn't sum to 1.0
-obs sum total (0.9998) for year (1996) doesn't sum to 1.0
-obs sum total (0.9999) for year (1997) doesn't sum to 1.0
-obs sum total (0.9999) for year (1998) doesn't sum to 1.0
-obs sum total (1.0002) for year (1999) doesn't sum to 1.0
-obs sum total (0.9999) for year (2000) doesn't sum to 1.0
-obs sum total (1.0001) for year (2002) doesn't sum to 1.0
-obs sum total (0.9999) for year (2003) doesn't sum to 1.0
-obs sum total (1.0001) for year (2004) doesn't sum to 1.0
-obs sum total (0.9999) for year (2005) doesn't sum to 1.0
-obs sum total (1.0001) for year (2011) doesn't sum to 1.0
-obs sum total (1.0001) for year (1992) doesn't sum to 1.0
-obs sum total (1.0002) for year (1998) doesn't sum to 1.0
-obs sum total (1.0001) for year (2004) doesn't sum to 1.0
-obs sum total (0.9999) for year (2007) doesn't sum to 1.0
-estimated parameter 'process[Recruitment].recruitment_multipliers{2011}' was within 0.001 of upper bound 3
-estimated parameter 'process[Recruitment].recruitment_multipliers{2012}' was within 0.001 of upper bound 3
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 1990 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 1993 was 1.0001 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 1994 was 1.0002 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 1995 was 1.0002 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 1997 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 1999 was 1.0002 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2000 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2001 was 1.0001 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2002 was 0.9998 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2003 was 1.0002 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2005 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2006 was 1.0001 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2007 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2008 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2009 was 0.9999 and do not sum to 1.0
+At line 49 in Observation.csl2 the table obs : The sum of the values for year 2011 was 1.0003 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 1992 was 0.9998 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 1995 was 0.9999 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 1996 was 0.9998 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 1997 was 0.9999 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 1998 was 0.9999 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 1999 was 1.0002 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 2000 was 0.9999 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 2002 was 1.0001 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 2003 was 0.9999 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 2004 was 1.0001 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 2005 was 0.9999 and do not sum to 1.0
+At line 115 in Observation.csl2 the table obs : The sum of the values for year 2011 was 1.0001 and do not sum to 1.0
+At line 171 in Observation.csl2 the table obs : The sum of the values for year 1992 was 1.0001 and do not sum to 1.0
+At line 171 in Observation.csl2 the table obs : The sum of the values for year 1998 was 1.0002 and do not sum to 1.0
+At line 171 in Observation.csl2 the table obs : The sum of the values for year 2004 was 1.0001 and do not sum to 1.0
+At line 171 in Observation.csl2 the table obs : The sum of the values for year 2007 was 0.9999 and do not sum to 1.0
+estimated parameter 'process[Recruitment].recruitment_multipliers{2011}' with value 3 was within 0.001 of the upper bound of 3
+estimated parameter 'process[Recruitment].recruitment_multipliers{2012}' with value 3 was within 0.001 of the upper bound of 3
 *end
 

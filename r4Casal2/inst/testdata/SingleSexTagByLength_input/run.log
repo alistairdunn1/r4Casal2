@@ -1,10 +1,10 @@
-Casal2
-Call: C:\Software\CASAL2\BuildSystem/Casal2/casal2.exe -r -I pars.out 
-Date: Mon Sep 12 12:37:55 2022
-Seed: 43075
-Version: v22.09 (2022-09-11)
-Copyright (c) 2017-2022, NIWA (www.niwa.co.nz)
-Environment: User=marshc Machine=NIWA-1008960 OS=Windows_NT PID=23316
+Casal2 (https://github.com/alistairdunn1/CASAL2)
+Call: C:\Projects\Software\CASAL2\BuildSystem/Casal2/casal2.exe -r -I pars.out 
+Date: Sat Jul 22 20:11:52 2023
+Seed: 13511
+Version: v23.07 (2023-07-22)
+Copyright (c) 2017-2023, NIWA (www.niwa.co.nz)
+Environment: User=alist Machine=QUIET-5950X OS=Windows_NT PID=24408
 
 
 *objective_function[obj]
@@ -152,9 +152,10 @@ total_score 1482.97
 
 *info[messages_encountered]
 Values {string}
-Setting the random number seed to 43075
-Estimable parameters were loaded from the free parameter file: pars.out
+Setting the random number seed to 13511
+Estimable parameters were set from the free parameter file: pars.out
 Initiating basic run mode
+Assert Passed: The Assert with label 'obj' for the Objective Function had value 1482.97 and 1482.97 was expected.
 *end
 
 *important[messages_encountered]
@@ -165,58 +166,59 @@ Values {string}
 *warnings[messages_encountered]
 Values {string}
 in @process 2001Tags_shelf you have specified compatibility_option = casal this is not recommended unless you validating for backwards compatibility reasons
-obs sum total (1) for year (1999) doesn't sum to 1.0
-obs sum total (0.999999) for year (2000) doesn't sum to 1.0
-obs sum total (1) for year (2001) doesn't sum to 1.0
-obs sum total (1) for year (2002) doesn't sum to 1.0
-obs sum total (1) for year (2003) doesn't sum to 1.0
-obs sum total (0.999999) for year (2004) doesn't sum to 1.0
-obs sum total (1) for year (2005) doesn't sum to 1.0
-obs sum total (1) for year (2006) doesn't sum to 1.0
-obs sum total (1) for year (2007) doesn't sum to 1.0
-obs sum total (1) for year (2008) doesn't sum to 1.0
-obs sum total (1) for year (2009) doesn't sum to 1.0
-obs sum total (1) for year (2010) doesn't sum to 1.0
-obs sum total (1) for year (2011) doesn't sum to 1.0
-obs sum total (1) for year (2012) doesn't sum to 1.0
-obs sum total (1) for year (2013) doesn't sum to 1.0
-obs sum total (1) for year (2014) doesn't sum to 1.0
-obs sum total (1) for year (2015) doesn't sum to 1.0
-obs sum total (1) for year (1998) doesn't sum to 1.0
-obs sum total (1) for year (1999) doesn't sum to 1.0
-obs sum total (0.999999) for year (2000) doesn't sum to 1.0
-obs sum total (1) for year (2001) doesn't sum to 1.0
-obs sum total (1) for year (2002) doesn't sum to 1.0
-obs sum total (1) for year (2003) doesn't sum to 1.0
-obs sum total (1) for year (2004) doesn't sum to 1.0
-obs sum total (1) for year (2005) doesn't sum to 1.0
-obs sum total (1) for year (2006) doesn't sum to 1.0
-obs sum total (1) for year (2007) doesn't sum to 1.0
-obs sum total (1) for year (2008) doesn't sum to 1.0
-obs sum total (1) for year (2009) doesn't sum to 1.0
-obs sum total (1) for year (2010) doesn't sum to 1.0
-obs sum total (1) for year (2011) doesn't sum to 1.0
-obs sum total (1) for year (2012) doesn't sum to 1.0
-obs sum total (1) for year (2013) doesn't sum to 1.0
-obs sum total (1) for year (2014) doesn't sum to 1.0
-obs sum total (1) for year (2015) doesn't sum to 1.0
-obs sum total (1) for year (1998) doesn't sum to 1.0
-obs sum total (1) for year (1999) doesn't sum to 1.0
-obs sum total (1) for year (2001) doesn't sum to 1.0
-obs sum total (1) for year (2002) doesn't sum to 1.0
-obs sum total (1) for year (2003) doesn't sum to 1.0
-obs sum total (1) for year (2004) doesn't sum to 1.0
-obs sum total (1) for year (2005) doesn't sum to 1.0
-obs sum total (1) for year (2006) doesn't sum to 1.0
-obs sum total (1) for year (2007) doesn't sum to 1.0
-obs sum total (1) for year (2008) doesn't sum to 1.0
-obs sum total (1) for year (2009) doesn't sum to 1.0
-obs sum total (1) for year (2010) doesn't sum to 1.0
-obs sum total (1) for year (2011) doesn't sum to 1.0
-obs sum total (1) for year (2012) doesn't sum to 1.0
-obs sum total (1) for year (2013) doesn't sum to 1.0
-obs sum total (1) for year (2014) doesn't sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 1999 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2000 was 0.999999 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2001 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2002 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2003 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2004 was 0.999999 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2005 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2006 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2007 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2008 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2009 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2010 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2011 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2012 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2013 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2014 was 1 and do not sum to 1.0
+At line 12 in observations.csl2 the table obs : The sum of the values for year 2015 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 1998 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 1999 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2000 was 0.999999 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2001 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2002 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2003 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2004 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2005 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2006 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2007 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2008 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2009 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2010 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2011 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2012 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2013 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2014 was 1 and do not sum to 1.0
+At line 64 in observations.csl2 the table obs : The sum of the values for year 2015 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 1998 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 1999 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2001 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2002 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2003 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2004 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2005 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2006 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2007 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2008 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2009 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2010 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2011 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2012 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2013 was 1 and do not sum to 1.0
+At line 120 in observations.csl2 the table obs : The sum of the values for year 2014 was 1 and do not sum to 1.0
 Estimates were removed because of matching lower and upper bounds. Originally had 33 estimates, now have 16
-The categories 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 were not used in @process[type=recruitment]. This may be expected for models that have categories that are not used at the beginning of the model e.g. tagged categories.
+The categories t2001, t2002, t2003, t2004, t2005, t2006, t2007, t2008, t2009, t2010, t2011, t2012, t2013, t2014 were not used in @process[type=recruitment]. This may be expected for models that have categories that are not used at the beginning of the model e.g. tagged categories.
+At line 279 in population.csl2 the parameter 'compatibility_option' : Using the 'casal' compatibility option. Note this is provided for backwards compatibility with CASAL - the recommended compatibility option is 'casal2'
 *end
 

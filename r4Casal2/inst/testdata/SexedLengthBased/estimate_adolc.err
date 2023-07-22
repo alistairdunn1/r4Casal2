@@ -1,6 +1,6 @@
 
 [INFO] Setting the random number seed to 20
-[INFO] Estimable parameters were loaded from the free parameter file: 
+[INFO] Estimable parameters were set from the input configuration files
 [INFO] Creating default report for catchability CPUE-Commercialq_1
 [INFO] Creating default report for catchability TrawlSurveyq_1
 [INFO] Creating default report for catchability TrawlSurveyq_2
@@ -47,32 +47,36 @@
 [INFO] Creating default report for selectivity tag_1996_3_female.one
 [INFO] Creating default report for selectivity tag_1997_1_male.one
 [INFO] Creating default report for selectivity tag_1997_1_female.one
+[WARNING] The @catchability block CPUE-Commercialq_1 is not assigned to an @observation.
+[WARNING] The @catchability block TrawlSurveyq_1 is not assigned to an @observation.
+[WARNING] The @catchability block TrawlSurveyq_2 is not assigned to an @observation.
 [INFO] Initiating point estimate run mode
 [INFO] Estimation_phase 1
 [INFO] Estimation with the adolc minimiser
-[INFO] Convergence check value = 3.10416. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 2.26913. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.919139. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.96767. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.450542. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.311526. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.101028. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0863387. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0276992. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0221265. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0334071. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0320036. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0536203. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0552634. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0566497. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0397775. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0353428. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0889752. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0654402. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0520225. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.118213. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0583823. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0372473. Convergence tolerance   = 0.02
-[INFO] Convergence check value = 0.0163213. Convergence tolerance   = 0.02
+[INFO] Convergence check value = 3.10416. Convergence tolerance = 0.02 objective score 24858.3
+[INFO] Convergence check value = 2.26913. Convergence tolerance = 0.02 objective score 11396.4
+[INFO] Convergence check value = 0.919139. Convergence tolerance = 0.02 objective score 10572.4
+[INFO] Convergence check value = 0.96767. Convergence tolerance = 0.02 objective score 8851.96
+[INFO] Convergence check value = 0.450542. Convergence tolerance = 0.02 objective score 7459.45
+[INFO] Convergence check value = 0.311526. Convergence tolerance = 0.02 objective score 7219.88
+[INFO] Convergence check value = 0.101028. Convergence tolerance = 0.02 objective score 7119.2
+[INFO] Convergence check value = 0.0863387. Convergence tolerance = 0.02 objective score 7087.98
+[INFO] Convergence check value = 0.0276992. Convergence tolerance = 0.02 objective score 7071.35
+[INFO] Convergence check value = 0.0221265. Convergence tolerance = 0.02 objective score 7062.18
+[INFO] Convergence check value = 0.0334071. Convergence tolerance = 0.02 objective score 7053.2
+[INFO] Convergence check value = 0.0320036. Convergence tolerance = 0.02 objective score 7043.48
+[INFO] Convergence check value = 0.0536203. Convergence tolerance = 0.02 objective score 7031.56
+[INFO] Convergence check value = 0.0552634. Convergence tolerance = 0.02 objective score 7020.65
+[INFO] Convergence check value = 0.0566497. Convergence tolerance = 0.02 objective score 7009.67
+[INFO] Convergence check value = 0.0397775. Convergence tolerance = 0.02 objective score 6996.98
+[INFO] Convergence check value = 0.0353428. Convergence tolerance = 0.02 objective score 6983.21
+[INFO] Convergence check value = 0.0889752. Convergence tolerance = 0.02 objective score 6975.87
+[INFO] Convergence check value = 0.0654402. Convergence tolerance = 0.02 objective score 6960.65
+[INFO] Convergence check value = 0.0520225. Convergence tolerance = 0.02 objective score 6941.45
+[INFO] Convergence check value = 0.118213. Convergence tolerance = 0.02 objective score 6930.7
+[INFO] Convergence check value = 0.0583823. Convergence tolerance = 0.02 objective score 6925.42
+[INFO] Convergence check value = 0.0372473. Convergence tolerance = 0.02 objective score 6916.77
+[INFO] Convergence check value = 0.0163213. Convergence tolerance = 0.02 objective score 6910.98
+[INFO] Assert Passed: The Assert with label 'obj' for the Objective Function had value 6910.98 and 6910.98 was expected.
 [INFO] Completed
-[INFO] Total elapsed time: 1.2 minutes
+[INFO] Total elapsed time: 25 seconds
