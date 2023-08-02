@@ -1,18 +1,16 @@
 #' @title get_objective_function
 #' @details
-#' take a Casal2 objective_function report and aggregrate components so easier to handle with
+#' take a Casal2 objective_function report and aggregate components so easier to handle with
 #' visualising likelihood components
 #' @param model casal2 model or a list of model
-#' @param aggregate_obs <bool> whether to aggretate over observations, if false will report objective function by year and observation.
+#' @param aggregate_obs <bool> whether to aggregate over observations, if false will report objective function by year and observation.
 #' @return data frame of objective function negative log-likelihood components
 #' @rdname get_objective_function
 #' @export get_objective_function
-#'
-
 "get_objective_function" <- function(model, aggregate_obs = T) {
   UseMethod("get_objective_function", model)
 }
-#'
+
 #' @rdname get_objective_function
 #' @method get_objective_function casal2MPD
 #' @export
@@ -64,11 +62,13 @@
   }
 }
 
-#'
 #' @rdname get_objective_function
 #' @method get_objective_function list
 #' @export
 "get_objective_function.list" <- function(model) {
+  if (!is.list(model)) {
+    stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
+  }
   run_labs <- names(model)
   full_DF <- NULL
   ## iterate over the models

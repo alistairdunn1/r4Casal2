@@ -1,22 +1,16 @@
 #' @title get_growth
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of type age_length
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
 #' @rdname get_growth
 #' @export get_growth
 #' @importFrom reshape2 melt
+"get_growth" <- function(model) {
+  UseMethod("get_growth", model)
+}
 
-
-"get_growth" <-
-  function(model) {
-    UseMethod("get_growth", model)
-  }
-
-#'
 #' @rdname get_growth
 #' @method get_growth casal2MPD
 #' @export
@@ -116,7 +110,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_growth
 #' @method get_growth list
 #' @export

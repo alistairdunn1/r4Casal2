@@ -1,20 +1,16 @@
 #' @title get_covariance
-#'
 #' @description
 #' An accessor function that returns a covariance function
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, list> object that are generated from the extract.mpd() functions.
 #' @return A data frame from Casal2 model output
 #' @rdname get_covariance
 #' @export get_covariance
-
 "get_covariance" <-
   function(model) {
     UseMethod("get_covariance", model)
   }
 
-#'
 #' @rdname get_covariance
 #' @method get_covariance casal2MPD
 #' @export

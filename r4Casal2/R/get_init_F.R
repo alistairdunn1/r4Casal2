@@ -1,8 +1,6 @@
 #' @title get_init_F
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of process type mortality_initialisation_baranov
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
@@ -10,14 +8,10 @@
 #' @export get_init_F
 #' @importFrom reshape2 melt
 #' @importFrom tidyr gather separate spread %>%
+"get_init_F" <- function(model) {
+  UseMethod("get_init_F", model)
+}
 
-
-"get_init_F" <-
-  function(model) {
-    UseMethod("get_init_F", model)
-  }
-
-#'
 #' @rdname get_init_F
 #' @method get_init_F casal2MPD
 #' @export
@@ -65,7 +59,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_init_F
 #' @method get_init_F list
 #' @export
@@ -88,7 +81,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_init_F
 #' @method get_init_F casal2TAB
 #' @export

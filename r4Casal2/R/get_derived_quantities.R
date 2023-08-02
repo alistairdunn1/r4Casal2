@@ -1,31 +1,25 @@
 #' @title get_derived_quantities
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of derived_quantities
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with all derived quantity reports from Casal2 model output
 #' @rdname get_derived_quantities
 #' @export get_derived_quantities
 #' @importFrom reshape2 melt
-
-
-"get_derived_quantities" <-
-  function(model) {
-    UseMethod("get_derived_quantities", model)
-  }
+"get_derived_quantities" <- function(model) {
+  UseMethod("get_derived_quantities", model)
+}
 ## shorthand version for lazy people like me
 #' @title get_dqs
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with all derived quantity reports from Casal2 model output
 #' @rdname get_dqs
 #' @export get_dqs
-"get_dqs" <-
-  function(model) {
-    UseMethod("get_derived_quantities", model)
-  }
-#'
+"get_dqs" <- function(model) {
+  UseMethod("get_derived_quantities", model)
+}
+
 #' @rdname get_derived_quantities
 #' @method get_derived_quantities casal2MPD
 #' @export
@@ -89,7 +83,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_derived_quantities
 #' @method get_derived_quantities list
 #' @export
@@ -109,7 +102,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_derived_quantities
 #' @method get_derived_quantities casal2TAB
 #' @export

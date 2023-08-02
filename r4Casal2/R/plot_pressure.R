@@ -1,8 +1,6 @@
 #' @title plot_fishery plot fishing pressure if there has been an exploitation process reported.
-#'
 #' @description
 #' A plotting function to plot a range of fishery attributes (only instantenous_mortality) for 'casal2TAB' and 'casal2MPD' objects.
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions using the Casal2 base library
 #' @param fisheryLabels if you only want to plot a subset of the fisheries supply a vector of characters which corresponds to the fisheries you want to plot.
@@ -20,7 +18,6 @@
 #' @importFrom ggplot2 ggplot geom_line aes theme facet_wrap aes_string
 #' @details
 #' If you have multiple time-steps and fisheries happening at different time-steps it may be useful to use the fisheryLabels command to split out the plots.
-
 "plot_fishery" <-
   function(model, fisheryLabels = NULL, quantity = "fishing_pressure") {
     if (!quantity %in% c("fishing_pressure", "exploitation", "catch", "actual_catch")) {
@@ -28,7 +25,6 @@
     }
     UseMethod("plot_fishery", model)
   }
-
 #' @return \code{NULL}
 #'
 #' @rdname plot_fishery
@@ -41,7 +37,6 @@
     labs(colour = "Fishery", linetype = "Fishery", x = "Years", y = quantity) +
     facet_wrap(~fishery)
 }
-
 ## method for class casal2TAB
 #' @return \code{NULL}
 #'
@@ -89,7 +84,6 @@
   }
 }
 
-#'
 #' @rdname plot_fishery
 #' @method plot_fishery list
 #' @export

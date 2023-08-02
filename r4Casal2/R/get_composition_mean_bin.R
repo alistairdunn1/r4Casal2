@@ -1,7 +1,6 @@
 #' @rdname get_composition_mean_bin
 #' @method get_composition_mean_bin list
 #' @export
-
 "get_composition_mean_bin.list" <- function(model) {
   run_labs <- names(model)
   full_DF <- NULL

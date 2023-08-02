@@ -1,21 +1,16 @@
 #' @title get_catchabilities
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of catchabilities
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with all derived quantity reports from Casal2 model output
 #' @rdname get_catchabilities
 #' @export get_catchabilities
 #' @importFrom reshape2 melt
+"get_catchabilities" <- function(model) {
+  UseMethod("get_catchabilities", model)
+}
 
-"get_catchabilities" <-
-  function(model) {
-    UseMethod("get_catchabilities", model)
-  }
-
-#'
 #' @rdname get_catchabilities
 #' @method get_catchabilities casal2MPD
 #' @export
@@ -52,7 +47,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_catchabilities
 #' @method get_catchabilities list
 #' @export
@@ -75,7 +69,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_catchabilities
 #' @method get_catchabilities casal2TAB
 #' @export

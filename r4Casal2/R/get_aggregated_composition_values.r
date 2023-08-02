@@ -1,5 +1,4 @@
 #' @title get_aggregated_composition_values
-#'
 #' @description
 #' An accessor function that returns a data frame of aggregated composition
 #' @author Craig Marsh

@@ -1,7 +1,6 @@
 #' @title summarise_config
 #' @description
 #' utility function that reads in config.csl2 file and summarises a model in table formats and plots
-#'
 #' @author Craig Marsh
 #' @param config_dir path directory
 #' @param config_file the starting config that starts a Casal2 model default config.csl2, but can be overridden with casal2 -c my_config. in the later case it should be the my_config name
@@ -30,7 +29,6 @@ summarise_config <- function(config_dir = "", config_file = "config.csl2", quiet
   if (!file.exists(file.path(config_dir, config_file))) {
     stop(paste0("Could not find ", config_file, " at ", config_dir))
   }
-
   config_file_in <- scan(file = file.path(config_dir, config_file), what = "", sep = "\n", quiet = T)
   ## deal with comments
   config_file_in <- StripComments(config_file_in)

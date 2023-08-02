@@ -6,10 +6,9 @@
 #' @rdname get_initial_partition
 #' @export
 #' @importFrom reshape2 melt
-"get_initial_partition" <-
-  function(model) {
-    UseMethod("get_initial_partition", model)
-  }
+"get_initial_partition" <- function(model) {
+  UseMethod("get_initial_partition", model)
+}
 
 #' @rdname get_initial_partition
 #' @method get_initial_partition casal2MPD

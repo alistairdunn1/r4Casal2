@@ -1,8 +1,6 @@
 #' @title plot_relative_index default
-#'
 #' @description
 #' A plotting function for Casal2 fits to abundance or biomass observations
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract() functions.
 #' @param report_labels vector<string> report labels to plot, default is all
@@ -29,11 +27,9 @@
 #' # to create a user-specified plot, use plot.it = FALSE.
 #' Tangaroa_fits <- plot.fits(model = data, report_label = "eastF_at_age", plot.it = FALSE)
 #' }
-#'
 "plot_relative_index" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = T) {
   UseMethod("plot_relative_index", model)
 }
-
 #' @return \code{NULL}
 #'
 #' @rdname plot_relative_index
@@ -48,8 +44,6 @@
   if (length(unique(abundance_obs$par_set)) > 1) {
     multiple_iterations_in_a_report <- T
   }
-
-
   ## subset to specific obs
   if (!is.null(report_labels)) {
     abundance_obs <- subset(abundance_obs, subset = abundance_obs$observation_label %in% report_labels)
@@ -117,7 +111,6 @@
   }
   invisible()
 }
-
 #' @return \code{NULL}
 #'
 #' @rdname plot_relative_index

@@ -1,8 +1,6 @@
 #' @title get_partition
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of process type partition
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
@@ -10,13 +8,10 @@
 #' @export get_partition
 #' @importFrom reshape2 melt
 
+"get_partition" <- function(model) {
+  UseMethod("get_partition", model)
+}
 
-"get_partition" <-
-  function(model) {
-    UseMethod("get_partition", model)
-  }
-
-#'
 #' @rdname get_partition
 #' @method get_partition casal2MPD
 #' @export
@@ -77,7 +72,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_partition
 #' @method get_partition list
 #' @export

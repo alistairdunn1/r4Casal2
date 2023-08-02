@@ -1,14 +1,11 @@
 #' @title get_abundance_observations
-#'
 #' @description
 #' An accessor function that returns a data frame of all relative abundance data sets in a model
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
 #' @return dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 #' @rdname get_abundance_observations
 #' @export get_abundance_observations
-
 "get_abundance_observations" <- function(model) {
   UseMethod("get_abundance_observations", model)
 }
@@ -16,7 +13,6 @@
 #' @rdname get_abundance_observations
 #' @method get_abundance_observations casal2MPD
 #' @export
-
 "get_abundance_observations.casal2MPD" <- function(model) {
   observation_type_allowed <- c("biomass", "abundance")
   # can be -r or -r -i
@@ -101,11 +97,9 @@
   return(complete_df)
 }
 
-
 #' @rdname get_abundance_observations
 #' @method get_abundance_observations list
 #' @export
-
 "get_abundance_observations.list" <- function(model) {
   run_labs <- names(model)
   full_DF <- NULL

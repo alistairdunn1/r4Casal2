@@ -1,4 +1,3 @@
-#'
 #' calculate_composition_stage_two_weights
 #' @description this function will iterate over all (or a subset of) compositional observations to calculate the method TA 1.8 weights from \insertCite{francis2011data}{r4Casal2}
 #' @param model casal2 mpd model
@@ -47,6 +46,5 @@ calculate_composition_stage_two_weights <- function(model, observation_labels = 
       }
     }
   }
-
   return(data.frame(observation = comp_labels, weight = weights))
 }

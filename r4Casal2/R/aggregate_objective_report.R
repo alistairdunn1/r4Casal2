@@ -6,8 +6,6 @@
 #' @return data frame of aggregated objective function negative log-likelihood components
 #' @rdname aggregate_objective_report
 #' @export aggregate_objective_report
-#'
-
 aggregate_objective_report <- function(objective_report) {
   multi_parameter_input <- F
   if (is.null(objective_report$type)) {

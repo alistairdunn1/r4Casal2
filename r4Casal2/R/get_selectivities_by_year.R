@@ -1,22 +1,16 @@
 #' @title get_selectivities_by_year
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of selectivities
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with all selectivity reports from Casal2 model output
 #' @rdname get_selectivities_by_year
 #' @export get_selectivities_by_year
 #' @importFrom reshape2 melt
+"get_selectivities_by_year" <- function(model) {
+  UseMethod("get_selectivities_by_year", model)
+}
 
-
-"get_selectivities_by_year" <-
-  function(model) {
-    UseMethod("get_selectivities_by_year", model)
-  }
-
-#'
 #' @rdname get_selectivities_by_year
 #' @method get_selectivities_by_year casal2MPD
 #' @export
@@ -81,9 +75,6 @@
   invisible()
 }
 
-
-
-#'
 #' @rdname get_selectivities_by_year
 #' @method get_selectivities_by_year list
 #' @export

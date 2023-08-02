@@ -1,22 +1,16 @@
 #' @title get_projections
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of projections
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with all selectivity reports from Casal2 model output
 #' @rdname get_projections
 #' @export get_projections
 #' @importFrom reshape2 melt
+"get_projections" <- function(model) {
+  UseMethod("get_projections", model)
+}
 
-
-"get_projections" <-
-  function(model) {
-    UseMethod("get_projections", model)
-  }
-
-#'
 #' @rdname get_projections
 #' @method get_projections casal2TAB
 #' @export

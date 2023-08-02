@@ -1,21 +1,16 @@
 #' @title get_profile
-#'
 #' @description
 #' An accessor function that returns a data frame of a profile class that can be easily plotted
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @param aggregate_obs bool, whether aggregate_obs observations log-likelihoods over all years
 #' @return A data frame with profile_values and likelihood components
 #' @rdname get_profile
 #' @export get_profile
+"get_profile" <- function(model, aggregate_obs = T) {
+  UseMethod("get_profile", model)
+}
 
-"get_profile" <-
-  function(model, aggregate_obs = T) {
-    UseMethod("get_profile", model)
-  }
-
-#'
 #' @rdname get_profile
 #' @method get_profile casal2MPD
 #' @export

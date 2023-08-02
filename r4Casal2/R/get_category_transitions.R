@@ -1,20 +1,15 @@
 #' @title get_category_transitions
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of process type category_transitions
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
 #' @rdname get_category_transitions
 #' @export get_category_transitions
+"get_category_transitions" <- function(model) {
+  UseMethod("get_category_transitions", model)
+}
 
-"get_category_transitions" <-
-  function(model) {
-    UseMethod("get_category_transitions", model)
-  }
-
-#'
 #' @rdname get_category_transitions
 #' @method get_category_transitions casal2MPD
 #' @export
@@ -61,7 +56,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_category_transitions
 #' @method get_category_transitions list
 #' @export
@@ -83,7 +77,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_category_transitions
 #' @method get_category_transitions casal2TAB
 #' @export

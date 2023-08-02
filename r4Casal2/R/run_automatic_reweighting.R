@@ -1,6 +1,5 @@
 #' run_automatic_reweighting
 #' @description a function that will automatically conduct an iterative reweighting re-estimation.
-#'
 #' @author Craig Marsh
 #' @param config_dir directory that contains config. See details for info on nested folder configs
 #' @param config_filename the config file that describes all Casal2 input files. Expected to be in 'config_dir'.
@@ -17,7 +16,6 @@
 #' @rdname run_automatic_reweighting
 #' @export run_automatic_reweighting
 #' @return data frame of weights in each loop. Will also create estimated mpd output in weighting_folder_name with the format 'estimate_"iteration_number".log'
-#'
 run_automatic_reweighting <- function(config_dir,
                                       config_filename = "config.csl2",
                                       weighting_folder_name = "Reweight",

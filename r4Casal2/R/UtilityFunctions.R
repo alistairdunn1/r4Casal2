@@ -86,6 +86,7 @@ should_return_NA <- function(x) {
 unpaste <- function(string, sep) {
   return(unlist(strsplit(string, split = sep)))
 }
+
 #' string.to.vector.of.words
 #' @export
 #' @return vector of words
@@ -93,11 +94,10 @@ string.to.vector.of.words <- function(string) {
   temp <- unpaste(string, sep = " ")
   return(temp[temp != ""])
 }
+
 #' @title expand_category_block
-#'
 #' @description
 #' A utility function for expanding short hand syntax in @category blocks in casal2 config files
-#'
 #' @author Craig Marsh
 #' @param categories string of categories
 #' @return a vector of strings
@@ -137,10 +137,8 @@ expand_category_block <- function(categories) {
 }
 
 #' @title expand_category_shorthand
-#'
 #' @description
 #' A utility function for expanding short hand syntax of categories used in subcommands through casal2 config files
-#'
 #' @author Craig Marsh
 #' @param shorthand_categories shorthand values to expand
 #' @param reference_categories string of categories expanded from the @category block of a config. derived from expand_category_block
@@ -189,8 +187,7 @@ expand_category_shorthand <- function(shorthand_categories, reference_categories
     }
   }
 
-
-  ## now should be only category labels, periods ('.'), astrix, or +
+  ## now should be only category labels, periods ('.'), asterisk, or +
   rep_syntax <- grepl(shorthand_categories_no_space, pattern = "*", fixed = TRUE)
   category_list <- list()
   if (rep_syntax) {
@@ -218,10 +215,8 @@ expand_category_shorthand <- function(shorthand_categories, reference_categories
 }
 
 #' @title expand_shorthand_syntax
-#'
 #' @description
 #' A utility function for expanding short hand syntax for based on - format=*.EN.*, label*5, and + syntax
-#'
 #' @author Craig Marsh
 #' @param syntax string of the syntax to expand
 #' @return a vector of strings
@@ -291,13 +286,12 @@ expand_shorthand_syntax <- function(syntax) {
   }
   return(repeated_values)
 }
+
 #' @title StripComments
-#'
 #' @description
 #' A utility function for stripping out comments that is
 #' line start with #
 #' or a wrapped in /* */
-#'
 #' @author Craig Marsh
 #' @param file a file read in by scan
 #' @return a file that has removed lines starting with # or betwee '/*' '*/'
@@ -370,9 +364,7 @@ drop_runs_from_multi_input_mpd <- function(model, elements_to_drop) {
   return(model)
 }
 
-
 #' log_cv Calculate the CV of the lognormal distribution based on \deqn{cv = \sqrt{e^{\sigma^2} - 1}}
-#'
 #' @param sigma The standard deviation of the lognormal distribution
 #' @return The the cv
 #' @export
@@ -386,7 +378,6 @@ log_cv <- function(sigma) {
 #' @param cv The CV (note this is in proportion not percentage) of the lognormal distribution
 #' @return The the sigma
 #' @export
-
 log_sigma <- function(cv) {
   sigma <- sqrt(log(cv^2 + 1))
   return(sigma)
@@ -397,10 +388,10 @@ log_sigma <- function(cv) {
 #' @param parameter_label full parameter label 'block[label].parameter'
 #' @return the block label
 #' @export
-
 get_block <- function(parameter_label) {
   return(sapply(strsplit(parameter_label, split = "\\["), "[", 1))
 }
+
 #' get_label
 #' @description get the label type for a parameter
 #' @param parameter_label full parameter label 'block[label].parameter'

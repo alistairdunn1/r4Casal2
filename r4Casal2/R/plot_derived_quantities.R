@@ -1,8 +1,6 @@
 #' @title plot_derived_quantities default
-#'
 #' @description
 #' A plotting function for Casal2 derived_quantities
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
 #' @param plot.it Whether to generate a default plot or return the values as a matrix.
@@ -25,7 +23,6 @@
   UseMethod("plot_derived_quantities", model)
 }
 
-#'
 #' @rdname plot_derived_quantities
 #' @method plot_derived_quantities casal2MPD
 #' @export
@@ -43,7 +40,6 @@
     facet_wrap(~type, scales = "free_y")
 }
 
-#'
 #' @rdname plot_derived_quantities
 #' @method plot_derived_quantities casal2TAB
 #' @export
@@ -51,7 +47,6 @@
   stop("function not coded yet")
 }
 
-#'
 #' @rdname plot_derived_quantities
 #' @method plot_derived_quantities list
 #' @export

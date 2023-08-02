@@ -1,8 +1,6 @@
 #' @title create_simulation_reports
-#'
 #' @description
 #' A function to create a simulated report csl file so that you can add it with an !include statement for simulations.
-#'
 #' @author Craig Marsh
 #' @param config_dir path directory
 #' @param config_files vector of string names that correspond to Casal2

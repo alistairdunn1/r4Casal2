@@ -6,9 +6,6 @@
 #' @param plot_it if true plot MPD value, initial value, and prior, otherwise report MPD, init, lower_bound, upper_bound, prior_type
 #' @return either a ggplot or a list with two elements. The first is for plotting, the second is a useful data frame
 #' outlining priors, bounds mpd values initial values etc.
-
-
-
 #' @rdname summarise_estimated_parameters
 #' @export summarise_estimated_parameters
 "summarise_estimated_parameters" <- function(model, plot_it = F, ignore_ycs = F) {

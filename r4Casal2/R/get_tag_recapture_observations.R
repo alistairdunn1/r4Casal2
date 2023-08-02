@@ -1,14 +1,11 @@
 #' @title get_tag_recapture_observations
-#'
 #' @description
 #' An accessor function that returns a data frame of all tag-recapture observations
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
 #' @return dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 #' @rdname get_tag_recapture_observations
 #' @export get_tag_recapture_observations
-
 "get_tag_recapture_observations" <- function(model) {
   UseMethod("get_tag_recapture_observations", model)
 }
@@ -16,7 +13,6 @@
 #' @rdname get_tag_recapture_observations
 #' @method get_tag_recapture_observations casal2MPD
 #' @export
-
 "get_tag_recapture_observations.casal2MPD" <- function(model) {
   observation_type_allowed <- c("tag_recapture_by_length_for_growth", "tag_recapture_by_length", "tag_recapture_by_age")
   # can be -r or -r -i
@@ -87,11 +83,9 @@
   return(complete_df)
 }
 
-
 #' @rdname get_tag_recapture_observations
 #' @method get_tag_recapture_observations list
 #' @export
-
 "get_tag_recapture_observations.list" <- function(model) {
   run_labs <- names(model)
   full_DF <- NULL

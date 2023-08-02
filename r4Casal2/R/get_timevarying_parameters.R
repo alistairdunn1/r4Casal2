@@ -1,20 +1,15 @@
 #' @title get_timevarying_parameters
-#'
 #' @description
 #' An accessor function that returns a data frame of a time_varying class that can be easily plotted
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with profile_values and likelihood components
 #' @rdname get_timevarying_parameters
 #' @export get_timevarying_parameters
+"get_timevarying_parameters" <- function(model) {
+  UseMethod("get_timevarying_parameters", model)
+}
 
-"get_timevarying_parameters" <-
-  function(model) {
-    UseMethod("get_timevarying_parameters", model)
-  }
-
-#'
 #' @rdname get_timevarying_parameters
 #' @method get_timevarying_parameters casal2MPD
 #' @export
@@ -36,25 +31,24 @@ get_timevarying_parameters.casal2MPD <- function(model) {
       this_df$par_set <- 1
       complete_df <- rbind(complete_df, this_df)
     } else {
-      if(this_report[[1]]$type != "time_varying") {
-        next;
+      if (this_report[[1]]$type != "time_varying") {
+        next
       }
       ## Multiple parameter inputs
       n_runs <- length(this_report)
       iter_labs <- names(this_report)
       for (dash_i in 1:n_runs) {
         ## only a single trajectory
-        temp_df = this_report[[dash_i]]$values
-        temp_df$label = reports_labels[i]
-        temp_df$par_set = iter_labs[dash_i]
-        complete_df = rbind(complete_df, temp_df)
+        temp_df <- this_report[[dash_i]]$values
+        temp_df$label <- reports_labels[i]
+        temp_df$par_set <- iter_labs[dash_i]
+        complete_df <- rbind(complete_df, temp_df)
       }
     }
   }
   return(complete_df)
 }
 
-#'
 #' @rdname get_timevarying_parameters
 #' @method get_timevarying_parameters list
 #' @export

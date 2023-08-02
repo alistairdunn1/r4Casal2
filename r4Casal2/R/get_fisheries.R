@@ -1,8 +1,6 @@
 #' @title get_fisheries
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of process type recruitment
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
@@ -10,14 +8,10 @@
 #' @export get_fisheries
 #' @importFrom reshape2 melt
 #' @importFrom tidyr gather separate spread %>%
+"get_fisheries" <- function(model) {
+  UseMethod("get_fisheries", model)
+}
 
-
-"get_fisheries" <-
-  function(model) {
-    UseMethod("get_fisheries", model)
-  }
-
-#'
 #' @rdname get_fisheries
 #' @method get_fisheries casal2MPD
 #' @export
@@ -108,7 +102,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_fisheries
 #' @method get_fisheries list
 #' @export
@@ -131,7 +124,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_fisheries
 #' @method get_fisheries casal2TAB
 #' @export

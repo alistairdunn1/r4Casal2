@@ -1,10 +1,8 @@
 #' Utility function to check reports inputs are consistent
-#'
 #' @author Craig Marsh
 #' @param report_label string report label
 #' @param model casal2 model
 #' @keywords internal
-#'
 check_report_label <- function(report_label, model) {
   ## check report label exists
   passed <- TRUE
@@ -21,11 +19,9 @@ check_report_label <- function(report_label, model) {
 #' so the report label '__selectivities__' will be changed to 'selectivities'
 #' if a default report has been created with the same label as an exiting report
 #' we change its name from '__report_label__' to 'report_label_default'
-#'
 #' @author Craig Marsh
 #' @param report_labels vector of report labels
 #' @keywords internal
-#'
 reformat_default_labels <- function(report_labels) {
   ## find elements that start and end with '__'
   default_label_ndx <- (substring(report_labels, first = 0, last = 2) == "__") & (substring(report_labels, first = nchar(report_labels) - 1, last = nchar(report_labels)) == "__")

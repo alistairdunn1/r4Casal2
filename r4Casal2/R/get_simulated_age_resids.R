@@ -1,9 +1,7 @@
 #' @title get_simulated_age_resids
-#'
 #' @description
 #' A function for calculating simulation-based scaled (quantile) residuals from simulated observations from Casal2 and
 #' DHARMa inbuilt functionality
-#'
 #' @details this package takes simulated data read into R from r4Casal2::read.simulated.data() function along with MPD observation report estimates
 #' and uses DHARMa (vignette("DHARMa", package="DHARMa")) to calculate simulation-based scaled (quantile) residuals
 #' @author Craig Marsh
@@ -25,7 +23,6 @@
 #' \donttest{
 #'
 #' }
-#'
 get_simulated_age_resids <- function(simulated_obs, observation_report) {
   if (class(simulated_obs) != "list") {
     stop("class of simulated_obs is expected to be of class list")
@@ -75,4 +72,3 @@ get_simulated_age_resids <- function(simulated_obs, observation_report) {
   }
   return(list(mpd_df = mpd_vals, full_simulated_values = full_sim_data, auto_corr_p_val = auto_corr_p_val, dispersion_p_val = dispersion_p_val, zero_inflat_p_val = zero_inflat_p_val))
 }
- 

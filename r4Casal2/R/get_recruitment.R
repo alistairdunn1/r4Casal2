@@ -1,22 +1,16 @@
 #' @title get_BH_recruitment
-#'
 #' @description
 #' An accessor function that returns a data frame from a Casal2 model output of process type recruitment
-#'
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame from Casal2 model output
 #' @rdname get_BH_recruitment
 #' @export get_BH_recruitment
 #' @importFrom reshape2 melt
+"get_BH_recruitment" <- function(model) {
+  UseMethod("get_BH_recruitment", model)
+}
 
-
-"get_BH_recruitment" <-
-  function(model) {
-    UseMethod("get_BH_recruitment", model)
-  }
-
-#'
 #' @rdname get_BH_recruitment
 #' @method get_BH_recruitment casal2MPD
 #' @export
@@ -38,7 +32,6 @@
         next
       }
       ## only a single trajectory
-
       full_df <- data.frame(
         model_year = this_report$model_year,
         spawn_event_year = this_report$spawn_event_year,
@@ -108,7 +101,6 @@
   invisible()
 }
 
-#'
 #' @rdname get_BH_recruitment
 #' @method get_BH_recruitment list
 #' @export
@@ -128,11 +120,9 @@
   invisible()
 }
 
-#'
 #' @rdname get_BH_recruitment
 #' @method get_BH_recruitment casal2TAB
 #' @return A list frame from Casal2 model output. There is a non_multi_column_df which contains non year varying components such as B0, steepness etc and a multi_column_df which has ssb, recrutis, ycs etc
-
 #' @export
 "get_BH_recruitment.casal2TAB" <- function(model) {
   cat("this can take a few minutes for large models and big mcmc chains. Please be patient :~) \n")

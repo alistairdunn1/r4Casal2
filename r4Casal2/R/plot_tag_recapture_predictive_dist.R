@@ -1,6 +1,5 @@
 #' plot_tag_recapture_predictive_dist
 #' Plots a violin plot of the predictive distribution by year for an observation
-#'
 #' @param sim_data matrix of simulated data rows = simulation, col = length or age
 #' @param obs a data frame with column names obs and bin (). Can include a column labelled 'mpd_fit' if it exists the plot will add mpd fits on the plot
 #' @param lab a label for the plot which clearly identifies the observation

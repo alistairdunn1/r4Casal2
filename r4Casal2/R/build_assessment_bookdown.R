@@ -23,7 +23,7 @@
 # mpd_filename = "estimate.log"
 # config_filename = "config.csl2"
 # output_folder_name = "BookDown";model_label = NULL; verbose = F
-#
+
 build_assessment_bookdown <- function(csl_dir, output_folder_name, mpd_filename, config_filename = "config.csl2", model_label = NULL, verbose = F, prompt_user_before_deleting = T) {
   if (verbose) {
     print("Enter: build_assessment_bookdown")
@@ -53,7 +53,6 @@ build_assessment_bookdown <- function(csl_dir, output_folder_name, mpd_filename,
   }
 
   ## create output directory
-
   output_dir <- normalizePath(file.path(csl_dir, output_folder_name), winslash = "/")
   if (dir.exists(output_dir)) {
     if (prompt_user_before_deleting) {
@@ -78,6 +77,7 @@ build_assessment_bookdown <- function(csl_dir, output_folder_name, mpd_filename,
   for (i in 1:length(files_to_remove)) {
     file.remove(file.path(output_dir, files_to_remove[i]))
   }
+
   #################################################
   ## Create the first page '01-Model Inputs.Rmd'
   ## this page will contain most of the output from summarise_config

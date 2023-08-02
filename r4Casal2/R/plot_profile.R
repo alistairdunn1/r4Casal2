@@ -1,5 +1,4 @@
 #' plot_profile
-#'
 #' @author C Marsh
 #' @param profile the profile Casal2 output read in from extract.mpd()
 #' @param mpd the mpd Casal2 output read in by extract.mpd()
@@ -15,8 +14,6 @@
 #' @rdname plot_profile
 #' @export plot_profile
 #' @importFrom RColorBrewer brewer.pal
-#'
-
 plot_profile <- function(profile, mpd = NULL, objective_function_components = "all", ask_for_obj_labels = FALSE, likelihood_cut_off = 100, plot_style = "individual", aggregate_obs = TRUE) {
   if (class(profile) != "casal2MPD") {
     stop("profile not of the expected 'class'. We expect 'casal2MPD'")
@@ -49,7 +46,6 @@ plot_profile <- function(profile, mpd = NULL, objective_function_components = "a
   this_profile <- this_profile %>%
     group_by(component) %>%
     mutate(rescaled_negative_loglikelihood = abs(negative_loglikelihood - min(negative_loglikelihood)))
-
 
   ## subset profile if
   vars_of_interest <- unique(this_profile$component)
@@ -92,7 +88,6 @@ plot_profile <- function(profile, mpd = NULL, objective_function_components = "a
       ) +
       guides(linetype = "none")
   }
-
   ## get MPD value if
   if (!is.null(mpd)) {
     est_values <- get_estimated_values(mpd)
