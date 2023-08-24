@@ -4,7 +4,7 @@
 \alias{read_simulated_data}
 \title{read_simulated_data}
 \usage{
-read_simulated_data(dir, verbose = FALSE, mean_age = TRUE)
+read_simulated_data(dir, verbose = FALSE, mean_age = TRUE, model_type = "age")
 }
 \arguments{
 \item{dir}{path directory to a folder containing simulated observation from a casal2 -s run}
@@ -12,6 +12,8 @@ read_simulated_data(dir, verbose = FALSE, mean_age = TRUE)
 \item{verbose}{true print out statements through function to help debug}
 
 \item{mean_age}{<bool> if data is composition. True will return mean age/length for each year and data set. Otherwise False will return a list. each element will be a year which will contain a matrix of simulations x bin simulated values.}
+
+\item{model_type}{"age" or "length"}
 }
 \value{
 a list of all the simulated data sets. in each element there is a matrix with rows = year, col = simulation reps
