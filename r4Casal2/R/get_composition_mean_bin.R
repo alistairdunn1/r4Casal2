@@ -26,7 +26,6 @@ get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group = FALSE)
     this_obs <- comp_obs %>% filter(observation_label == obs[i])
     is_age <- grepl(unique(this_obs$observation_type), pattern = "_age")
     if (ignore_plus_group) {
-      ## grop plus group
       if (is_age) {
         this_obs <- this_obs %>% filter(age != max(age))
       } else {
