@@ -1,6 +1,5 @@
 #' @title get_composition_observations
-#' @description
-#' An accessor function that returns a data frame of all composition data sets in a model
+#' @description An accessor function that returns a data frame of all composition data sets in a model
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )
 #' @return dataframe with all observations of type == 'observation' and observation_type !%in% c('biomass', 'abundance')
@@ -102,7 +101,6 @@
   return(full_DF)
   invisible()
 }
-
 
 #' @rdname get_composition_observations
 #' @method get_composition_observations casal2TAB
