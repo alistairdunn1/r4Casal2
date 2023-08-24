@@ -6,6 +6,7 @@
 #' @export Version
 #' @return Version number
 
-"Version" <- function() {
+"Version" <-
+function() {
   return("1.0.2")
 }

@@ -33,7 +33,6 @@ and uses DHARMa (vignette("DHARMa", package="DHARMa")) to calculate simulation-b
 \donttest{
 
 }
-
 }
 \author{
 Craig Marsh

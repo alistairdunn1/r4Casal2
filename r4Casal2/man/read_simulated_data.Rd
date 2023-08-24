@@ -9,7 +9,7 @@ read_simulated_data(dir, verbose = FALSE, mean_age = TRUE, model_type = "age")
 \arguments{
 \item{dir}{path directory to a folder containing simulated observation from a casal2 -s run}
 
-\item{verbose}{true print out statements through function to help debug}
+\item{verbose}{true print out statements throught function to help debug}
 
 \item{mean_age}{<bool> if data is composition. True will return mean age/length for each year and data set. Otherwise False will return a list. each element will be a year which will contain a matrix of simulations x bin simulated values.}
 
@@ -19,7 +19,7 @@ read_simulated_data(dir, verbose = FALSE, mean_age = TRUE, model_type = "age")
 a list of all the simulated data sets. in each element there is a matrix with rows = year, col = simulation reps
 }
 \description{
-A utility function for reading in Casal2 simulated data sets. For help on simulated data from Casal2 see
+A utility function for reading in Casal2 simualted data sets. For help on simulated data from Casal2 see
 }
 \author{
 Craig Marsh

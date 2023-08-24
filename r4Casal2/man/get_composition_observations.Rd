@@ -4,6 +4,7 @@
 \alias{get_composition_observations}
 \alias{get_composition_observations.casal2MPD}
 \alias{get_composition_observations.list}
+\alias{get_composition_observations.casal2TAB}
 \title{get_composition_observations}
 \usage{
 get_composition_observations(model)
@@ -11,12 +12,14 @@ get_composition_observations(model)
 \method{get_composition_observations}{casal2MPD}(model)
 
 \method{get_composition_observations}{list}(model)
+
+\method{get_composition_observations}{casal2TAB}(model)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
 }
 \value{
-dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
+dataframe with all observations of type == 'observation' and observation_type !%in% c('biomass', 'abundance')
 }
 \description{
 An accessor function that returns a data frame of all composition data sets in a model
