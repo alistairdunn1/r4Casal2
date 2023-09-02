@@ -10,14 +10,14 @@
 #' @details the dataframe returned has Oy: mean age/length observed, Ey: mean age/length predicted, SEy: Standard error, Nassumed: mean effective sample size.
 #' Why use ignore_plus_group? not sure we need to chat to Jeremy and C Francis taken from the SNA code. My guess is that if there is a large plus group length or age, then this can skew the mean
 #' statistic. At first thoughts I don't think it should be employed that frequently
-"get_composition_mean_bin" <- function(model, ignore_plus_group = FALSE) {
-  UseMethod("get_composition_mean_bin", model)
+"get_composition_mean_bin" <- function(model, ignore_plus_group = FALSE, by_category = false) {
+  UseMethod("get_composition_mean_bin", model, ...)
 }
 
 #' @rdname get_composition_mean_bin
 #' @method get_composition_mean_bin casal2MPD
 #' @export
-get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group = FALSE) {
+get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group, by_category) {
   comp_obs <- get_composition_observations(model)
   obs <- unique(comp_obs$observation_label)
   mean_bin_df <- NULL
@@ -33,21 +33,39 @@ get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group = FALSE)
       }
     }
     ## force proportions to sum = 1
-    this_obs <- this_obs %>%
-      group_by(year, observation_label) %>%
-      mutate(expected = expected / sum(expected), observed = observed / sum(observed))
+    if (!by_category) {
+      this_obs <- this_obs %>%
+        group_by(year, observation_label) %>%
+        mutate(expected = expected / sum(expected), observed = observed / sum(observed))
+    } else {
+      this_obs <- this_obs %>%
+        group_by(year, observation_label, category) %>%
+        mutate(expected = expected / sum(expected), observed = observed / sum(observed))
+    }
 
     if (is_age) {
-      mean_age <- this_obs %>%
-        group_by(year, observation_label) %>%
-        summarise(Ey = sum(age * expected), Oy = sum(age * observed), E_squared_y = sum(age^2 * expected), Nassumed = mean(adjusted_error))
+      if (!by_category) {
+        mean_age <- this_obs %>%
+          group_by(year, observation_label) %>%
+          summarise(Ey = sum(age * expected), Oy = sum(age * observed), E_squared_y = sum(age^2 * expected), Nassumed = mean(adjusted_error))
+      } else {
+        mean_age <- this_obs %>%
+          group_by(year, observation_label, category) %>%
+          summarise(Ey = sum(age * expected), Oy = sum(age * observed), E_squared_y = sum(age^2 * expected), Nassumed = mean(adjusted_error))
+      }
       mean_age$Ry <- mean_age$Oy - mean_age$Ey
       mean_age$SEy <- sqrt((mean_age$E_squared_y - mean_age$Ey^2) / mean_age$Nassumed)
       mean_bin_df <- rbind(mean_bin_df, mean_age)
     } else {
-      mean_length <- this_obs %>%
-        group_by(year, observation_label) %>%
-        summarise(Ey = sum(length * expected), Oy = sum(length * observed), E_squared_y = sum(length^2 * expected), Nassumed = mean(adjusted_error))
+      if (!by_category) {
+        mean_length <- this_obs %>%
+          group_by(year, observation_label) %>%
+          summarise(Ey = sum(length * expected), Oy = sum(length * observed), E_squared_y = sum(length^2 * expected), Nassumed = mean(adjusted_error))
+      } else {
+        mean_length <- this_obs %>%
+          group_by(year, observation_label, category) %>%
+          summarise(Ey = sum(length * expected), Oy = sum(length * observed), E_squared_y = sum(length^2 * expected), Nassumed = mean(adjusted_error))
+      }
       mean_length$Ry <- mean_length$Oy - mean_length$Ey
       mean_length$SEy <- sqrt((mean_length$E_squared_y - mean_length$Ey^2) / mean_length$Nassumed)
       mean_bin_df <- rbind(mean_bin_df, mean_length)
@@ -66,7 +84,7 @@ get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group = FALSE)
 #' @rdname get_composition_mean_bin
 #' @method get_composition_mean_bin list
 #' @export
-"get_composition_mean_bin.list" <- function(model) {
+"get_composition_mean_bin.list" <- function(model, ignore_plus_group, by_category) {
   run_labs <- names(model)
   full_DF <- NULL
   ## iterate over the models
