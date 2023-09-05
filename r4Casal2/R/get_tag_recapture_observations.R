@@ -103,3 +103,33 @@
   return(full_DF)
   invisible()
 }
+
+#' @rdname get_tag_recapture_observations
+#' @method get_tag_recapture_observations casal2TAB
+#' @export
+"get_tag_recapture_observations.casal2TAB" <- function(model) {
+  observation_type_allowed <- c("tag_recapture_by_length_for_growth", "tag_recapture_by_length", "tag_recapture_by_age")
+  reports_labels <- reformat_default_labels(names(model))
+  complete_df <- NULL
+  for (i in 1:length(model)) {
+    this_report <- model[[i]]
+    if (is.null(this_report$observation_type) || !(this_report$observation_type %in% observation_type_allowed)) {
+      next
+    }
+    val_df <- this_report$values
+    index <- match(names(this_report$values), unique(names(this_report$values)))
+    index <- data.frame(index) %>%
+      group_by(index) %>%
+      mutate(count = 1:n())
+
+    val_molten <- suppressMessages({
+      melt(as.matrix(val_df), variable.name = "colname", value.name = "value", factorsAsStrings = F)
+    })
+    colnames(val_molten) <- c("iteration", "parameter", "value")
+    val_molten$category <- this_report$categories[index$count]
+    val_molten$report_label <- reports_labels[i]
+    complete_df <- rbind(complete_df, val_molten)
+  }
+  return(complete_df)
+  invisible()
+}

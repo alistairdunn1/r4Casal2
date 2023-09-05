@@ -4,6 +4,7 @@
 \alias{get_tag_recapture_observations}
 \alias{get_tag_recapture_observations.casal2MPD}
 \alias{get_tag_recapture_observations.list}
+\alias{get_tag_recapture_observations.casal2TAB}
 \title{get_tag_recapture_observations}
 \usage{
 get_tag_recapture_observations(model)
@@ -11,6 +12,8 @@ get_tag_recapture_observations(model)
 \method{get_tag_recapture_observations}{casal2MPD}(model)
 
 \method{get_tag_recapture_observations}{list}(model)
+
+\method{get_tag_recapture_observations}{casal2TAB}(model)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )}

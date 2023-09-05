@@ -6,11 +6,11 @@
 \alias{get_composition_mean_bin.list}
 \title{get_composition_mean_bin}
 \usage{
-get_composition_mean_bin(model, ignore_plus_group = FALSE)
+get_composition_mean_bin(model, ignore_plus_group = FALSE, by_category = FALSE)
 
-\method{get_composition_mean_bin}{casal2MPD}(model, ignore_plus_group = FALSE)
+\method{get_composition_mean_bin}{casal2MPD}(model, ignore_plus_group, by_category)
 
-\method{get_composition_mean_bin}{list}(model)
+\method{get_composition_mean_bin}{list}(model, ignore_plus_group, by_category)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
