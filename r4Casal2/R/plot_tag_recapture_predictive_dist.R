@@ -1,9 +1,10 @@
 #' plot_tag_recapture_predictive_dist
 #' Plots a violin plot of the predictive distribution by year for an observation
 #' @param sim_data matrix of simulated data rows = simulation, col = length or age
-#' @param obs a data frame with column names obs and bin (). Can include a column labelled 'mpd_fit' if it exists the plot will add mpd fits on the plot
+#' @param obs a data frame with column names obs and bin (). Can include a column labelled 'mpd_fit' if it exists the plot will add MPD fits on the plot
 #' @param lab a label for the plot which clearly identifies the observation
-#' @param plot_type = "violin" currently either violin or boxplot.
+#' @param plot_type = "violin" currently either violin or boxplot
+#' @param plot.it Whether to generate a default plot
 #' @param type age assumes tag_recapture_by_age or length tag_recapture_by_length
 #' @param probs vector of proportions that you want the violin plot to add lines at (optional)
 #' @importFrom reshape2 melt
@@ -11,7 +12,7 @@
 #' @return a ggplot
 #' @rdname plot_tag_recapture_predictive_dist
 #' @export plot_tag_recapture_predictive_dist
-plot_tag_recapture_predictive_dist <- function(sim_data, obs, lab, plot_type = "violin", type = "length", probs = c(0.025, 0.5, 0.975)) {
+plot_tag_recapture_predictive_dist <- function(sim_data, obs, lab, plot_type = "violin", type = "length", probs = c(0.025, 0.5, 0.975), plot.it = TRUE) {
   ## quantile function
   if (!all(c("obs", "bin") %in% colnames(obs))) {
     stop("obs must have colnames 'obs', 'bin'. Where bin is the age or length")
@@ -23,7 +24,7 @@ plot_tag_recapture_predictive_dist <- function(sim_data, obs, lab, plot_type = "
   legend <- c("Posterior Prediction" = "#56B4E9", "Observation" = "black", "MPD" = "#D55E00")
   sim_data_long <- melt(sim_data)
   if (!any(class(obs) == "data.frame")) {
-    stop("obs needs to be a dataframe")
+    stop("obs needs to be a data frame")
   }
 
   add_mpd_fit <- FALSE
@@ -55,5 +56,8 @@ plot_tag_recapture_predictive_dist <- function(sim_data, obs, lab, plot_type = "
   if (add_mpd_fit) {
     base_plot <- base_plot + geom_point(data = obs, aes(x = bin, y = mpd_fit, color = "MPD", fill = "MPD"), size = 2.4, inherit.aes = F)
   }
-  return(print(base_plot))
+  if (plot.it) {
+    print(base_plot)
+  }
+  invisible(base_plot)
 }

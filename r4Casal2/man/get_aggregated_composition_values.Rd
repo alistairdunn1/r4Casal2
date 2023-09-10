@@ -13,13 +13,13 @@ get_aggregated_composition_values(model)
 \method{get_aggregated_composition_values}{list}(model)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)}
 }
 \value{
 data frame with aggregated observed and expected over all years for each observation
 }
 \description{
-An accessor function that returns a data frame of aggregated composition
+An accessor function that returns a dataframe of aggregated composition
 }
 \author{
 Craig Marsh

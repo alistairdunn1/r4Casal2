@@ -5,12 +5,14 @@
 \alias{get_projections.casal2TAB}
 \title{get_projections}
 \usage{
-get_projections(model)
+get_projections(model, ...)
 
-\method{get_projections}{casal2TAB}(model)
+\method{get_projections}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2TAB> object that are generated from the extract.tabular() function}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame with all selectivity reports from Casal2 model output

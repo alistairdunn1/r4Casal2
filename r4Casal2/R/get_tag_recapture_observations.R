@@ -1,9 +1,8 @@
 #' @title get_tag_recapture_observations
-#' @description
-#' An accessor function that returns a data frame of all tag-recapture observations
+#' @description An accessor function that returns a data frame of all tag-recapture observations
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
-#' @return dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
+#' @return data frame with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 #' @rdname get_tag_recapture_observations
 #' @export get_tag_recapture_observations
 "get_tag_recapture_observations" <- function(model) {
@@ -13,14 +12,18 @@
 #' @rdname get_tag_recapture_observations
 #' @method get_tag_recapture_observations casal2MPD
 #' @export
-"get_tag_recapture_observations.casal2MPD" <- function(model) {
+"get_tag_recapture_observations.casal2MPD" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   observation_type_allowed <- c("tag_recapture_by_length_for_growth", "tag_recapture_by_length", "tag_recapture_by_age")
   # can be -r or -r -i
   multiple_iterations_in_a_report <- FALSE
   complete_df <- NULL
-  reports_labels <- names(model)
   for (i in 1:length(model)) {
-    if (reports_labels[i] == "header") {
+    if (report_labels[i] == "header") {
       next
     }
     this_report <- model[[i]]
@@ -31,7 +34,7 @@
       if (this_report$observation_type %in% observation_type_allowed) {
         ## add it to full df
         this_ob <- this_report$Values
-        this_ob$observation_label <- reports_labels[i]
+        this_ob$observation_label <- report_labels[i]
         this_ob$observation_type <- this_report$observation_type
         this_ob$likelihood <- this_report$likelihood
         this_ob$par_set <- 1 ## so compatible with -i runs
@@ -60,7 +63,7 @@
         for (dash_i in 1:n_runs) {
           ## add it to full df
           this_ob <- this_report[[dash_i]]$Values
-          this_ob$observation_label <- reports_labels[i]
+          this_ob$observation_label <- report_labels[i]
           this_ob$observation_type <- this_report[[dash_i]]$observation_type
           this_ob$likelihood <- this_report[[dash_i]]$likelihood
           this_ob$par_set <- dash_i
@@ -86,30 +89,37 @@
 #' @rdname get_tag_recapture_observations
 #' @method get_tag_recapture_observations list
 #' @export
-"get_tag_recapture_observations.list" <- function(model) {
-  run_labs <- names(model)
+"get_tag_recapture_observations.list" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   full_DF <- NULL
   ## iterate over the models
   for (i in 1:length(model)) {
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_abundance <- get_tag_recapture_observations(model[[i]])
+    this_abundance <- get_tag_recapture_observations(model[[i]], reformat_labels = reformat_labels)
     if (!is.null(this_abundance)) {
-      this_abundance$model_label <- run_labs[i]
+      this_abundance$model_label <- report_labels[i]
       full_DF <- rbind(full_DF, this_abundance)
     }
   }
   return(full_DF)
-  invisible()
 }
 
 #' @rdname get_tag_recapture_observations
 #' @method get_tag_recapture_observations casal2TAB
 #' @export
-"get_tag_recapture_observations.casal2TAB" <- function(model) {
+"get_tag_recapture_observations.casal2TAB" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   observation_type_allowed <- c("tag_recapture_by_length_for_growth", "tag_recapture_by_length", "tag_recapture_by_age")
-  reports_labels <- reformat_default_labels(names(model))
   complete_df <- NULL
   for (i in 1:length(model)) {
     this_report <- model[[i]]
@@ -127,9 +137,8 @@
     })
     colnames(val_molten) <- c("iteration", "parameter", "value")
     val_molten$category <- this_report$categories[index$count]
-    val_molten$report_label <- reports_labels[i]
+    val_molten$report_label <- report_labels[i]
     complete_df <- rbind(complete_df, val_molten)
   }
   return(complete_df)
-  invisible()
 }

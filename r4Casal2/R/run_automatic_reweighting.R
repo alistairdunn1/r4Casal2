@@ -4,7 +4,7 @@
 #' @param config_dir directory that contains config. See details for info on nested folder configs
 #' @param config_filename the config file that describes all Casal2 input files. Expected to be in 'config_dir'.
 #' @param weighting_folder_name A folder name created in 'config_dir' where re-estimation is done and output saved.
-#' @param mpd_file_name filename with mpd output to start calculating weights for. Expected to be in 'config_dir'.
+#' @param mpd_file_name filename with MPD output to start calculating weights for. Expected to be in 'config_dir'.
 #' @param n_loops number of iterative loops
 #' @param dash_i_par_filename parameter filename compatible with -i format. Useful to start models close to solution for complex models
 #' @param prompt_user_before_deleting if FALSE will delete previous weighting_folder_name without prompting user.
@@ -15,7 +15,7 @@
 #' To read in the reweighted outputs from this function see the function extract_reweighted_mpds.
 #' @rdname run_automatic_reweighting
 #' @export run_automatic_reweighting
-#' @return data frame of weights in each loop. Will also create estimated mpd output in weighting_folder_name with the format 'estimate_"iteration_number".log'
+#' @return data frame of weights in each loop. Will also create estimated MPD output in weighting_folder_name with the format 'estimate_"iteration_number".log'
 run_automatic_reweighting <- function(config_dir,
                                       config_filename = "config.csl2",
                                       weighting_folder_name = "Reweight",
@@ -99,7 +99,7 @@ run_automatic_reweighting <- function(config_dir,
       cat("\nloop iter ", loop_iter, "\n")
     }
     if (loop_iter > 1) {
-      ## read in mpd and calculate stage two weights
+      ## read in MPD and calculate stage two weights
       mpd <- extract.mpd(path = working_dir, file = paste0("estimate_", loop_iter - 1, ".log"))
       initial_stage_two_weights <- calculate_composition_stage_two_weights(mpd, approximate_single_year_obs = approximate_single_year_obs)
       final_weights <- cbind(final_weights, initial_stage_two_weights$weight)

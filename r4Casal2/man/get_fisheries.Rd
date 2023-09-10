@@ -7,16 +7,18 @@
 \alias{get_fisheries.casal2TAB}
 \title{get_fisheries}
 \usage{
-get_fisheries(model)
+get_fisheries(model, ...)
 
-\method{get_fisheries}{casal2MPD}(model)
+\method{get_fisheries}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_fisheries}{list}(model)
+\method{get_fisheries}{list}(model, reformat_labels = TRUE)
 
-\method{get_fisheries}{casal2TAB}(model)
+\method{get_fisheries}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame from Casal2 model output

@@ -7,19 +7,21 @@
 \alias{get_composition_observations.casal2TAB}
 \title{get_composition_observations}
 \usage{
-get_composition_observations(model)
+get_composition_observations(model, ...)
 
-\method{get_composition_observations}{casal2MPD}(model)
+\method{get_composition_observations}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_composition_observations}{list}(model)
+\method{get_composition_observations}{list}(model, reformat_labels = TRUE)
 
-\method{get_composition_observations}{casal2TAB}(model)
+\method{get_composition_observations}{casal2TAB}(mode, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
+\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
-dataframe with all observations of type == 'observation' and observation_type !%in% c('biomass', 'abundance')
+data frame with all observations of type == 'observation' and observation_type !%in% c('biomass', 'abundance')
 }
 \description{
 An accessor function that returns a data frame of all composition data sets in a model

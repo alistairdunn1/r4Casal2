@@ -7,19 +7,21 @@
 \alias{get_abundance_observations.casal2TAB}
 \title{get_abundance_observations}
 \usage{
-get_abundance_observations(model)
+get_abundance_observations(model, ...)
 
-\method{get_abundance_observations}{casal2MPD}(model)
+\method{get_abundance_observations}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_abundance_observations}{list}(model)
+\method{get_abundance_observations}{list}(model, reformat_labels = TRUE)
 
-\method{get_abundance_observations}{casal2TAB}(model)
+\method{get_abundance_observations}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
-dataframe with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
+data frame with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 }
 \description{
 An accessor function that returns a data frame of all relative abundance data sets in a model

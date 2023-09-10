@@ -11,21 +11,24 @@ plot_tag_recapture_predictive_dist(
   lab,
   plot_type = "violin",
   type = "length",
-  probs = c(0.025, 0.5, 0.975)
+  probs = c(0.025, 0.5, 0.975),
+  plot.it = TRUE
 )
 }
 \arguments{
 \item{sim_data}{matrix of simulated data rows = simulation, col = length or age}
 
-\item{obs}{a data frame with column names obs and bin (). Can include a column labelled 'mpd_fit' if it exists the plot will add mpd fits on the plot}
+\item{obs}{a data frame with column names obs and bin (). Can include a column labelled 'mpd_fit' if it exists the plot will add MPD fits on the plot}
 
 \item{lab}{a label for the plot which clearly identifies the observation}
 
-\item{plot_type}{= "violin" currently either violin or boxplot.}
+\item{plot_type}{= "violin" currently either violin or boxplot}
 
 \item{type}{age assumes tag_recapture_by_age or length tag_recapture_by_length}
 
 \item{probs}{vector of proportions that you want the violin plot to add lines at (optional)}
+
+\item{plot.it}{Whether to generate a default plot}
 }
 \value{
 a ggplot

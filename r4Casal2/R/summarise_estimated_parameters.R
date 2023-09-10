@@ -1,7 +1,7 @@
 #' summarise_estimated_parameters
-#' @description  this function will find estimate_summary report and summarise the priors, mpd and initial value
+#' @description  this function will find estimate_summary report and summarise the priors, MPD and initial value
 #' @author C Marsh
-#' @param model an mpd model
+#' @param model an MPD model
 #' @param ignore_ycs ignore YCS parameters
 #' @param plot_it if true plot MPD value, initial value, and prior, otherwise report MPD, init, lower_bound, upper_bound, prior_type
 #' @return either a ggplot or a list with two elements. The first is for plotting, the second is a useful data frame

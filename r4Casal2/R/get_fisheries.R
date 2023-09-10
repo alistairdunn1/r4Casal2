@@ -1,27 +1,31 @@
 #' @title get_fisheries
-#' @description
-#' An accessor function that returns a data frame from a Casal2 model output of process type recruitment
+#' @description An accessor function that returns a data frame from a Casal2 model output of process type recruitment
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions
+#' @param reformat_labels <bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)
 #' @return A data frame from Casal2 model output
 #' @rdname get_fisheries
 #' @export get_fisheries
 #' @importFrom reshape2 melt
 #' @importFrom tidyr gather separate spread %>%
-"get_fisheries" <- function(model) {
+"get_fisheries" <- function(model, ...) {
   UseMethod("get_fisheries", model)
 }
 
 #' @rdname get_fisheries
 #' @method get_fisheries casal2MPD
 #' @export
-"get_fisheries.casal2MPD" <- function(model) {
+"get_fisheries.casal2MPD" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   # can be -r or -r -i
   multiple_iterations_in_a_report <- FALSE
   complete_df <- NULL
-  reports_labels <- reformat_default_labels(names(model))
   for (i in 1:length(model)) {
-    if (reports_labels[i] == "header") {
+    if (report_labels[i] == "header") {
       next
     }
 
@@ -57,7 +61,7 @@
         )
         full_df <- rbind(full_df, temp_df)
       }
-      full_df$label <- reports_labels[i]
+      full_df$label <- report_labels[i]
       complete_df <- rbind(complete_df, full_df)
     } else {
       if (this_report[[1]]$type != "process") {
@@ -93,43 +97,49 @@
           )
           full_df <- rbind(full_df, temp_df)
         }
-        full_df$label <- reports_labels[i]
+        full_df$label <- report_labels[i]
         complete_df <- rbind(complete_df, full_df)
       }
     }
   }
   return(complete_df)
-  invisible()
 }
 
 #' @rdname get_fisheries
 #' @method get_fisheries list
 #' @export
-"get_fisheries.list" <- function(model) {
-  run_labs <- names(model)
+"get_fisheries.list" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   full_DF <- NULL
   ## iterate over the models
   for (i in 1:length(model)) {
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_dq <- get_fisheries(model[[i]])
+    this_dq <- get_fisheries(model[[i]], reformat_labels = reformat_labels)
     if (is.null(this_dq)) {
       next
     }
-    this_dq$model_label <- run_labs[i]
+    this_dq$model_label <- report_labels[i]
     full_DF <- rbind(full_DF, this_dq)
   }
   return(full_DF)
-  invisible()
 }
 
 #' @rdname get_fisheries
 #' @method get_fisheries casal2TAB
 #' @export
-"get_fisheries.casal2TAB" <- function(model) {
+"get_fisheries.casal2TAB" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   cat("this can take a few minutes for large models and big mcmc chains. Please be patient :~) \n")
-  reports_labels <- reformat_default_labels(names(model))
   complete_df <- NULL
   for (i in 1:length(model)) {
     this_report <- model[[i]]
@@ -155,7 +165,7 @@
     third_component <- substring(third_component, first = 1, last = nchar(third_component) - 1)
     newcolab <- paste(second_component, third_component, first_component, sep = ".")
     colnames(fish_vals) <- newcolab
-    cat("getting values for ", reports_labels[i], "\n")
+    cat("getting values for ", report_labels[i], "\n")
 
     fish_vals$iteration <- rownames(fish_vals)
     fishery_long_format <- fish_vals %>%
@@ -163,9 +173,8 @@
       separate(key, c("fishery", "year", "type"), sep = "\\.") %>%
       spread(type, value)
     fishery_long_format$year <- as.numeric(fishery_long_format$year)
-    fishery_long_format$label <- reports_labels[i]
+    fishery_long_format$label <- report_labels[i]
     complete_df <- rbind(complete_df, fishery_long_format)
   }
   return(complete_df)
-  invisible()
 }

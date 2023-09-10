@@ -7,16 +7,18 @@
 \alias{get_category_transitions.casal2TAB}
 \title{get_category_transitions}
 \usage{
-get_category_transitions(model)
+get_category_transitions(model, ...)
 
-\method{get_category_transitions}{casal2MPD}(model)
+\method{get_category_transitions}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_category_transitions}{list}(model)
+\method{get_category_transitions}{list}(mode, reformat_labels = TRUE)
 
-\method{get_category_transitions}{casal2TAB}(model)
+\method{get_category_transitions}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame from Casal2 model output

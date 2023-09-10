@@ -4,16 +4,21 @@
 \alias{get_initial_partition}
 \alias{get_initial_partition.casal2MPD}
 \alias{get_initial_partition.list}
+\alias{get_initial_partition.casal2TAB}
 \title{get_initial_partition}
 \usage{
-get_initial_partition(model)
+get_initial_partition(model, ...)
 
-\method{get_initial_partition}{casal2MPD}(model)
+\method{get_initial_partition}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_initial_partition}{list}(model)
+\method{get_initial_partition}{list}(model, reformat_labels = TRUE)
+
+\method{get_initial_partition}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame from Casal2 model output

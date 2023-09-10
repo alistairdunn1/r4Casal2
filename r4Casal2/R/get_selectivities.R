@@ -1,27 +1,31 @@
 #' @title get_selectivities
-#' @description
-#' An accessor function that returns a data frame from a Casal2 model output of selectivities
+#' @description An accessor function that returns a data frame from a Casal2 model output of selectivities
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.
+#' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions
+#' @param reformat_labels <bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)
 #' @return A data frame with all selectivity reports from Casal2 model output
 #' @rdname get_selectivities
 #' @export get_selectivities
 #' @importFrom reshape2 melt
-"get_selectivities" <- function(model) {
+"get_selectivities" <- function(model, ...) {
   UseMethod("get_selectivities", model)
 }
 
 #' @rdname get_selectivities
 #' @method get_selectivities casal2MPD
 #' @export
-"get_selectivities.casal2MPD" <- function(model) {
+"get_selectivities.casal2MPD" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   # can be -r or -r -i
   multiple_iterations_in_a_report <- FALSE
   complete_df <- NULL
-  reports_labels <- reformat_default_labels(names(model))
   for (i in 1:length(model)) {
     ## skip the header
-    if (reports_labels[i] == "header") {
+    if (report_labels[i] == "header") {
       next
     }
     this_report <- model[[i]]
@@ -31,7 +35,7 @@
       }
       ## add it to full df
       this_selectivity <- data.frame(selectivity = as.numeric(this_report$Values), bin = names(this_report$Values))
-      this_selectivity$selectivity_label <- reports_labels[i]
+      this_selectivity$selectivity_label <- report_labels[i]
       this_selectivity$par_set <- 1 ## so compatible with -i runs
       ## check col compatibility some reports will print residuals and some wont
       if (!is.null(complete_df)) {
@@ -56,7 +60,7 @@
       for (dash_i in 1:n_runs) {
         ## add it to full df
         this_selectivity <- data.frame(selectivity = as.numeric(this_report[[dash_i]]$Values), bin = names(this_report[[dash_i]]$Values))
-        this_selectivity$selectivity_label <- reports_labels[i]
+        this_selectivity$selectivity_label <- report_labels[i]
         this_selectivity$par_set <- iter_labs[dash_i]
         ## check col compatibility some reports will print residuals and some wont
         if (!is.null(complete_df)) {
@@ -75,33 +79,39 @@
   }
   complete_df$bin <- as.numeric(complete_df$bin)
   return(complete_df)
-  invisible()
 }
 
 #' @rdname get_selectivities
 #' @method get_selectivities list
 #' @export
-"get_selectivities.list" <- function(model) {
-  run_labs <- names(model)
+"get_selectivities.list" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   full_DF <- NULL
   ## iterate over the models
   for (i in 1:length(model)) {
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD', you supplied = ", class(model[[i]])))
     }
-    this_sel <- get_selectivities(model[[i]])
-    this_sel$model_label <- run_labs[i]
+    this_sel <- get_selectivities(model[[i]], reformat_labels = reformat_labels)
+    this_sel$model_label <- report_labels[i]
     full_DF <- rbind(full_DF, this_sel)
   }
   return(full_DF)
-  invisible()
 }
 
 #' @rdname get_selectivities
 #' @method get_selectivities casal2TAB
 #' @export
-"get_selectivities.casal2TAB" <- function(model) {
-  reports_labels <- reformat_default_labels(names(model))
+"get_selectivities.casal2TAB" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   complete_df <- NULL
   for (i in 1:length(model)) {
     this_report <- model[[i]]
@@ -124,10 +134,9 @@
     }))
     selectivity_lab <- substring(selectivity_lab, first = 1, last = nchar(selectivity_lab) - 1)
     sel_molten$bin <- as.numeric(bin_labs)
-    sel_molten$report_label <- reports_labels[i]
+    sel_molten$report_label <- report_labels[i]
     sel_molten$selectivity_label <- selectivity_lab
     complete_df <- rbind(complete_df, sel_molten)
   }
   return(complete_df)
-  invisible()
 }

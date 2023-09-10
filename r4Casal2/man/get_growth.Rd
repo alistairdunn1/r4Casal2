@@ -4,16 +4,21 @@
 \alias{get_growth}
 \alias{get_growth.casal2MPD}
 \alias{get_growth.list}
+\alias{get_growth.casal2TAB}
 \title{get_growth}
 \usage{
-get_growth(model)
+get_growth(model, ...)
 
-\method{get_growth}{casal2MPD}(model)
+\method{get_growth}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_growth}{list}(model)
+\method{get_growth}{list}(model, reformat_labels = TRUE)
+
+\method{get_growth}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame from Casal2 model output

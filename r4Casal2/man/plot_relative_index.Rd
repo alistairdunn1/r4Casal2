@@ -10,14 +10,14 @@ plot_relative_index(
   model,
   report_labels = NULL,
   plot_type = "classic",
-  plot.it = T
+  plot.it = TRUE
 )
 
 \method{plot_relative_index}{casal2MPD}(
   model,
   report_labels = NULL,
   plot_type = "classic",
-  plot.it = T
+  plot.it = TRUE
 )
 
 \method{plot_relative_index}{casal2TAB}(
@@ -39,7 +39,7 @@ plot_relative_index(
   \item residual
 }}
 
-\item{plot.it}{Whether to generate a default plot or return the values as a matrix.}
+\item{plot.it}{Whether to generate a default plot}
 }
 \value{
 A ggplot object

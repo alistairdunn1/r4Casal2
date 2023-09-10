@@ -1,27 +1,30 @@
 #' @title get_partition
-#' @description
-#' An accessor function that returns a data frame from a Casal2 model output of process type partition
+#' @description An accessor function that returns a data frame from a Casal2 model output of process type partition
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions
+#' @param reformat_labels <bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)
 #' @return A data frame from Casal2 model output
 #' @rdname get_partition
 #' @export get_partition
 #' @importFrom reshape2 melt
-
-"get_partition" <- function(model) {
+"get_partition" <- function(model, ...) {
   UseMethod("get_partition", model)
 }
 
 #' @rdname get_partition
 #' @method get_partition casal2MPD
 #' @export
-"get_partition.casal2MPD" <- function(model) {
+"get_partition.casal2MPD" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   # can be -r or -r -i
   multiple_iterations_in_a_report <- FALSE
   complete_df <- NULL
-  reports_labels <- reformat_default_labels(names(model))
   for (i in 1:length(model)) {
-    if (reports_labels[i] == "header") {
+    if (report_labels[i] == "header") {
       next
     }
     this_report <- model[[i]]
@@ -69,24 +72,39 @@
     }
   }
   return(complete_df)
-  invisible()
 }
 
 #' @rdname get_partition
 #' @method get_partition list
 #' @export
-"get_partition.list" <- function(model) {
-  run_labs <- names(model)
+"get_partition.list" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
+  report_labels <- names(model)
   full_DF <- NULL
   ## iterate over the models
   for (i in 1:length(model)) {
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_dq <- get_partition(model[[i]])
-    this_dq$model_label <- run_labs[i]
+    this_dq <- get_partition(model[[i]], reformat_labels = reformat_labels)
+    this_dq$model_label <- report_labels[i]
     full_DF <- rbind(full_DF, this_dq)
   }
   return(full_DF)
-  invisible()
+}
+
+#' @rdname get_partition
+#' @method get_partition casal2TAB
+#' @export
+"get_partition.casal2TAB" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
+  stop("get_partition for casal2TAB has not been implemented")
 }

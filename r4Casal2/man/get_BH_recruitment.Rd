@@ -7,16 +7,16 @@
 \alias{get_BH_recruitment.casal2TAB}
 \title{get_BH_recruitment}
 \usage{
-get_BH_recruitment(model)
+get_BH_recruitment(model, ...)
 
-\method{get_BH_recruitment}{casal2MPD}(model)
+\method{get_BH_recruitment}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_BH_recruitment}{list}(model)
+\method{get_BH_recruitment}{list}(model, reformat_labels = TRUE)
 
-\method{get_BH_recruitment}{casal2TAB}(model)
+\method{get_BH_recruitment}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
 }
 \value{
 A data frame from Casal2 model output

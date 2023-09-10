@@ -7,16 +7,18 @@
 \alias{get_selectivities.casal2TAB}
 \title{get_selectivities}
 \usage{
-get_selectivities(model)
+get_selectivities(model, ...)
 
-\method{get_selectivities}{casal2MPD}(model)
+\method{get_selectivities}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_selectivities}{list}(model)
+\method{get_selectivities}{list}(model, reformat_labels = TRUE)
 
-\method{get_selectivities}{casal2TAB}(model)
+\method{get_selectivities}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame with all selectivity reports from Casal2 model output

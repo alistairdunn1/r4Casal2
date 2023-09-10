@@ -7,16 +7,18 @@
 \alias{get_catchabilities.casal2TAB}
 \title{get_catchabilities}
 \usage{
-get_catchabilities(model)
+get_catchabilities(model, ...)
 
-\method{get_catchabilities}{casal2MPD}(model)
+\method{get_catchabilities}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_catchabilities}{list}(model)
+\method{get_catchabilities}{list}(model, reformat_labels = TRUE)
 
-\method{get_catchabilities}{casal2TAB}(model)
+\method{get_catchabilities}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame with all derived quantity reports from Casal2 model output

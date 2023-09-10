@@ -10,14 +10,11 @@ extract_reweighted_mpds(reweighting_path)
 \item{reweighting_path}{path of the directory that contains the estimated output}
 }
 \value{
-a names list of mpd that can be accessed with the get_ and plot_ methods.
+a names list of MPD that can be accessed with the get_ and plot_ methods.
 }
 \description{
-this function will read in a set of re-weighted models as list so you can
-plot and integrate the effect of data-weightings. This expects model outputs produced
-by the function run_automatic_reweighting
+this function will read in a set of re-weighted models as list so you can plot and integrate the effect of data-weightings. This expects model outputs produced by the function run_automatic_reweighting
 }
 \details{
-this function expects there to be a range of outputed files with the following filename structure "estimate_'weighting iteration'.log,
-where 'weighting iteration' is an integer.
+this function expects there to be a range of output files with the following filename structure "estimate_'weighting iteration'.log, where 'weighting iteration' is an integer
 }

@@ -22,7 +22,7 @@ create_simulation_reports(
 
 \item{prefix}{prefix for simulated observations}
 
-\item{single_sim_filename}{optional filename, if provided then will report simulated observations into a single file, rather than separate files.}
+\item{single_sim_filename}{optional filename, if provided then will report simulated observations into a single file, rather than separate files}
 
 \item{verbose}{true print out statements through function to help debug}
 }
@@ -30,7 +30,7 @@ create_simulation_reports(
 will create an output directory based on parameter output_folder and also a Casal2 report config called simulated_reports.csl2
 }
 \description{
-A function to create a simulated report csl file so that you can add it with an !include statement for simulations.
+A function to create a simulated report csl2 file so that you can add it with an !include statement for simulations
 }
 \examples{
 \donttest{

@@ -11,7 +11,7 @@ calculate_composition_stage_two_weights(
 )
 }
 \arguments{
-\item{model}{casal2 mpd model}
+\item{model}{casal2 MPD model}
 
 \item{observation_labels}{vector<string> of observation labels to calculate the stage two weights for. This function assumes your observation label (@observation) is the same as the report label (@report)}
 
@@ -24,8 +24,7 @@ data.frame of second stage weights
 this function will iterate over all (or a subset of) compositional observations to calculate the method TA 1.8 weights from \insertCite{francis2011data}{r4Casal2}
 }
 \details{
-if approximate_single_year_obs then we will search across other observations and years to find a an error value similar in magnitude for the year with a single observation
-and assign a weight based on the year that is similar in magnitude.
+if approximate_single_year_obs then we will search across other observations and years to find a an error value similar in magnitude for the year with a single observation and assign a weight based on the year that is similar in magnitude.
 }
 \references{
 \insertAllCited{}

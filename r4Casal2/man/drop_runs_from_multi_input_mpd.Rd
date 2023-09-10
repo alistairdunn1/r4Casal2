@@ -15,5 +15,5 @@ drop_runs_from_multi_input_mpd(model, elements_to_drop)
 model that has been modified
 }
 \description{
-this function will remove runs from an extract.mpd that is a multiinput paramter run
+this function will remove runs from an extract.mpd that is a multiinput parameter run
 }

@@ -1,12 +1,11 @@
 #' @title create_simulation_reports
-#' @description
-#' A function to create a simulated report csl file so that you can add it with an !include statement for simulations.
+#' @description A function to create a simulated report csl2 file so that you can add it with an !include statement for simulations
 #' @author Craig Marsh
 #' @param config_dir path directory
 #' @param config_files vector of string names that correspond to Casal2
 #' @param output_folder folder directory label to write simulated reports into
 #' @param prefix prefix for simulated observations
-#' @param single_sim_filename optional filename, if provided then will report simulated observations into a single file, rather than separate files.
+#' @param single_sim_filename optional filename, if provided then will report simulated observations into a single file, rather than separate files
 #' @param verbose true print out statements through function to help debug
 #' @return will create an output directory based on parameter output_folder and also a Casal2 report config called simulated_reports.csl2
 #' @rdname create_simulation_reports

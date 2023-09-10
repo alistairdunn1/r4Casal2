@@ -1,10 +1,9 @@
 #' @title plot_relative_index default
-#' @description
-#' A plotting function for Casal2 fits to abundance or biomass observations
+#' @description A plotting function for Casal2 fits to abundance or biomass observations
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract() functions.
 #' @param report_labels vector<string> report labels to plot, default is all
-#' @param plot.it Whether to generate a default plot or return the values as a matrix.
+#' @param plot.it Whether to generate a default plot
 #' @param plot_type string
 #' \itemize{
 #'   \item classic
@@ -27,7 +26,7 @@
 #' # to create a user-specified plot, use plot.it = FALSE.
 #' Tangaroa_fits <- plot.fits(model = data, report_label = "eastF_at_age", plot.it = FALSE)
 #' }
-"plot_relative_index" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = T) {
+"plot_relative_index" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = TRUE) {
   UseMethod("plot_relative_index", model)
 }
 #' @return \code{NULL}
@@ -35,7 +34,7 @@
 #' @rdname plot_relative_index
 #' @method plot_relative_index casal2MPD
 #' @export
-"plot_relative_index.casal2MPD" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = T) {
+"plot_relative_index.casal2MPD" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = TRUE) {
   abundance_obs <- get_abundance_observations(model)
   if (is.null(abundance_obs)) {
     return("Did not find any abundance observations")
@@ -103,13 +102,9 @@
   }
 
   if (plot.it) {
-    return(plt)
+    print(plt)
   }
-
-  if (!plot.it) {
-    return(abundance_obs)
-  }
-  invisible()
+  invisible(plt)
 }
 #' @return \code{NULL}
 #'
@@ -117,5 +112,5 @@
 #' @method plot_relative_index casal2TAB
 #' @export
 "plot_relative_index.casal2TAB" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = T) {
-  stop("function not coded yet")
+  stop("plot_recruitment is not implemented for casal2TAB output")
 }

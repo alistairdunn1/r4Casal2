@@ -16,7 +16,7 @@ plot_abundance_predictive_dist(
 \arguments{
 \item{sim_data}{matrix of simulated data rows = year, col = simulations. This function assumes rownames(sim_data) = year}
 
-\item{obs}{a data frame with columns obs and year. Can include a column labelled 'mpd_fit' if it exists the plot will add mpd fits on the plot}
+\item{obs}{a data frame with columns obs and year. Can include a column labelled 'mpd_fit' if it exists the plot will add MPD fits on the plot}
 
 \item{lab}{a label for the plot which clearly identifies the observation}
 

@@ -1,8 +1,6 @@
 #' @title aggregate_objective_report
-#' @details
-#' take a Casal2 objective_function report and aggregate components so easier to handle with
-#' visualising likelihood components
-#' @param objective_report casal2_objective_function which is a report from an extract.mpd() object
+#' @details Takes a Casal2 objective_function report and aggregate components so easier to handle with visualising likelihood components
+#' @param objective_report casal2_objective_function which is the object created by an extract.mpd() object
 #' @return data frame of aggregated objective function negative log-likelihood components
 #' @rdname aggregate_objective_report
 #' @export aggregate_objective_report
@@ -41,6 +39,8 @@ aggregate_objective_report <- function(objective_report) {
 #' @details used by aggregate_objective_report
 #' @param values data.frame from a Casal2 objective_function report
 #' @return data frame with aggregated values
+#' @rdname aggregate_single_objective_report
+#' @export aggregate_single_objective_report
 aggregate_single_objective_report <- function(values) {
   obj_labels <- names(values)
   type <- Reduce(c, lapply(strsplit(obj_labels, split = "->", fixed = T), FUN = function(x) {

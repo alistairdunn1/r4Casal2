@@ -1,10 +1,8 @@
 #' @title plot_derived_quantities default
-#' @description
-#' A plotting function for Casal2 derived_quantities
+#' @description A plotting function for Casal2 derived_quantities
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple mpd runs (should be a named list )
-#' @param plot.it Whether to generate a default plot or return the values as a matrix.
-#' @param plot_type string
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
+#' @param plot.it Whether to generate a default plot or just return the values as a matrix
 #' @return A ggplot object
 #' @importFrom ggplot2 ggplot geom_line aes theme scale_fill_manual scale_alpha ylim labs
 #' @rdname plot_derived_quantities
@@ -19,38 +17,35 @@
 #' plot_derived_quantities(model = data)
 #' }
 #'
-"plot_derived_quantities" <- function(model) {
+"plot_derived_quantities" <- function(model, ...) {
   UseMethod("plot_derived_quantities", model)
 }
 
 #' @rdname plot_derived_quantities
 #' @method plot_derived_quantities casal2MPD
 #' @export
-"plot_derived_quantities.casal2MPD" <- function(model) {
+"plot_derived_quantities.casal2MPD" <- function(model, plot.it = TRUE) {
   ssb_df <- get_derived_quantities(model)
   ssb_df_percent <- ssb_df
   ssb_df_percent$values <- ssb_df_percent$values / ssb_df_percent$initialisation_value * 100
   ssb_df$type <- "Absolute"
   ssb_df_percent$type <- "Percent initial"
   full_ssb_df <- rbind(ssb_df, ssb_df_percent)
-  ggplot(full_ssb_df, aes(x = years, y = values, col = dq_label, linetype = dq_label)) +
+  p1 <- ggplot(full_ssb_df, aes(x = years, y = values, col = dq_label, linetype = dq_label)) +
     geom_line(size = 2) +
     ylim(0, NA) +
     labs(colour = "Label", linetype = "Label", x = "Years", y = "") +
     facet_wrap(~type, scales = "free_y")
-}
-
-#' @rdname plot_derived_quantities
-#' @method plot_derived_quantities casal2TAB
-#' @export
-"plot_derived_quantities.casal2TAB" <- function(model) {
-  stop("function not coded yet")
+  if (plot.it) {
+    print(p1)
+  }
+  invisible(p1)
 }
 
 #' @rdname plot_derived_quantities
 #' @method plot_derived_quantities list
 #' @export
-"plot_derived_quantities.list" <- function(model) {
+"plot_derived_quantities.list" <- function(model, plot.it = TRUE) {
   # setwd("C://Software//r4Casal2")
   ssb_df <- get_derived_quantities(model)
   ssb_df_percent <- ssb_df
@@ -58,9 +53,20 @@
   ssb_df$type <- "Absolute"
   ssb_df_percent$type <- "Percent initial"
   full_ssb_df <- rbind(ssb_df, ssb_df_percent)
-  ggplot(full_ssb_df, aes(x = years, y = values, col = model_label, linetype = model_label)) +
+  p1 <- ggplot(full_ssb_df, aes(x = years, y = values, col = model_label, linetype = model_label)) +
     geom_line(size = 2) +
     ylim(0, NA) +
     labs(colour = "Label", linetype = "Label", x = "Years", y = "") +
     facet_wrap(label ~ type, scales = "free_y", ncol = 2)
+  if (plot.it) {
+    print(p1)
+  }
+  invisible(p1)
+}
+
+#' @rdname plot_derived_quantities
+#' @method plot_derived_quantities casal2TAB
+#' @export
+"plot_derived_quantities.casal2TAB" <- function(model, plot.it = TRUE) {
+  stop("plot_derived_quantities is not implemented for casal2TAB output")
 }

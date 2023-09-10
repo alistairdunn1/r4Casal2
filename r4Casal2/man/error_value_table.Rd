@@ -7,12 +7,12 @@
 error_value_table(model, as.table = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )}
+\item{model}{<casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)}
 
-\item{as.table}{(if true) return the error values, process errors, and adjusted errors as tables, else returns a dataframe}
+\item{as.table}{(if true) return the error values, process errors, and adjusted errors as tables, else returns a data frame}
 }
 \value{
-if as.table = TRUE, three dataframes that can be used by kable or other table functions, otherwise a dataframe of all values suitable for plotting
+if as.table = TRUE, three data frames that can be used by ktable or other table functions, otherwise a data frame of all values suitable for plotting
 }
 \description{
 This function will run through all observations and create a table by year and observation summarising type likelihood and error_values

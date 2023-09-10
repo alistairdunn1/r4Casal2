@@ -23,7 +23,7 @@ helper function to see if a matrix is invertable
 \dontrun{
 x <- matrix(rep(1, 25), nc = 5) # singular
 y <- matrix(1 + 1e-10 * rnorm(25), nc = 5) # very nearly singular matrix
-z <- 0.001 * diag(1, 5) # non-singular, but very smalll determinant
+z <- 0.001 * diag(1, 5) # non-singular, but very small determinant
 is_matrix_invertable(x)
 # [1] FALSE
 is_matrix_invertable(y)

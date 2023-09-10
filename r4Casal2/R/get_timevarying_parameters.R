@@ -6,18 +6,22 @@
 #' @return A data frame with profile_values and likelihood components
 #' @rdname get_timevarying_parameters
 #' @export get_timevarying_parameters
-"get_timevarying_parameters" <- function(model) {
+"get_timevarying_parameters" <- function(model, ...) {
   UseMethod("get_timevarying_parameters", model)
 }
 
 #' @rdname get_timevarying_parameters
 #' @method get_timevarying_parameters casal2MPD
 #' @export
-get_timevarying_parameters.casal2MPD <- function(model) {
-  reports_labels <- reformat_default_labels(names(model))
+get_timevarying_parameters.casal2MPD <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   complete_df <- NULL
   for (i in 1:length(model)) {
-    if (reports_labels[i] == "header") {
+    if (reports_label[i] == "header") {
       next
     }
     this_report <- model[[i]]
@@ -27,7 +31,7 @@ get_timevarying_parameters.casal2MPD <- function(model) {
       }
       ## these reports are bespoke which sucks
       this_df <- this_report$values
-      this_df$label <- reports_labels[i]
+      this_df$label <- report_labels[i]
       this_df$par_set <- 1
       complete_df <- rbind(complete_df, this_df)
     } else {
@@ -40,7 +44,7 @@ get_timevarying_parameters.casal2MPD <- function(model) {
       for (dash_i in 1:n_runs) {
         ## only a single trajectory
         temp_df <- this_report[[dash_i]]$values
-        temp_df$label <- reports_labels[i]
+        temp_df$label <- report_labels[i]
         temp_df$par_set <- iter_labs[dash_i]
         complete_df <- rbind(complete_df, temp_df)
       }
@@ -52,21 +56,37 @@ get_timevarying_parameters.casal2MPD <- function(model) {
 #' @rdname get_timevarying_parameters
 #' @method get_timevarying_parameters list
 #' @export
-"get_timevarying_parameters.list" <- function(model) {
-  run_labs <- names(model)
+"get_timevarying_parameters.list" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   full_DF <- NULL
   ## iterate over the models
   for (i in 1:length(model)) {
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_df <- get_timevarying_parameters(model[[i]])
+    this_df <- get_timevarying_parameters(model[[i]], reformat_labels = reformat_labels)
     if (is.null(this_df)) {
       next
     }
-    this_df$model_label <- run_labs[i]
+    this_df$model_label <- report_labels[i]
     full_DF <- rbind(full_DF, this_df)
   }
   return(full_DF)
   invisible()
+}
+
+#' @rdname get_timevarying_parameters
+#' @method get_timevarying_parameters casal2MPD
+#' @export
+"get_timevarying_parameters.casal2MPD" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
+  stop("get_timevarying_parameters is not implemented for casal2TAB output")
 }

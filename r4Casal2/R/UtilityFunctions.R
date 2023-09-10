@@ -11,7 +11,7 @@
 #' \dontrun{
 #' x <- matrix(rep(1, 25), nc = 5) # singular
 #' y <- matrix(1 + 1e-10 * rnorm(25), nc = 5) # very nearly singular matrix
-#' z <- 0.001 * diag(1, 5) # non-singular, but very smalll determinant
+#' z <- 0.001 * diag(1, 5) # non-singular, but very small determinant
 #' is_matrix_invertable(x)
 #' # [1] FALSE
 #' is_matrix_invertable(y)
@@ -344,7 +344,7 @@ StripComments <- function(file) {
 }
 
 #' drop_runs_from_multi_input_mpd
-#' @description this function will remove runs from an extract.mpd that is a multiinput paramter run
+#' @description this function will remove runs from an extract.mpd that is a multiinput parameter run
 #' @param model a model that has been run with -i format
 #' @param elements_to_drop vector of integers that will be deleted from the model
 #' @return model that has been modified

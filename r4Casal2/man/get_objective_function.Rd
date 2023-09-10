@@ -4,18 +4,23 @@
 \alias{get_objective_function}
 \alias{get_objective_function.casal2MPD}
 \alias{get_objective_function.list}
+\alias{get_objective_function.casal2TAB}
 \title{get_objective_function}
 \usage{
-get_objective_function(model, aggregate_obs = T)
+get_objective_function(model, ...)
 
-\method{get_objective_function}{casal2MPD}(model, aggregate_obs = T)
+\method{get_objective_function}{casal2MPD}(model, aggregate_obs = TRUE, reformat_labels = TRUE)
 
-\method{get_objective_function}{list}(model)
+\method{get_objective_function}{list}(model, aggregate_obs = TRUE, reformat_labels = TRUE)
+
+\method{get_objective_function}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{casal2 model or a list of model}
+\item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
 
-\item{aggregate_obs}{<bool> whether to aggregate over observations, if false will report objective function by year and observation.}
+\item{aggregate_obs}{<bool> whether to aggregate over observations, if FALSE will report objective function by year and observation}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 data frame of objective function negative log-likelihood components
@@ -24,6 +29,5 @@ data frame of objective function negative log-likelihood components
 get_objective_function
 }
 \details{
-take a Casal2 objective_function report and aggregate components so easier to handle with
-visualising likelihood components
+Takes a Casal2 objective_function report and aggregate components so easier to handle with visualising likelihood components
 }

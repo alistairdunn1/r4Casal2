@@ -3,14 +3,21 @@
 \name{get_covariance}
 \alias{get_covariance}
 \alias{get_covariance.casal2MPD}
+\alias{get_covariance.casal2TAB}
 \title{get_covariance}
 \usage{
-get_covariance(model)
+get_covariance(model, reformat_labels = TRUE)
 
-\method{get_covariance}{casal2MPD}(model)
+\method{get_covariance}{casal2MPD}(model, reformat_labels = TRUE)
+
+\method{get_covariance}{casal2TAB}(model, reformat_labels = TRUE)
+
+\method{get_covariance}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, list> object that are generated from the extract.mpd() functions.}
+\item{model}{<casal2MPD> object that are generated from the extract.mpd() function}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame from Casal2 model output

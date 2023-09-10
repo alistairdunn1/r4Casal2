@@ -9,11 +9,11 @@
 \usage{
 get_transformed_parameters(model)
 
-\method{get_transformed_parameters}{casal2MPD}(model)
+\method{get_transformed_parameters}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_transformed_parameters}{list}(model)
+\method{get_transformed_parameters}{list}(model, reformat_labels = TRUE)
 
-\method{get_transformed_parameters}{casal2TAB}(model)
+\method{get_transformed_parameters}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
 \item{model}{<casal2MPD> object that are generated from one of the extract.mpd() and extract.tabular() functions.}

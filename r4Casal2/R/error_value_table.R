@@ -1,18 +1,17 @@
 #' @title error_value_table
-#' @description
-#' This function will run through all observations and create a table by year and observation summarising type likelihood and error_values
+#' @description This function will run through all observations and create a table by year and observation summarising type likelihood and error_values
 #' @author Craig Marsh
-#' @param model <casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )
-#' @param as.table (if true) return the error values, process errors, and adjusted errors as tables, else returns a dataframe
+#' @param model <casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
+#' @param as.table (if true) return the error values, process errors, and adjusted errors as tables, else returns a data frame
 #' @importFrom tidyr pivot_wider expand
-#' @return if as.table = TRUE, three dataframes that can be used by kable or other table functions, otherwise a dataframe of all values suitable for plotting
+#' @return if as.table = TRUE, three data frames that can be used by ktable or other table functions, otherwise a data frame of all values suitable for plotting
 #' @rdname error_value_table
 #' @export error_value_table
 error_value_table <- function(model, as.table = TRUE) {
   complete_df <- NULL
-  reports_labels <- names(model)
+  report_labels <- names(model)
   for (i in 1:length(model)) {
-    if (reports_labels[i] == "header") {
+    if (report_labels[i] == "header") {
       next
     }
     this_report <- model[[i]]
@@ -24,7 +23,7 @@ error_value_table <- function(model, as.table = TRUE) {
       ##
       obs_type <- this_report$observation_type
       obs_likelihood <- this_report$likelihood
-      obs_label <- reports_labels[i]
+      obs_label <- report_labels[i]
       obs_error <- this_report$Values %>%
         group_by(year) %>%
         summarise(mean(error_value), mean(process_error), mean(adjusted_error))

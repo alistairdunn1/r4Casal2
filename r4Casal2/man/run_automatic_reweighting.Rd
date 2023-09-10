@@ -24,7 +24,7 @@ run_automatic_reweighting(
 
 \item{weighting_folder_name}{A folder name created in 'config_dir' where re-estimation is done and output saved.}
 
-\item{mpd_file_name}{filename with mpd output to start calculating weights for. Expected to be in 'config_dir'.}
+\item{mpd_file_name}{filename with MPD output to start calculating weights for. Expected to be in 'config_dir'.}
 
 \item{n_loops}{number of iterative loops}
 
@@ -39,7 +39,7 @@ run_automatic_reweighting(
 \item{approximate_single_year_obs}{whether to try and approximate a weight for observations with a single year}
 }
 \value{
-data frame of weights in each loop. Will also create estimated mpd output in weighting_folder_name with the format 'estimate_"iteration_number".log'
+data frame of weights in each loop. Will also create estimated MPD output in weighting_folder_name with the format 'estimate_"iteration_number".log'
 }
 \description{
 a function that will automatically conduct an iterative reweighting re-estimation.

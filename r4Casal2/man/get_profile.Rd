@@ -5,14 +5,16 @@
 \alias{get_profile.casal2MPD}
 \title{get_profile}
 \usage{
-get_profile(model, aggregate_obs = T)
+get_profile(model, ...)
 
-\method{get_profile}{casal2MPD}(model, aggregate_obs = T)
+\method{get_profile}{casal2MPD}(model, aggregate_obs = TRUE, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD> object that are generated from the extract.mpd() function}
 
 \item{aggregate_obs}{bool, whether aggregate_obs observations log-likelihoods over all years}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame with profile_values and likelihood components

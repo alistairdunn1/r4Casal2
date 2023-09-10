@@ -24,7 +24,7 @@ summarise_config(
 data.frame with different Casal2 input values
 }
 \description{
-utility function that reads in config.csl2 file and summarises a model in table formats and plots
+utility function that reads in config.csl2 file and summarises a model in table format
 }
 \examples{
 \dontrun{

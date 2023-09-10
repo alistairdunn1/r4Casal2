@@ -1,26 +1,29 @@
 #' @title get_BH_recruitment
-#' @description
-#' An accessor function that returns a data frame from a Casal2 model output of process type recruitment
+#' @description An accessor function that returns a data frame from a Casal2 model output of process type recruitment
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions.
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions
 #' @return A data frame from Casal2 model output
 #' @rdname get_BH_recruitment
 #' @export get_BH_recruitment
 #' @importFrom reshape2 melt
-"get_BH_recruitment" <- function(model) {
+"get_BH_recruitment" <- function(model, ...) {
   UseMethod("get_BH_recruitment", model)
 }
 
 #' @rdname get_BH_recruitment
 #' @method get_BH_recruitment casal2MPD
 #' @export
-"get_BH_recruitment.casal2MPD" <- function(model) {
+"get_BH_recruitment.casal2MPD" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   # can be -r or -r -i
   multiple_iterations_in_a_report <- FALSE
   complete_df <- NULL
-  reports_labels <- reformat_default_labels(names(model))
   for (i in 1:length(model)) {
-    if (reports_labels[i] == "header") {
+    if (report_labels[i] == "header") {
       next
     }
     this_report <- model[[i]]
@@ -47,7 +50,7 @@
         ssb = this_report$ssb,
         par_set = 1,
         ssb_offset = this_report$ssb_offset,
-        label = reports_labels[i]
+        label = report_labels[i]
       )
       ## length based models don't have this subcommand
       if (exists(x = "age", where = this_report)) {
@@ -85,7 +88,7 @@
           par_set = iter_labs[dash_i],
           # age = this_report[[dash_i]]$age,
           ssb_offset = this_report[[dash_i]]$ssb_offset,
-          label = reports_labels[i]
+          label = report_labels[i]
         )
         ## length based models don't have this subcommand
         if (exists(x = "age", where = this_report[[dash_i]])) {
@@ -98,13 +101,17 @@
     }
   }
   return(complete_df)
-  invisible()
 }
 
 #' @rdname get_BH_recruitment
 #' @method get_BH_recruitment list
 #' @export
-"get_BH_recruitment.list" <- function(model) {
+"get_BH_recruitment.list" <- function(model, reformat_labels = TRUE) {
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   run_labs <- names(model)
   full_DF <- NULL
   ## iterate over the models
@@ -112,22 +119,24 @@
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_dq <- get_BH_recruitment(model[[i]])
+    this_dq <- get_BH_recruitment(model[[i]], reformat_labels = reformat_labels)
     this_dq$model_label <- run_labs[i]
     full_DF <- rbind(full_DF, this_dq)
   }
   return(full_DF)
-  invisible()
 }
 
 #' @rdname get_BH_recruitment
 #' @method get_BH_recruitment casal2TAB
 #' @return A list frame from Casal2 model output. There is a non_multi_column_df which contains non year varying components such as B0, steepness etc and a multi_column_df which has ssb, recrutis, ycs etc
 #' @export
-"get_BH_recruitment.casal2TAB" <- function(model) {
-  cat("this can take a few minutes for large models and big mcmc chains. Please be patient :~) \n")
-
-  reports_labels <- reformat_default_labels(names(model))
+"get_BH_recruitment.casal2TAB" <- function(model, reformat_labels = TRUE) {
+  cat("This can take a few minutes for large models and big mcmc chains. Please be patient ... \n")
+  if (reformat_labels) {
+    report_labels <- reformat_default_labels(names(model))
+  } else {
+    report_labels <- names(model)
+  }
   complete_df <- NULL
   recruit_multi_col_df <- recruit_df <- NULL
   for (i in 1:length(model)) {
@@ -189,12 +198,11 @@
     colnames(non_multi_column_df) <- non_multi_col_labs
     multi_column_df <- as.data.frame(multi_column_df)
     non_multi_column_df <- as.data.frame(non_multi_column_df)
-    non_multi_column_df$label <- reports_labels[i]
-    multi_column_df$label <- reports_labels[i]
+    non_multi_column_df$label <- report_labels[i]
+    multi_column_df$label <- report_labels[i]
 
     recruit_multi_col_df <- rbind(recruit_multi_col_df, multi_column_df)
     recruit_df <- rbind(recruit_df, non_multi_column_df)
   }
   return(list(multi_column_df = recruit_multi_col_df, non_multi_column_df = recruit_df))
-  invisible()
 }

@@ -7,16 +7,18 @@
 \alias{get_estimated_values.casal2TAB}
 \title{get_estimated_values}
 \usage{
-get_estimated_values(model)
+get_estimated_values(model, ...)
 
-\method{get_estimated_values}{casal2MPD}(model)
+\method{get_estimated_values}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_estimated_values}{list}(model)
+\method{get_estimated_values}{list}(mode, reformat_labels = TRUE)
 
-\method{get_estimated_values}{casal2TAB}(model)
+\method{get_estimated_values}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions.}
+\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions}
+
+\item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
 }
 \value{
 A data frame with all estimate_value reports from Casal2 model output

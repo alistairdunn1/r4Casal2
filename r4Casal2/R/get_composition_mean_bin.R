@@ -1,23 +1,23 @@
 #' @title get_composition_mean_bin
-#' @description
-#' An accessor function that returns a data frame of mean age or length calculations
+#' @description An accessor function that returns a data frame of mean age or length calculations
 #' @author Craig Marsh
-#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list )
+#' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
 #' @param ignore_plus_group <bool> we will assume the max age or length is a plus group and remove it.
-#' @return dataframe with all mean age or length and standard errors
+#' @param by_category  <bool> return values by category (TRUE) or else aggregated over categories (FALSE).
+#' @return data frame with all mean age or length and standard errors
 #' @rdname get_composition_mean_bin
 #' @export get_composition_mean_bin
-#' @details the dataframe returned has Oy: mean age/length observed, Ey: mean age/length predicted, SEy: Standard error, Nassumed: mean effective sample size.
+#' @details the data frame returned has Oy: mean age/length observed, Ey: mean age/length predicted, SEy: Standard error, Nassumed: mean effective sample size.
 #' Why use ignore_plus_group? not sure we need to chat to Jeremy and C Francis taken from the SNA code. My guess is that if there is a large plus group length or age, then this can skew the mean
 #' statistic. At first thoughts I don't think it should be employed that frequently
-"get_composition_mean_bin" <- function(model, ignore_plus_group = FALSE, by_category = FALSE) {
-  UseMethod("get_composition_mean_bin", model, ignore_plus_group, by_category)
+"get_composition_mean_bin" <- function(model, ...) {
+  UseMethod("get_composition_mean_bin", model)
 }
 
 #' @rdname get_composition_mean_bin
 #' @method get_composition_mean_bin casal2MPD
 #' @export
-get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group, by_category) {
+get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group = FALSE, by_category = FALSE) {
   comp_obs <- get_composition_observations(model)
   obs <- unique(comp_obs$observation_label)
   mean_bin_df <- NULL
@@ -84,7 +84,7 @@ get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group, by_cate
 #' @rdname get_composition_mean_bin
 #' @method get_composition_mean_bin list
 #' @export
-"get_composition_mean_bin.list" <- function(model, ignore_plus_group, by_category) {
+"get_composition_mean_bin.list" <- function(model, ignore_plus_group = FALSE, by_category = FALSE) {
   run_labs <- names(model)
   full_DF <- NULL
   ## iterate over the models
@@ -92,12 +92,18 @@ get_composition_mean_bin.casal2MPD <- function(model, ignore_plus_group, by_cate
     if (class(model[[i]]) != "casal2MPD") {
       stop(paste0("This function only works on a named list with elements of class = 'casal2MPD'"))
     }
-    this_abundance <- get_composition_mean_bin(model[[i]])
+    this_abundance <- get_composition_mean_bin(model[[i]], ignore_plus_group = ignore_plus_group, by_category = by_category)
     if (!is.null(this_abundance)) {
       this_abundance$model_label <- run_labs[i]
       full_DF <- rbind(full_DF, this_abundance)
     }
   }
   return(full_DF)
-  invisible()
+}
+
+#' @rdname get_composition_mean_bin
+#' @method get_composition_mean_bin casal2TAB
+#' @export
+"get_composition_mean_bin.casal2TAB" <- function(model, ignore_plus_group = FALSE, by_category = FALSE) {
+  stop("get_composition_mean_bin for casal2TAB has not been implemented")
 }

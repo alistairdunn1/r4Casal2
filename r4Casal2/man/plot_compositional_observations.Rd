@@ -5,32 +5,22 @@
 \alias{plot_compositional_observations.casal2MPD}
 \title{plot_compositional_observations}
 \usage{
-plot_compositional_observations(
-  model,
-  report_labels = NULL,
-  plot_type = "classic",
-  plot.it = T
-)
+plot_compositional_observations(model, ...)
 
-\method{plot_compositional_observations}{casal2MPD}(
-  model,
-  report_labels = NULL,
-  plot_type = "classic",
-  plot.it = T
-)
+\method{plot_compositional_observations}{casal2MPD}(model, report_labels = NULL, plot.it = T)
 }
 \arguments{
-\item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract() functions.}
+\item{model}{<casal2MPD> object that are generated from the extract_mpd() function}
 
 \item{report_labels}{vector<string> report labels to plot, default is all}
+
+\item{plot.it}{Whether to generate a default plot or just return the values as a matrix}
 
 \item{plot_type}{string
 \itemize{
   \item classic
   \item residual
 }}
-
-\item{plot.it}{Whether to generate a default plot or return the values as a matrix.}
 }
 \value{
 A ggplot object

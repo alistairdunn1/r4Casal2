@@ -3,17 +3,37 @@
 \name{plot_fishery}
 \alias{plot_fishery}
 \alias{plot_fishery.casal2MPD}
-\alias{plot_fishery.casal2TAB}
 \alias{plot_fishery.list}
+\alias{plot_fishery.casal2TAB}
 \title{plot_fishery plot fishing pressure if there has been an exploitation process reported.}
 \usage{
-plot_fishery(model, fisheryLabels = NULL, quantity = "fishing_pressure")
+plot_fishery(
+  model,
+  fisheryLabels = NULL,
+  quantity = "fishing_pressure",
+  plot.it = TRUE
+)
 
-\method{plot_fishery}{casal2MPD}(model, fisheryLabels = NULL, quantity = "fishing_pressure")
+\method{plot_fishery}{casal2MPD}(
+  model,
+  fisheryLabels = NULL,
+  quantity = "fishing_pressure",
+  plot.it = TRUE
+)
 
-\method{plot_fishery}{casal2TAB}(model, fisheryLabels = NULL, quantity = "fishing_pressure")
+\method{plot_fishery}{list}(
+  model,
+  fisheryLabels = NULL,
+  quantity = "fishing_pressure",
+  plot.it = TRUE
+)
 
-\method{plot_fishery}{list}(model, fisheryLabels = NULL, quantity = "fishing_pressure")
+\method{plot_fishery}{casal2TAB}(
+  model,
+  fisheryLabels = NULL,
+  quantity = "fishing_pressure",
+  plot.it = TRUE
+)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions using the Casal2 base library}
@@ -26,6 +46,8 @@ plot_fishery(model, fisheryLabels = NULL, quantity = "fishing_pressure")
   \item catch
   \item actual_catch
 }}
+
+\item{plot.it}{Whether to generate a default plot or just return the values as a matrix}
 }
 \value{
 generate a plot over time if plot.it = T, if plot.it = F it will return a matrix of values.

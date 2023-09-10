@@ -10,7 +10,7 @@ summarise_estimated_parameters(model, plot_it = F, ignore_ycs = F)
 \method{summarise_estimated_parameters}{casal2MPD}(model, plot_it = F, ignore_ycs = F)
 }
 \arguments{
-\item{model}{an mpd model}
+\item{model}{an MPD model}
 
 \item{plot_it}{if true plot MPD value, initial value, and prior, otherwise report MPD, init, lower_bound, upper_bound, prior_type}
 
@@ -21,7 +21,7 @@ either a ggplot or a list with two elements. The first is for plotting, the seco
 outlining priors, bounds mpd values initial values etc.
 }
 \description{
-this function will find estimate_summary report and summarise the priors, mpd and initial value
+this function will find estimate_summary report and summarise the priors, MPD and initial value
 }
 \author{
 C Marsh

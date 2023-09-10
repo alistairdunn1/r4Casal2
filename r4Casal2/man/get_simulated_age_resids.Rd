@@ -22,12 +22,10 @@ A list of objects.
 }
 }
 \description{
-A function for calculating simulation-based scaled (quantile) residuals from simulated observations from Casal2 and
-DHARMa inbuilt functionality
+A function for calculating simulation-based scaled (quantile) residuals from simulated observations from Casal2 and DHARMa inbuilt functionality
 }
 \details{
-this package takes simulated data read into R from r4Casal2::read.simulated.data() function along with MPD observation report estimates
-and uses DHARMa (vignette("DHARMa", package="DHARMa")) to calculate simulation-based scaled (quantile) residuals
+this package takes simulated data read into R from r4Casal2::read.simulated.data() function along with MPD observation report estimates and uses DHARMa (vignette("DHARMa", package="DHARMa")) to calculate simulation-based scaled (quantile) residuals
 }
 \examples{
 \donttest{

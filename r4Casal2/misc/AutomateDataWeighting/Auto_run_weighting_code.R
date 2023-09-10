@@ -38,7 +38,7 @@ while (max_tolerance > 0.01) {
   cat("weighting loop index = ", weighting_iterator, " max tolerance = ", max_tolerance, "\n")
   ## change observation.csl2
   obs_csl2 <- extract.csl2.file(file = "Observation.csl2", path = csl_dir, quiet = T)
-  # read in mpd
+  # read in MPD
   mpd <- extract.mpd(file = paste0("estimate_", weighting_iterator - 1, ".log"), path = csl_dir)
   weighted_mpds[[as.character(round(max_tolerance, 3))]] <- mpd
   vals <- vector()

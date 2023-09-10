@@ -24,5 +24,5 @@ get_high_correlations(
 data frame of row and column index and paramater label if labels supplied along with the correlation value
 }
 \description{
-get highly correlated parameters from a correlation matrix
+Get highly correlated parameters from a correlation matrix
 }
