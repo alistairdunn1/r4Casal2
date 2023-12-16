@@ -46,7 +46,7 @@ every_nth <- function(n) {
 #'   \item true: is a positive definite matrix
 #' }
 is_positive_definite <- function(m, tol = 1e-6) {
-  ## check it is symetric
+  ## check it is symmetric
   if (!isSymmetric(m, tol = tol)) {
     message("Matrix 'm' was not symmetric. Derived using 'isSymmetric(m, tol = tol)'")
     return(FALSE)

@@ -107,11 +107,6 @@
 #' @method get_BH_recruitment list
 #' @export
 "get_BH_recruitment.list" <- function(model, reformat_labels = TRUE) {
-  if (reformat_labels) {
-    report_labels <- reformat_default_labels(names(model))
-  } else {
-    report_labels <- names(model)
-  }
   run_labs <- names(model)
   full_DF <- NULL
   ## iterate over the models
