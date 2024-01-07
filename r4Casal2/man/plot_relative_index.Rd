@@ -63,6 +63,7 @@ plot.fits(model = data, report_labels = "eastF_at_age")
 # to create a user-specified plot, use plot.it = FALSE.
 Tangaroa_fits <- plot.fits(model = data, report_label = "eastF_at_age", plot.it = FALSE)
 }
+
 }
 \author{
 Craig Marsh

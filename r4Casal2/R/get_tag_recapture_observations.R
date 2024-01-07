@@ -5,7 +5,8 @@
 #' @return data frame with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 #' @rdname get_tag_recapture_observations
 #' @export get_tag_recapture_observations
-"get_tag_recapture_observations" <- function(model) {
+#'
+"get_tag_recapture_observations" <- function(model, ...) {
   UseMethod("get_tag_recapture_observations", model)
 }
 

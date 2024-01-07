@@ -10,6 +10,7 @@
 #' @details the data frame returned has Oy: mean age/length observed, Ey: mean age/length predicted, SEy: Standard error, Nassumed: mean effective sample size.
 #' Why use ignore_plus_group? not sure we need to chat to Jeremy and C Francis taken from the SNA code. My guess is that if there is a large plus group length or age, then this can skew the mean
 #' statistic. At first thoughts I don't think it should be employed that frequently
+#'
 "get_composition_mean_bin" <- function(model, ...) {
   UseMethod("get_composition_mean_bin", model)
 }

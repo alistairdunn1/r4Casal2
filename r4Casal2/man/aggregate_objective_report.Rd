@@ -7,7 +7,7 @@
 aggregate_objective_report(objective_report)
 }
 \arguments{
-\item{objective_report}{casal2_objective_function which is the object created by an extract.mpd() object}
+\item{objective_report}{casal2 objective_function which is the object created by an extract.mpd() object}
 }
 \value{
 data frame of aggregated objective function negative log-likelihood components

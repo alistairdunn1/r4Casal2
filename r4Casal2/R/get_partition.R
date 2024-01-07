@@ -7,6 +7,7 @@
 #' @rdname get_partition
 #' @export get_partition
 #' @importFrom reshape2 melt
+#'
 "get_partition" <- function(model, ...) {
   UseMethod("get_partition", model)
 }

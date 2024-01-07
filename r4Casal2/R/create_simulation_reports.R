@@ -19,6 +19,7 @@
 #' config_files <- "Observation.csl2"
 #' obs <- create_simulation_reports(config_dir = config_dir, config_files = config_files)
 #' }
+#'
 create_simulation_reports <- function(config_dir = "", config_files, output_folder = "simulated_observations", prefix = "sim_", single_sim_filename = NULL, verbose = FALSE) {
   if (verbose) {
     cat("enter: create_simulation_reports\n")

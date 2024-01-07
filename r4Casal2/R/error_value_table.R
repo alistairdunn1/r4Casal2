@@ -1,12 +1,13 @@
 #' @title error_value_table
 #' @description This function will run through all observations and create a table by year and observation summarising type likelihood and error_values
-#' @author Craig Marsh
+#' @author Craig Marsh, A Dunn
 #' @param model <casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
 #' @param as.table (if true) return the error values, process errors, and adjusted errors as tables, else returns a data frame
 #' @importFrom tidyr pivot_wider expand
 #' @return if as.table = TRUE, three data frames that can be used by ktable or other table functions, otherwise a data frame of all values suitable for plotting
 #' @rdname error_value_table
 #' @export error_value_table
+#'
 error_value_table <- function(model, as.table = TRUE) {
   complete_df <- NULL
   report_labels <- names(model)

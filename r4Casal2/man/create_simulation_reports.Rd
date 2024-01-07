@@ -40,6 +40,7 @@ config_dir <- system.file("extdata", "PosteriorPredictiveChecks", package = "r4C
 config_files <- "Observation.csl2"
 obs <- create_simulation_reports(config_dir = config_dir, config_files = config_files)
 }
+
 }
 \author{
 Craig Marsh

@@ -6,6 +6,7 @@
 #' @return data frame of objective function negative log-likelihood components
 #' @rdname get_objective_function
 #' @export get_objective_function
+#'
 "get_objective_function" <- function(model, ...) {
   UseMethod("get_objective_function", model)
 }

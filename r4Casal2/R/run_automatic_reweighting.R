@@ -1,4 +1,4 @@
-#' run_automatic_reweighting
+#' @title run_automatic_reweighting
 #' @description a function that will automatically conduct an iterative reweighting re-estimation.
 #' @author Craig Marsh
 #' @param config_dir directory that contains config. See details for info on nested folder configs
@@ -11,11 +11,11 @@
 #' @param observation_labels_to_exclude if you do not want to weight a compositional data set, include it in this parameter using the label i.e. observation[label].
 #' @param verbose print additional information to screen
 #' @param approximate_single_year_obs whether to try and approximate a weight for observations with a single year
-#' @details Sometimes users may have subdirectories containing config files. This function is untested for this config model structure.
-#' To read in the reweighted outputs from this function see the function extract_reweighted_mpds.
+#' @details Sometimes users may have subdirectories containing config files. This function is untested for this config model structure. To read in the reweighted outputs from this function see the function extract_reweighted_mpds.
 #' @rdname run_automatic_reweighting
 #' @export run_automatic_reweighting
 #' @return data frame of weights in each loop. Will also create estimated MPD output in weighting_folder_name with the format 'estimate_"iteration_number".log'
+#'
 run_automatic_reweighting <- function(config_dir,
                                       config_filename = "config.csl2",
                                       weighting_folder_name = "Reweight",

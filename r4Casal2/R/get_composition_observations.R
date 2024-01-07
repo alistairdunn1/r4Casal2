@@ -6,6 +6,7 @@
 #' @return data frame with all observations of type == 'observation' and observation_type !%in% c('biomass', 'abundance')
 #' @rdname get_composition_observations
 #' @export get_composition_observations
+#'
 "get_composition_observations" <- function(model, ...) {
   UseMethod("get_composition_observations", model)
 }

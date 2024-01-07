@@ -45,8 +45,7 @@ data frame of weights in each loop. Will also create estimated MPD output in wei
 a function that will automatically conduct an iterative reweighting re-estimation.
 }
 \details{
-Sometimes users may have subdirectories containing config files. This function is untested for this config model structure.
-To read in the reweighted outputs from this function see the function extract_reweighted_mpds.
+Sometimes users may have subdirectories containing config files. This function is untested for this config model structure. To read in the reweighted outputs from this function see the function extract_reweighted_mpds.
 }
 \author{
 Craig Marsh

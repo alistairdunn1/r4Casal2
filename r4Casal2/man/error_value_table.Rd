@@ -18,5 +18,5 @@ if as.table = TRUE, three data frames that can be used by ktable or other table 
 This function will run through all observations and create a table by year and observation summarising type likelihood and error_values
 }
 \author{
-Craig Marsh
+Craig Marsh, A Dunn
 }

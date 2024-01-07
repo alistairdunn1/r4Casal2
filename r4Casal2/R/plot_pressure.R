@@ -16,11 +16,11 @@
 #' @export plot_fishery
 #' @importFrom dplyr filter
 #' @importFrom ggplot2 ggplot geom_line aes theme facet_wrap aes_string
-#' @details
-#' If you have multiple time-steps and fisheries happening at different time-steps it may be useful to use the fisheryLabels command to split out the plots.
+#' @details If you have multiple time-steps and fisheries happening at different time-steps it may be useful to use the fisheryLabels command to split out the plots.
+#'
 "plot_fishery" <- function(model, fisheryLabels = NULL, quantity = "fishing_pressure", plot.it = TRUE) {
   if (!quantity %in% c("fishing_pressure", "exploitation", "catch", "actual_catch")) {
-    stop("quantity, has incorrect values please check ?plot_recruitment")
+    stop("quantity, has incorrect values please check ?plot_fishery")
   }
   UseMethod("plot_fishery", model)
 }

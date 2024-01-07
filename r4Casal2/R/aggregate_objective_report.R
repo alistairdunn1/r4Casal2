@@ -1,9 +1,10 @@
 #' @title aggregate_objective_report
 #' @details Takes a Casal2 objective_function report and aggregate components so easier to handle with visualising likelihood components
-#' @param objective_report casal2_objective_function which is the object created by an extract.mpd() object
+#' @param objective_report casal2 objective_function which is the object created by an extract.mpd() object
 #' @return data frame of aggregated objective function negative log-likelihood components
 #' @rdname aggregate_objective_report
 #' @export aggregate_objective_report
+#'
 aggregate_objective_report <- function(objective_report) {
   multi_parameter_input <- F
   if (is.null(objective_report$type)) {

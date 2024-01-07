@@ -14,8 +14,8 @@
 #' @export plot_recruitment
 #' @importFrom dplyr filter
 #' @importFrom ggplot2 ggplot geom_line aes theme facet_wrap aes_string
-#' @details
-#' If you have multiple time-steps and Recruitment
+#' @details If you have multiple time-steps and Recruitment
+#'
 "plot_recruitment" <- function(model, report_label = NULL, quantity = "ycs_values") {
   if (!quantity %in% c("recruitment_multipliers", "recruits", "standardised_recruitment_multipliers")) {
     stop("quantity, has incorrect values please check ?plot_recruitment")

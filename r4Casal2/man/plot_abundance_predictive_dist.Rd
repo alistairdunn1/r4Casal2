@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot_abundance_predictive_dist.R
 \name{plot_abundance_predictive_dist}
 \alias{plot_abundance_predictive_dist}
-\title{plot_abundance_predictive_dist
-Plots a violin plot of the predictive distribution by year for an observation}
+\title{plot_abundance_predictive_dist}
 \usage{
 plot_abundance_predictive_dist(
   sim_data,
@@ -28,6 +27,5 @@ plot_abundance_predictive_dist(
 a ggplot
 }
 \description{
-plot_abundance_predictive_dist
 Plots a violin plot of the predictive distribution by year for an observation
 }

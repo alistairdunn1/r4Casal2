@@ -5,6 +5,7 @@
 #' @return data frame with aggregated observed and expected over all years for each observation
 #' @rdname get_aggregated_composition_values
 #' @export
+#'
 "get_aggregated_composition_values" <- function(model) {
   UseMethod("get_aggregated_composition_values", model)
 }

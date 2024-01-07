@@ -6,7 +6,8 @@
 #' @return data frame with aggregated observed and expected over all years for each observation
 #' @rdname get_aggregated_composition_values_by_blocks
 #' @export
-"get_aggregated_composition_values_by_blocks" <- function(model, n_year_blocks = 5) {
+#'
+"get_aggregated_composition_values_by_blocks" <- function(model, ...) {
   UseMethod("get_aggregated_composition_values_by_blocks", model)
 }
 

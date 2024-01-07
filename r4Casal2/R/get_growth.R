@@ -7,6 +7,7 @@
 #' @rdname get_growth
 #' @export get_growth
 #' @importFrom reshape2 melt
+#'
 "get_growth" <- function(model, ...) {
   UseMethod("get_growth", model)
 }

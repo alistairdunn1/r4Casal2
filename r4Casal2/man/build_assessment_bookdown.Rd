@@ -10,8 +10,8 @@ build_assessment_bookdown(
   mpd_filename,
   config_filename = "config.csl2",
   model_label = NULL,
-  verbose = F,
-  prompt_user_before_deleting = T
+  verbose = FALSE,
+  prompt_user_before_deleting = TRUE
 )
 }
 \arguments{

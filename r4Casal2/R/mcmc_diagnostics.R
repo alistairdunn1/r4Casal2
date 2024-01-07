@@ -19,15 +19,17 @@
 fft_next_good_size <- function(N) {
   # Find the optimal next size for the FFT so that
   # a minimum number of zeros are padded.
-  if (N <= 2)
+  if (N <= 2) {
     return(2)
+  }
   while (TRUE) {
     m <- N
     while ((m %% 2) == 0) m <- m / 2
     while ((m %% 3) == 0) m <- m / 3
     while ((m %% 5) == 0) m <- m / 5
-    if (m <= 1)
+    if (m <= 1) {
       return(N)
+    }
     N <- N + 1
   }
 }
@@ -54,7 +56,7 @@ fft_next_good_size <- function(N) {
 z_scale <- function(x) {
   n <- length(x)
   r <- rank(x, ties.method = "average")
-  z <- qnorm((r - 1/2)/n)
+  z <- qnorm((r - 1 / 2) / n)
   z[is.na(x)] <- NA
   if (!is.null(dim(x))) {
     z <- array(z, dim = dim(x), dimnames = dimnames(x))
@@ -69,7 +71,9 @@ split_chains <- function(sims) {
     dim(sims) <- c(length(sims), 1)
   }
   niter <- dim(sims)[1]
-  if (niter == 1L) return(sims)
+  if (niter == 1L) {
+    return(sims)
+  }
   half <- niter / 2
   cbind(sims[1:floor(half), ], sims[ceiling(half + 1):niter, ])
 }
@@ -142,8 +146,9 @@ ess_rfun <- function(sims) {
   chain_mean <- apply(sims, 2, mean)
   mean_var <- mean(acov[1, ]) * n_samples / (n_samples - 1)
   var_plus <- mean_var * (n_samples - 1) / n_samples
-  if (chains > 1)
+  if (chains > 1) {
     var_plus <- var_plus + var(chain_mean)
+  }
 
   # Geyer's initial positive sequence
   rho_hat_t <- rep.int(0, n_samples)
@@ -153,10 +158,10 @@ ess_rfun <- function(sims) {
   rho_hat_odd <- 1 - (mean_var - mean(acov[t + 2, ])) / var_plus
   rho_hat_t[t + 2] <- rho_hat_odd
   while (t < nrow(acov) - 5 && !is.nan(rho_hat_even + rho_hat_odd) &&
-         (rho_hat_even + rho_hat_odd > 0)) {
+    (rho_hat_even + rho_hat_odd > 0)) {
     t <- t + 2
-    rho_hat_even = 1 - (mean_var - mean(acov[t + 1, ])) / var_plus
-    rho_hat_odd = 1 - (mean_var - mean(acov[t + 2, ])) / var_plus
+    rho_hat_even <- 1 - (mean_var - mean(acov[t + 1, ])) / var_plus
+    rho_hat_odd <- 1 - (mean_var - mean(acov[t + 2, ])) / var_plus
     if ((rho_hat_even + rho_hat_odd) >= 0) {
       rho_hat_t[t + 1] <- rho_hat_even
       rho_hat_t[t + 2] <- rho_hat_odd
@@ -164,26 +169,27 @@ ess_rfun <- function(sims) {
   }
   max_t <- t
   # this is used in the improved estimate
-  if (rho_hat_even>0)
+  if (rho_hat_even > 0) {
     rho_hat_t[max_t + 1] <- rho_hat_even
+  }
 
   # Geyer's initial monotone sequence
   t <- 0
   while (t <= max_t - 4) {
     t <- t + 2
     if (rho_hat_t[t + 1] + rho_hat_t[t + 2] >
-        rho_hat_t[t - 1] + rho_hat_t[t]) {
-      rho_hat_t[t + 1] = (rho_hat_t[t - 1] + rho_hat_t[t]) / 2;
-      rho_hat_t[t + 2] = rho_hat_t[t + 1];
+      rho_hat_t[t - 1] + rho_hat_t[t]) {
+      rho_hat_t[t + 1] <- (rho_hat_t[t - 1] + rho_hat_t[t]) / 2
+      rho_hat_t[t + 2] <- rho_hat_t[t + 1]
     }
   }
   ess <- chains * n_samples
   # Geyer's truncated estimate
   # tau_hat <- -1 + 2 * sum(rho_hat_t[1:max_t])
   # Improved estimate reduces variance in antithetic case
-  tau_hat <- -1 + 2 * sum(rho_hat_t[1:max_t]) + rho_hat_t[max_t+1]
+  tau_hat <- -1 + 2 * sum(rho_hat_t[1:max_t]) + rho_hat_t[max_t + 1]
   # Safety check for negative values and with max ess equal to ess*log10(ess)
-  tau_hat <- max(tau_hat, 1/log10(ess))
+  tau_hat <- max(tau_hat, 1 / log10(ess))
   ess <- ess / tau_hat
   ess
 }
@@ -267,6 +273,7 @@ Rhat <- function(sims) {
 #' MCMC. \emph{arXiv preprint} \code{arXiv:1903.08008}.
 #'
 #' @export
+#'
 ess_bulk <- function(sims) {
   ess_rfun(z_scale(split_chains(sims)))
 }
@@ -279,9 +286,7 @@ ess_bulk <- function(sims) {
 #' the minimum of the effective sample sizes for 5% and 95% quantiles.
 #'
 #' @param sims A 2D array _without_ warmup samples (# iter * # chains).
-#'
 #' @return A single numeric value for the tail effective sample size.
-#'
 #' @references
 #' Aki Vehtari, Andrew Gelman, Daniel Simpson, Bob Carpenter, and
 #' Paul-Christian Bürkner (2019). Rank-normalization, folding, and
@@ -289,6 +294,7 @@ ess_bulk <- function(sims) {
 #' MCMC. \emph{arXiv preprint} \code{arXiv:1903.08008}.
 #'
 #' @export
+#'
 ess_tail <- function(sims) {
   I05 <- sims <= quantile(sims, 0.05, na.rm = TRUE)
   q05_ess <- ess_rfun(split_chains(I05))

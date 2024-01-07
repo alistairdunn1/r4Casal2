@@ -26,11 +26,12 @@
 #' # to create a user-specified plot, use plot.it = FALSE.
 #' Tangaroa_fits <- plot.fits(model = data, report_label = "eastF_at_age", plot.it = FALSE)
 #' }
+#'
 "plot_relative_index" <- function(model, report_labels = NULL, plot_type = "classic", plot.it = TRUE) {
   UseMethod("plot_relative_index", model)
 }
+
 #' @return \code{NULL}
-#'
 #' @rdname plot_relative_index
 #' @method plot_relative_index casal2MPD
 #' @export
@@ -106,6 +107,7 @@
   }
   invisible(plt)
 }
+
 #' @return \code{NULL}
 #'
 #' @rdname plot_relative_index

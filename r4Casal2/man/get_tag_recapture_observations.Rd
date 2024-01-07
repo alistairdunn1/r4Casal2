@@ -7,7 +7,7 @@
 \alias{get_tag_recapture_observations.casal2TAB}
 \title{get_tag_recapture_observations}
 \usage{
-get_tag_recapture_observations(model)
+get_tag_recapture_observations(model, ...)
 
 \method{get_tag_recapture_observations}{casal2MPD}(model, reformat_labels = TRUE)
 

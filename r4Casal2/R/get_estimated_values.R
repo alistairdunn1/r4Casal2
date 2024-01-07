@@ -1,12 +1,13 @@
 #' @title get_estimated_values
 #' @description An accessor function that returns a data frame from a Casal2 model output of estimate_value
-#' @author Craig Marsh
+#' @author Craig Marsh, A Dunn
 #' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions
 #' @param reformat_labels <bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)
 #' @return A data frame with all estimate_value reports from Casal2 model output
 #' @rdname get_estimated_values
 #' @export get_estimated_values
 #' @importFrom reshape2 melt
+#'
 "get_estimated_values" <- function(model, ...) {
   UseMethod("get_estimated_values", model)
 }

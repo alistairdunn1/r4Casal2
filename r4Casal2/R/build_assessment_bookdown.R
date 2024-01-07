@@ -23,8 +23,8 @@
 # mpd_filename = "estimate.log"
 # config_filename = "config.csl2"
 # output_folder_name = "BookDown";model_label = NULL; verbose = F
-
-build_assessment_bookdown <- function(csl_dir, output_folder_name, mpd_filename, config_filename = "config.csl2", model_label = NULL, verbose = F, prompt_user_before_deleting = T) {
+#
+build_assessment_bookdown <- function(csl_dir, output_folder_name, mpd_filename, config_filename = "config.csl2", model_label = NULL, verbose = FALSE, prompt_user_before_deleting = TRUE) {
   if (verbose) {
     print("Enter: build_assessment_bookdown")
   }

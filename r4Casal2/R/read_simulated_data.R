@@ -1,8 +1,5 @@
 #' @title read_simulated_data
-#'
-#' @description
-#' A utility function for reading in Casal2 simulated data sets. For help on simulated data from Casal2 see
-#'
+#' @description A utility function for reading in Casal2 simulated data sets. For help on simulated data from Casal2 see
 #' @author Craig Marsh
 #' @param dir path directory to a folder containing simulated observation from a casal2 -s run
 #' @param mean_age <bool> if data is composition. True will return mean age/length for each year and data set. Otherwise False will return a list. each element will be a year which will contain a matrix of simulations x bin simulated values.
@@ -12,7 +9,7 @@
 #' @export
 #' @rdname read_simulated_data
 #' @export read_simulated_data
-
+#'
 read_simulated_data <- function(dir, verbose = FALSE, mean_age = TRUE, model_type = "age") {
   ## add to this as the function grows
   currently_implemented_obs <- c("proportions_by_category", "biomass", "abundance", "process_removals_by_length", "proportions_at_length", "process_removals_by_age", "proportions_at_age", "process_proportions_migrating", "tag_recapture_by_length")

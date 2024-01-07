@@ -6,6 +6,7 @@
 #' @return A data frame from Casal2 model output
 #' @rdname get_covariance
 #' @export get_covariance
+#'
 "get_covariance" <- function(model, ...) {
   UseMethod("get_covariance", model)
 }

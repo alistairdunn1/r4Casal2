@@ -17,6 +17,7 @@
 #' \dontrun{
 #'
 #' }
+#' 
 "plot_compositional_observations" <- function(model, ...) {
   UseMethod("plot_compositional_observations", model)
 }

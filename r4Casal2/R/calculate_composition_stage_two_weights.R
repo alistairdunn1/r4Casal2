@@ -11,8 +11,8 @@
 #' @details if approximate_single_year_obs then we will search across other observations and years to find a an error value similar in magnitude for the year with a single observation and assign a weight based on the year that is similar in magnitude.
 #' @references
 #' \insertAllCited{}
+#'
 calculate_composition_stage_two_weights <- function(model, observation_labels = NULL, approximate_single_year_obs = FALSE) {
-  # model = Casal2::extract.mpd("C:\\Users\\marshc\\OneDrive - NIWA\\22_23\\SNA1\\csl\\P30 Base HGBP\\Casal2\\estimate.log")
   comp_obs <- get_composition_observations(model)
   comp_labels <- unique(comp_obs$observation_label)
   if (!is.null(observation_labels)) {

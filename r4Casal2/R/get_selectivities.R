@@ -7,6 +7,7 @@
 #' @rdname get_selectivities
 #' @export get_selectivities
 #' @importFrom reshape2 melt
+#'
 "get_selectivities" <- function(model, ...) {
   UseMethod("get_selectivities", model)
 }

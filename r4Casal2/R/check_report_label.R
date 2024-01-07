@@ -22,6 +22,7 @@ check_report_label <- function(report_label, model) {
 #' @author Craig Marsh
 #' @param report_labels vector of report labels
 #' @keywords internal
+#'
 reformat_default_labels <- function(report_labels) {
   ## find elements that start and end with '__'
   default_label_ndx <- (substring(report_labels, first = 0, last = 2) == "__") & (substring(report_labels, first = nchar(report_labels) - 1, last = nchar(report_labels)) == "__")

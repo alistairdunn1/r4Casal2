@@ -1,13 +1,13 @@
 #' @title get_transformed_parameters
-#' @description
-#' An accessor function that returns a data frame of a parameter_transformations class that can be easily plotted
+#' @description An accessor function that returns a data frame of a parameter_transformations class that can be easily plotted
 #' @author Craig Marsh
 #' @param model <casal2MPD> object that are generated from one of the extract.mpd() and extract.tabular() functions.
 #' @return A data frame with profile_values and likelihood components
 #' @importFrom dplyr bind_cols
 #' @rdname get_transformed_parameters
 #' @export get_transformed_parameters
-"get_transformed_parameters" <- function(model) {
+#'
+"get_transformed_parameters" <- function(model, ...) {
   UseMethod("get_transformed_parameters", model)
 }
 
@@ -30,18 +30,26 @@ get_transformed_parameters.casal2MPD <- function(model, reformat_labels = TRUE) 
       if (this_report$type != "parameter_transformations") {
         next
       }
-      ## these reports are bespoke which sucks
-      if (this_report$transformation_type == "log") {
+      if (this_report$transformation_type == "difference") {
+        temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = this_report$difference_parameter)
+        parameter_df <- rbind(parameter_df, temp_df)
+      } else if (this_report$transformation_type == "inverse") {
+        temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = this_report$inverse_parameter)
+        parameter_df <- rbind(parameter_df, temp_df)
+      } else if (this_report$transformation_type == "log") {
         temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = this_report$log_parameter)
         parameter_df <- rbind(parameter_df, temp_df)
       } else if (this_report$transformation_type == "logistic") {
         temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = this_report$logistic_parameter)
         parameter_df <- rbind(parameter_df, temp_df)
+      } else if (this_report$transformation_type == "log_sum") {
+        temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = c(this_report$log_total_parameter, this_report$total_proportion_parameter))
+        parameter_df <- rbind(parameter_df, temp_df)
       } else if (this_report$transformation_type == "orthogonal") {
         temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = c(this_report$product_parameter, this_report$quotient_parameter))
         parameter_df <- rbind(parameter_df, temp_df)
-      } else if (this_report$transformation_type == "log_sum") {
-        temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = c(this_report$log_total_parameter, this_report$total_proportion_parameter))
+      } else if (this_report$transformation_type == "sqrt") {
+        temp_df <- data.frame(label = report_labels[i], type = this_report$transformation_type, parameter = this_report$parameters, untransformed = this_report$parameter_values, transformed_value = this_report$sqrt_parameter)
         parameter_df <- rbind(parameter_df, temp_df)
       }
     } else {
@@ -70,6 +78,7 @@ get_transformed_parameters.casal2MPD <- function(model, reformat_labels = TRUE) 
   }
   return(parameter_df)
 }
+
 
 #' @rdname get_transformed_parameters
 #' @method get_transformed_parameters list

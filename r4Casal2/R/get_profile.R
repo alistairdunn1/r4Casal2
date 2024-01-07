@@ -7,6 +7,7 @@
 #' @return A data frame with profile_values and likelihood components
 #' @rdname get_profile
 #' @export get_profile
+#'
 "get_profile" <- function(model, ...) {
   UseMethod("get_profile", model)
 }

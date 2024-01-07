@@ -7,6 +7,7 @@
 #' @rdname get_catchabilities
 #' @export get_catchabilities
 #' @importFrom reshape2 melt
+#'
 "get_catchabilities" <- function(model, ...) {
   UseMethod("get_catchabilities", model)
 }

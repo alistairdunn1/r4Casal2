@@ -27,5 +27,5 @@ A data frame with all estimate_value reports from Casal2 model output
 An accessor function that returns a data frame from a Casal2 model output of estimate_value
 }
 \author{
-Craig Marsh
+Craig Marsh, A Dunn
 }

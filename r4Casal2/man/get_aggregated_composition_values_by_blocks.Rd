@@ -6,7 +6,7 @@
 \alias{get_aggregated_composition_values_by_blocks.list}
 \title{get_aggregated_composition_values_by_blocks}
 \usage{
-get_aggregated_composition_values_by_blocks(model, n_year_blocks = 5)
+get_aggregated_composition_values_by_blocks(model, ...)
 
 \method{get_aggregated_composition_values_by_blocks}{casal2MPD}(model, n_year_blocks = 5)
 

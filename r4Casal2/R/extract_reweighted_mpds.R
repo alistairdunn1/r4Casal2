@@ -5,6 +5,7 @@
 #' @return a names list of MPD that can be accessed with the get_ and plot_ methods.
 #' @rdname extract_reweighted_mpds
 #' @export extract_reweighted_mpds
+#'
 extract_reweighted_mpds <- function(reweighting_path) {
   ### look at the effect of reweighting
   possible_files <- list.files(reweighting_path, pattern = ".log")

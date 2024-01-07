@@ -1,4 +1,4 @@
-#' runs test
+#' @title runs test
 #' @description Run Wald-Wolfowitz Runs Test and calculate upper and lower control limits based on individual/moving-range chart see https://en.wikipedia.org/wiki/Shewhart_individuals_control_chart
 #' @param x a time-series of residuals
 #' @param test c("less","greater","two.sided"). Default less is checking for postive autocorrelation only
@@ -11,6 +11,7 @@
 #' HA|greater: a first order negative serial correlation
 #' @rdname runs_test_residuals
 #' @export runs_test_residuals
+#'
 runs_test_residuals <- function(x, test = "two.sided") {
   if (!test %in% c("left.sided", "right.sided", "two.sided")) {
     stop('test must be one of c("left.sided","right.sided","two.sided")')

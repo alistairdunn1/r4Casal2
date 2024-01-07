@@ -7,6 +7,7 @@
 #' @rdname get_projections
 #' @export get_projections
 #' @importFrom reshape2 melt
+#'
 "get_projections" <- function(model, ...) {
   UseMethod("get_projections", model)
 }

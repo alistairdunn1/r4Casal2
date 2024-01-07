@@ -8,6 +8,7 @@
 #' @export get_init_F
 #' @importFrom reshape2 melt
 #' @importFrom tidyr gather separate spread %>%
+#'
 "get_init_F" <- function(model, ...) {
   UseMethod("get_init_F", model)
 }

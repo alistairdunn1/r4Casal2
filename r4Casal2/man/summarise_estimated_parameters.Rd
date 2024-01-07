@@ -5,16 +5,18 @@
 \alias{summarise_estimated_parameters.casal2MPD}
 \title{summarise_estimated_parameters}
 \usage{
-summarise_estimated_parameters(model, plot_it = F, ignore_ycs = F)
+summarise_estimated_parameters(model, ...)
 
-\method{summarise_estimated_parameters}{casal2MPD}(model, plot_it = F, ignore_ycs = F)
+\method{summarise_estimated_parameters}{casal2MPD}(model, plot_it = FALSE, ignore = NULL, n = 100)
 }
 \arguments{
 \item{model}{an MPD model}
 
 \item{plot_it}{if true plot MPD value, initial value, and prior, otherwise report MPD, init, lower_bound, upper_bound, prior_type}
 
-\item{ignore_ycs}{ignore YCS parameters}
+\item{ignore}{ignore parameters matching a string (e.g., "YCS_values")}
+
+\item{n}{Number of values to evaluate so as provide enough points to plot a smooth line (default = 100)}
 }
 \value{
 either a ggplot or a list with two elements. The first is for plotting, the second is a useful data frame

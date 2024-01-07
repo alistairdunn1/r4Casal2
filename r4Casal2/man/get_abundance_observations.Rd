@@ -27,5 +27,5 @@ data frame with all observations of type == 'observation' and observation_type %
 An accessor function that returns a data frame of all relative abundance data sets in a model
 }
 \author{
-Craig Marsh
+Craig Marsh, A Dunn
 }

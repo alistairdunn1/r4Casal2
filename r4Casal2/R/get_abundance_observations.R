@@ -1,11 +1,12 @@
 #' @title get_abundance_observations
 #' @description An accessor function that returns a data frame of all relative abundance data sets in a model
-#' @author Craig Marsh
+#' @author Craig Marsh, A Dunn
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
 #' @param reformat_labels <bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)
 #' @return data frame with all observations of type == 'observation' and observation_type %in% c('biomass', 'abundance')
 #' @rdname get_abundance_observations
 #' @export get_abundance_observations
+#'
 "get_abundance_observations" <- function(model, ...) {
   UseMethod("get_abundance_observations", model)
 }

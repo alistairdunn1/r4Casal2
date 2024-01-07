@@ -7,6 +7,7 @@
 #' @rdname get_selectivities_by_year
 #' @export get_selectivities_by_year
 #' @importFrom reshape2 melt
+#'
 "get_selectivities_by_year" <- function(model, ...) {
   UseMethod("get_selectivities_by_year", model)
 }

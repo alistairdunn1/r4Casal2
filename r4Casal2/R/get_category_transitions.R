@@ -6,6 +6,7 @@
 #' @return A data frame from Casal2 model output
 #' @rdname get_category_transitions
 #' @export get_category_transitions
+#'
 "get_category_transitions" <- function(model, ...) {
   UseMethod("get_category_transitions", model)
 }

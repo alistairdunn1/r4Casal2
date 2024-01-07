@@ -6,6 +6,7 @@
 #' @rdname get_BH_recruitment
 #' @export get_BH_recruitment
 #' @importFrom reshape2 melt
+#'
 "get_BH_recruitment" <- function(model, ...) {
   UseMethod("get_BH_recruitment", model)
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot_tag_recapture_predictive_dist.R
 \name{plot_tag_recapture_predictive_dist}
 \alias{plot_tag_recapture_predictive_dist}
-\title{plot_tag_recapture_predictive_dist
-Plots a violin plot of the predictive distribution by year for an observation}
+\title{plot_tag_recapture_predictive_dist}
 \usage{
 plot_tag_recapture_predictive_dist(
   sim_data,
@@ -34,6 +33,5 @@ plot_tag_recapture_predictive_dist(
 a ggplot
 }
 \description{
-plot_tag_recapture_predictive_dist
 Plots a violin plot of the predictive distribution by year for an observation
 }

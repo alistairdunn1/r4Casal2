@@ -1,5 +1,5 @@
-#' plot_tag_recapture_predictive_dist
-#' Plots a violin plot of the predictive distribution by year for an observation
+#' @title plot_tag_recapture_predictive_dist
+#' @description Plots a violin plot of the predictive distribution by year for an observation
 #' @param sim_data matrix of simulated data rows = simulation, col = length or age
 #' @param obs a data frame with column names obs and bin (). Can include a column labelled 'mpd_fit' if it exists the plot will add MPD fits on the plot
 #' @param lab a label for the plot which clearly identifies the observation
@@ -12,6 +12,7 @@
 #' @return a ggplot
 #' @rdname plot_tag_recapture_predictive_dist
 #' @export plot_tag_recapture_predictive_dist
+#'
 plot_tag_recapture_predictive_dist <- function(sim_data, obs, lab, plot_type = "violin", type = "length", probs = c(0.025, 0.5, 0.975), plot.it = TRUE) {
   ## quantile function
   if (!all(c("obs", "bin") %in% colnames(obs))) {

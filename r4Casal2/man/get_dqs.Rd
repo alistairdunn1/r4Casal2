@@ -4,7 +4,7 @@
 \alias{get_dqs}
 \title{get_dqs}
 \usage{
-get_dqs(model)
+get_dqs(model, ...)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract.mpd() and extract.tabular() functions}

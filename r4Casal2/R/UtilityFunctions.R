@@ -1,4 +1,4 @@
-#' is_matrix_invertable
+#' @title is_matrix_invertable
 #' @description helper function to see if a matrix is invertable
 #' @param m an n x n matrix
 #' @export
@@ -19,6 +19,7 @@
 #' is_matrix_invertable(z)
 #' # [1] TRUE
 #' }
+#'
 is_matrix_invertable <- function(m) {
   any("matrix" %in% class(try(solve(m), silent = TRUE)))
 }

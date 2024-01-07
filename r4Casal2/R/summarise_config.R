@@ -23,6 +23,7 @@
 #' }
 #' @rdname summarise_config
 #' @export summarise_config
+#'
 summarise_config <- function(config_dir = "", config_file = "config.csl2", quiet = T, fileEncoding = "") {
   ## check file exists
   if (!file.exists(file.path(config_dir, config_file))) {
@@ -151,7 +152,6 @@ summarise_config <- function(config_dir = "", config_file = "config.csl2", quiet
   age_length_time_step_growth <- NULL
   for (i in 1:length(category_labels)) {
     if (!length_based_model) {
-
       ## get age-length label type
       this_age_length <- age_length_list[[category_age_lengths[i]]]
       ## get length-weight label type

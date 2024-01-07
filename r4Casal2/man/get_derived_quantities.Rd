@@ -27,5 +27,5 @@ A data frame with all derived quantity reports from Casal2 model output
 An accessor function that returns a data frame from a Casal2 model output of derived_quantities
 }
 \author{
-Craig Marsh
+Craig Marsh, A Dunn
 }

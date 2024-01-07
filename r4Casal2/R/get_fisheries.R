@@ -8,6 +8,7 @@
 #' @export get_fisheries
 #' @importFrom reshape2 melt
 #' @importFrom tidyr gather separate spread %>%
+#'
 "get_fisheries" <- function(model, ...) {
   UseMethod("get_fisheries", model)
 }

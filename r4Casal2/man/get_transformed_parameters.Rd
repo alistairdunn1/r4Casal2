@@ -7,7 +7,7 @@
 \alias{get_transformed_parameters.casal2TAB}
 \title{get_transformed_parameters}
 \usage{
-get_transformed_parameters(model)
+get_transformed_parameters(model, ...)
 
 \method{get_transformed_parameters}{casal2MPD}(model, reformat_labels = TRUE)
 

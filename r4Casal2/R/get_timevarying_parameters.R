@@ -6,6 +6,7 @@
 #' @return A data frame with profile_values and likelihood components
 #' @rdname get_timevarying_parameters
 #' @export get_timevarying_parameters
+#'
 "get_timevarying_parameters" <- function(model, ...) {
   UseMethod("get_timevarying_parameters", model)
 }
