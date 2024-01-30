@@ -114,7 +114,7 @@
 #' @rdname get_composition_observations
 #' @method get_composition_observations casal2TAB
 #' @export
-"get_composition_observations.casal2TAB" <- function(mode, reformat_labels = TRUE) {
+"get_composition_observations.casal2TAB" <- function(model, reformat_labels = TRUE) {
   if (reformat_labels) {
     report_labels <- reformat_default_labels(names(model))
   } else {
@@ -140,6 +140,9 @@
     val_molten$category <- this_report$categories[index$count]
     val_molten$report_label <- report_labels[i]
     complete_df <- rbind(complete_df, val_molten)
+  }
+  if (is.null(complete_df)) {
+    stop(paste("No observations of type", paste(observation_type_allowed, collapse = ", "), "were found. \nPlease check the output to ensure these have been reported"))
   }
   return(complete_df)
 }

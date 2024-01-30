@@ -13,7 +13,7 @@ get_composition_observations(model, ...)
 
 \method{get_composition_observations}{list}(model, reformat_labels = TRUE)
 
-\method{get_composition_observations}{casal2TAB}(mode, reformat_labels = TRUE)
+\method{get_composition_observations}{casal2TAB}(model, reformat_labels = TRUE)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB> object that are generated from one of the extract() functions}

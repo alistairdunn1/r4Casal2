@@ -273,11 +273,11 @@ summarise_config <- function(config_dir = "", config_file = "config.csl2", quiet
       for (j in 1:length(this_process$categories$value)) {
         categories <- c(categories, expand_category_shorthand(shorthand_categories = this_process$categories$value[j], reference_categories = category_labels, category_format = category_format))
       }
-      selectivty <- NULL
+      selectivity <- NULL
       for (j in 1:length(this_process$relative_m_by_age$value)) {
-        selectivty <- c(selectivty, expand_shorthand_syntax(this_process$relative_m_by_age$value[j]))
+        selectivity <- c(selectivity, expand_shorthand_syntax(this_process$relative_m_by_age$value[j]))
       }
-      M_by_category <- rbind(data.frame(process = names(process_blocks)[i], category = categories, M = m, relative_M = selectivty))
+      M_by_category <- rbind(data.frame(process = names(process_blocks)[i], category = categories, M = m, relative_M = selectivity))
 
       time_prop <- NULL
       if (is.null(this_process$time_step_proportions$value)) {
