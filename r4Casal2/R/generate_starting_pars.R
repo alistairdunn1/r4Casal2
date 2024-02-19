@@ -10,9 +10,9 @@
 #' @param n_sim the number of randomly generated sets of free parameters
 #' @param start_free_filename = the filename of the file created
 #' @param all_uniform = logical if TRUE draw from a uniform between bounds regardless of the prior distribution
-#' @shrink shrink values near bounds by shrink/2 percent of the range of bounds to keep starting pars away from bounds (default = 0) and range (0.0-0.99)
+#' @param shrink shrink values near bounds by shrink/2 percent of the range of bounds to keep starting pars away from bounds (default = 0) and range (0.0-0.99)
 #' @param quiet Optional, suppresses printing statements
-#' @write if false, do not write to the output file
+#' @param write if false, do not write to the output file
 
 #' @return a named matrix of starting parameters, and if write = TRUE then outputs a file containing the starting parameters in the format of a -i file for Casal2
 #' @export
@@ -59,6 +59,8 @@ generate_starting_pars <- function(MPD = MPD, n_sim = 10, start_free_filename = 
       values <- rnorm(n = n_sim, mean = as.numeric(this_estimate$hyperparameter_values[1]), sd = as.numeric(this_estimate$hyperparameter_values[2]))
     } else if (this_estimate$sub_type == "normal_log") {
       values <- exp(rnorm(n = n_sim, mean = as.numeric(this_estimate$hyperparameter_values[1]), sd = as.numeric(this_estimate$hyperparameter_values[2])))
+    } else if (this_estimate$sub_type == "students_t") {
+      values <- as.numeric(this_estimate$hyperparameter_values[1]) + as.numeric(this_estimate$hyperparameter_values[2]) * rt(n = n_sim, df = as.numeric(this_estimate$hyperparameter_values[3]))
     }
     if (shrink < 0 || shrink > 0.99) {
       stop("shrink must be a value between 0 and 0.99")

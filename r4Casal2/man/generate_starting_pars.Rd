@@ -26,7 +26,11 @@ generate_starting_pars(
 
 \item{all_uniform}{= logical if TRUE draw from a uniform between bounds regardless of the prior distribution}
 
+\item{shrink}{shrink values near bounds by shrink/2 percent of the range of bounds to keep starting pars away from bounds (default = 0) and range (0.0-0.99)}
+
 \item{quiet}{Optional, suppresses printing statements}
+
+\item{write}{if false, do not write to the output file}
 }
 \value{
 a named matrix of starting parameters, and if write = TRUE then outputs a file containing the starting parameters in the format of a -i file for Casal2
