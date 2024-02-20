@@ -11,6 +11,31 @@
   UseMethod("get_composition_observations", model)
 }
 
+#' @title has_composition_observations
+#' @description An accessor function that returns if composition data is in a model
+#' @author Alistair Dunn
+#' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract() functions
+#' @return TRUE if the object contains composition_observations
+#' @rdname has_composition_observations
+#' @export has_composition_observations
+#'
+"has_composition_observations" <- function(model, ...) {
+  observation_type_allowed <- c("proportions_at_age", "proportions_at_length", "process_removals_by_age", "process_removals_by_length")
+  result <- FALSE
+  for (i in 1:length(model)) {
+    this_report <- model[[i]]
+    if (any(names(this_report) == "type")) {
+      if (this_report$type != "observation") {
+        next
+      }
+      if (this_report$observation_type %in% observation_type_allowed) {
+        result <- TRUE
+      }
+    }
+  }
+  return(result)
+}
+
 #' @rdname get_composition_observations
 #' @method get_composition_observations casal2MPD
 #' @export

@@ -12,6 +12,27 @@
   UseMethod("get_catchabilities", model)
 }
 
+#' @title has_catchabilities
+#' @description An accessor function that returns if catchabilities is in a model
+#' @author Alistair Dunn
+#' @param model <casal2MPD, casal2TAB> object that are generated from one of the extract() functions
+#' @return TRUE if the object contains catchabilities
+#' @rdname has_catchabilities
+#' @export has_catchabilities
+#'
+"has_catchabilities" <- function(model, ...) {
+  result <- FALSE
+  for (i in 1:length(model)) {
+    this_report <- model[[i]]
+    if (any(names(this_report) == "type")) {
+      if (this_report$type == "catchability") {
+        result <- TRUE
+      }
+    }
+  }
+  return(result)
+}
+
 #' @rdname get_catchabilities
 #' @method get_catchabilities casal2MPD
 #' @export
