@@ -1,5 +1,5 @@
 #' @title get_fisheries
-#' @description An accessor function that returns a data frame from a Casal2 model output of process type recruitment
+#' @description An accessor function that returns a data frame from a Casal2 model output of process type mortality_instantaneous
 #' @author Craig Marsh
 #' @param model <casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions
 #' @param reformat_labels <bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)
