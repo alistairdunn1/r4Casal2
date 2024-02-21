@@ -13,18 +13,20 @@ get_fisheries(model, ...)
 
 \method{get_fisheries}{list}(model, reformat_labels = TRUE)
 
-\method{get_fisheries}{casal2TAB}(model, reformat_labels = TRUE)
+\method{get_fisheries}{casal2TAB}(model, m_by_age = FALSE, reformat_labels = TRUE)
 }
 \arguments{
 \item{model}{<casal2MPD, casal2TAB, list> object that are generated from one of the extract.mpd() and extract.tabular() functions}
 
 \item{reformat_labels}{<bool> Reformat default Casal2 report labels to remove leading and trailing underscores (default = TRUE)}
+
+\item{m_by_age}{if TRUE, return the m_by_age data else exclude m_by_age (the default and consistent with older versions of Casal2)}
 }
 \value{
 A data frame from Casal2 model output
 }
 \description{
-An accessor function that returns a data frame from a Casal2 model output of process type recruitment
+An accessor function that returns a data frame from a Casal2 model output of process type mortality_instantaneous
 }
 \author{
 Craig Marsh

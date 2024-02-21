@@ -133,8 +133,10 @@
 
 #' @rdname get_fisheries
 #' @method get_fisheries casal2TAB
+#' @param m_by_age if TRUE, return the m_by_age data else exclude m_by_age (the default and consistent with older versions of Casal2)
+#'
 #' @export
-"get_fisheries.casal2TAB" <- function(model, reformat_labels = TRUE) {
+"get_fisheries.casal2TAB" <- function(model, m_by_age = FALSE, reformat_labels = TRUE) {
   if (reformat_labels) {
     report_labels <- reformat_default_labels(names(model))
   } else {
@@ -176,6 +178,16 @@
     fishery_long_format$year <- as.numeric(fishery_long_format$year)
     fishery_long_format$label <- report_labels[i]
     complete_df <- rbind(complete_df, fishery_long_format)
+  }
+  if (!m_by_age) {
+    complete_df <- complete_df %>%
+      filter(!is.na(catch)) %>%
+      select(!starts_with("m_by_age"))
+  } else {
+    complete_df <- complete_df %>%
+      filter(is.na(catch)) %>%
+      rename(category = fishery, age = year) %>%
+      select(!c(actual_catches, catch, exploitation_rate, fishing_pressure))
   }
   return(complete_df)
 }
