@@ -11,7 +11,7 @@ get_category_transitions(model, ...)
 
 \method{get_category_transitions}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_category_transitions}{list}(mode, reformat_labels = TRUE)
+\method{get_category_transitions}{list}(model, reformat_labels = TRUE)
 
 \method{get_category_transitions}{casal2TAB}(model, reformat_labels = TRUE)
 }

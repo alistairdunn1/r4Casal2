@@ -62,7 +62,7 @@
 #' @rdname get_category_transitions
 #' @method get_category_transitions list
 #' @export
-"get_category_transitions.list" <- function(mode, reformat_labels = TRUE) {
+"get_category_transitions.list" <- function(model, reformat_labels = TRUE) {
   if (reformat_labels) {
     report_labels <- reformat_default_labels(names(model))
   } else {

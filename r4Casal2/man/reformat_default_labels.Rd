@@ -2,25 +2,21 @@
 % Please edit documentation in R/check_report_label.R
 \name{reformat_default_labels}
 \alias{reformat_default_labels}
-\title{Utility function to reformat report labels created from
-Casal2s default report. cut off leading and trailing __
-so the report label '__selectivities__' will be changed to 'selectivities'
-if a default report has been created with the same label as an exiting report
-we change its name from '__report_label__' to 'report_label_default'}
+\title{reformat_default_labels}
 \usage{
 reformat_default_labels(report_labels)
 }
 \arguments{
-\item{report_labels}{vector of report labels}
+\item{report_labels}{A vector of labels of Casal2 reports}
+
+\item{model}{<casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)}
+}
+\value{
+A vector of reformatted labels for Casal2 reports
 }
 \description{
-Utility function to reformat report labels created from
-Casal2s default report. cut off leading and trailing __
-so the report label '__selectivities__' will be changed to 'selectivities'
-if a default report has been created with the same label as an exiting report
-we change its name from '__report_label__' to 'report_label_default'
+Utility function to reformat report labels created from Casal2s default report. cut off leading and trailing __ so the report label '__selectivities__' will be changed to 'selectivities' if a default report has been created with the same label as an exiting report we change its name from '__report_label__' to 'report_label_default'
 }
 \author{
-Craig Marsh
+Craig Marsh, A Dunn
 }
-\keyword{internal}

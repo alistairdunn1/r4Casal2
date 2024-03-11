@@ -11,7 +11,7 @@ get_estimated_values(model, ...)
 
 \method{get_estimated_values}{casal2MPD}(model, reformat_labels = TRUE)
 
-\method{get_estimated_values}{list}(mode, reformat_labels = TRUE)
+\method{get_estimated_values}{list}(model, reformat_labels = TRUE)
 
 \method{get_estimated_values}{casal2TAB}(model, reformat_labels = TRUE)
 }

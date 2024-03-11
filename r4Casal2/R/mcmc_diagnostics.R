@@ -63,6 +63,7 @@ z_scale <- function(x) {
   }
   return(z)
 }
+
 split_chains <- function(sims) {
   # split Markov chains
   # Args:

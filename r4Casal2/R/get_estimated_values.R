@@ -54,7 +54,7 @@
 #' @rdname get_estimated_values
 #' @method get_estimated_values list
 #' @export
-"get_estimated_values.list" <- function(mode, reformat_labels = TRUE) {
+"get_estimated_values.list" <- function(model, reformat_labels = TRUE) {
   if (reformat_labels) {
     report_labels <- reformat_default_labels(names(model))
   } else {

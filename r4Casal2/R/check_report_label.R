@@ -14,14 +14,14 @@ check_report_label <- function(report_label, model) {
   return(list(check = passed, msg = error_msg))
 }
 
-#' Utility function to reformat report labels created from
-#' Casal2s default report. cut off leading and trailing __
-#' so the report label '__selectivities__' will be changed to 'selectivities'
-#' if a default report has been created with the same label as an exiting report
-#' we change its name from '__report_label__' to 'report_label_default'
-#' @author Craig Marsh
-#' @param report_labels vector of report labels
-#' @keywords internal
+#' @title reformat_default_labels
+#' @description Utility function to reformat report labels created from Casal2s default report. cut off leading and trailing __ so the report label '__selectivities__' will be changed to 'selectivities' if a default report has been created with the same label as an exiting report we change its name from '__report_label__' to 'report_label_default'
+#' @author Craig Marsh, A Dunn
+#' @param model <casal2MPD> object that are generated from one of the extract() functions. If list then we expect multiple MPD runs (should be a named list)
+#' @param report_labels A vector of labels of Casal2 reports
+#' @return A vector of reformatted labels for Casal2 reports
+#' @rdname reformat_default_labels
+#' @export reformat_default_labels
 #'
 reformat_default_labels <- function(report_labels) {
   ## find elements that start and end with '__'
