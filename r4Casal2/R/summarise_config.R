@@ -80,7 +80,7 @@ summarise_config <- function(config_dir = "", config_file = "config.csl2", quiet
       w
     })
     if (inherits(this_file, "error") | inherits(this_file, "warning")) {
-      cat("failed to readin the following file ", config_file_in[i], " so skipping it.\n\nthe error\n", this_file$message, "\n")
+      cat("Error: Failed to read the following file ", config_file_in[i], " so skipping it. The error message was: ", this_file$message, "\n")
       next
     }
     blocks <- get_block(names(this_file))

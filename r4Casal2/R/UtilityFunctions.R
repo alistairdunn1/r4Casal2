@@ -372,7 +372,44 @@ drop_runs_from_multi_input_mpd <- function(model, elements_to_drop) {
 log_cv <- function(sigma) {
   cv <- sqrt(exp(sigma^2) - 1)
   return(cv)
+}"rlognorm" <- function(number, mean, CV) {
+# Generates random numbers under a lognormal distribution,
+# with specified c.v.
+# Alistair Dunn, September 1997
+#
+  if (!(mean > 0)) {
+    return(rep(NA,number))
+  } else {
+    logvar <- sqrt(log(CV^2 + 1))
+    logmean <- log(mean) - (logvar^2)/2
+    return(exp(rnorm(number, logmean, logvar)))
+  }
 }
+
+
+x <- rlognorm(10000, 1, 0.3)
+y <- rlognorm(10000, 0.5, 0.3)
+
+plot(x,y)
+
+z <- y/x
+hist(z)
+summary(x)
+summary(y)
+summary(z)
+
+mean(z) - (0.5*sd(x)^2 + 0.5*sd(y)^2)
+mean(z) - 0.5*sd(z)^2
+
+0.5  * sqrt(0.3^2 + 0.3^2)^2
+
+
+s <- sqrt(log(0.3^2 + 1))
+s <- sd(z)
+
+mean(z) - 0.5 * s^2
+
+
 
 #' log_sigma
 #' @description Calculate the sigma of the lognormal distribution based on \deqn{\sigma = \sqrt{log(cv^2 + 1)}}
