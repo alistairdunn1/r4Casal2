@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Model fit to observations | A Minimal Book Example" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="John Doe" />
 
 
-<meta name="date" content="2024-02-20" />
+<meta name="date" content="2024-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -62,7 +62,7 @@ set in the _output.yml file.</p>" />
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -125,6 +125,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -194,16 +198,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Model fit to observations<a href="modelfit.html#modelfit" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="abundancebiomass" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Abundance/Biomass<a href="modelfit.html#abundancebiomass" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="modelfit.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_relative_index</span>(cas2_mpd, <span class="at">plot_type =</span> <span class="st">&#39;classic&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="modelfit.html#cb11-1" tabindex="-1"></a><span class="fu">plot_relative_index</span>(cas2_mpd, <span class="at">plot_type =</span> <span class="st">&#39;classic&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/abundance_fits-1.png" width="672" /></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelfit.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_relative_index</span>(cas2_mpd, <span class="at">plot_type =</span> <span class="st">&#39;classic_ribbon&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="modelfit.html#cb12-1" tabindex="-1"></a><span class="fu">plot_relative_index</span>(cas2_mpd, <span class="at">plot_type =</span> <span class="st">&#39;classic_ribbon&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/abundance_fits-2.png" width="672" /></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelfit.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_relative_index</span>(cas2_mpd, <span class="at">plot_type =</span> <span class="st">&#39;residual&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="modelfit.html#cb13-1" tabindex="-1"></a><span class="fu">plot_relative_index</span>(cas2_mpd, <span class="at">plot_type =</span> <span class="st">&#39;residual&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/abundance_fits-3.png" width="672" /></p>
 </div>
 <div id="composition" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Composition<a href="modelfit.html#composition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="modelfit.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_compositional_observations</span>(cas2_mpd)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="modelfit.html#cb14-1" tabindex="-1"></a><span class="fu">plot_compositional_observations</span>(cas2_mpd)</span></code></pre></div>
 <p><img src="_main_files/figure-html/comp_fits-1.png" width="672" /><img src="_main_files/figure-html/comp_fits-2.png" width="672" /><img src="_main_files/figure-html/comp_fits-3.png" width="672" /><img src="_main_files/figure-html/comp_fits-4.png" width="672" /></p>
 
 </div>

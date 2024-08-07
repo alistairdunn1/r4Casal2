@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Model structure | A Minimal Book Example" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="John Doe" />
 
 
-<meta name="date" content="2024-02-20" />
+<meta name="date" content="2024-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -62,7 +62,7 @@ set in the _output.yml file.</p>" />
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -125,6 +125,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -194,20 +198,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 2</span> Model structure<a href="inputs.html#inputs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="read-in-necessary-r-libraries" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Read in necessary R libraries<a href="inputs.html#read-in-necessary-r-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="inputs.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(r4Casal2)</span>
-<span id="cb3-2"><a href="inputs.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Casal2)</span>
-<span id="cb3-3"><a href="inputs.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb3-4"><a href="inputs.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-5"><a href="inputs.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-6"><a href="inputs.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="inputs.html#cb4-1" aria-hidden="true" tabindex="-1"></a>cas2_mpd <span class="ot">=</span> <span class="fu">extract.mpd</span>(<span class="at">file =</span> <span class="st">&#39;estimate_betadiff.log&#39;</span>, <span class="at">path =</span> csl_dir)</span>
-<span id="cb4-2"><a href="inputs.html#cb4-2" aria-hidden="true" tabindex="-1"></a>config_summary <span class="ot">=</span> <span class="fu">summarise_config</span>(<span class="at">config_file =</span> <span class="st">&#39;config_betadiff.csl2&#39;</span>, <span class="at">config_dir =</span> csl_dir)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="inputs.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(r4Casal2)</span>
+<span id="cb3-2"><a href="inputs.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(Casal2)</span>
+<span id="cb3-3"><a href="inputs.html#cb3-3" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb3-4"><a href="inputs.html#cb3-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-5"><a href="inputs.html#cb3-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-6"><a href="inputs.html#cb3-6" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="inputs.html#cb4-1" tabindex="-1"></a>cas2_mpd <span class="ot">=</span> <span class="fu">extract.mpd</span>(<span class="at">file =</span> <span class="st">&#39;estimate_betadiff.log&#39;</span>, <span class="at">path =</span> csl_dir)</span>
+<span id="cb4-2"><a href="inputs.html#cb4-2" tabindex="-1"></a>config_summary <span class="ot">=</span> <span class="fu">summarise_config</span>(<span class="at">config_file =</span> <span class="st">&#39;config_betadiff.csl2&#39;</span>, <span class="at">config_dir =</span> csl_dir)</span></code></pre></div>
 </div>
 <div id="input-catches" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Input catches<a href="inputs.html#input-catches" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="inputs.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(config_summary<span class="sc">$</span>catch_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> catch, <span class="at">col =</span> fishery)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="inputs.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="inputs.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Catch (t)&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Fishery&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="inputs.html#cb5-1" tabindex="-1"></a><span class="fu">ggplot</span>(config_summary<span class="sc">$</span>catch_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> catch, <span class="at">col =</span> fishery)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="inputs.html#cb5-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="inputs.html#cb5-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Catch (t)&quot;</span>, <span class="at">col =</span> <span class="st">&quot;Fishery&quot;</span>)</span></code></pre></div>
 <div class="figure">
 <img src="_main_files/figure-html/plot_input_catches-1.png" alt="Catch by fishery over time" width="672" />
 <p class="caption">
@@ -217,10 +221,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="input-observations" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Input Observations<a href="inputs.html#input-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="inputs.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(config_summary<span class="sc">$</span>obs_year_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> observation, <span class="at">col =</span> observation, <span class="at">size =</span> active)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href="inputs.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-3"><a href="inputs.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="st">&quot;none&quot;</span>, <span class="at">size =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 131 rows containing missing values (`geom_point()`).</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="inputs.html#cb6-1" tabindex="-1"></a><span class="fu">ggplot</span>(config_summary<span class="sc">$</span>obs_year_df, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> observation, <span class="at">col =</span> observation, <span class="at">size =</span> active)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="inputs.html#cb6-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="inputs.html#cb6-3" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="st">&quot;none&quot;</span>, <span class="at">size =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 131 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
 <div class="figure">
 <img src="_main_files/figure-html/plot_input_observations-1.png" alt="Years in which observations are calculated" width="672" />
 <p class="caption">
@@ -230,7 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="annual-cycle" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Annual cycle<a href="inputs.html#annual-cycle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="inputs.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> config_summary<span class="sc">$</span>time_step_df,<span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">tab.attr =</span> <span class="st">&quot;style=&#39;width:100%;&#39;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="inputs.html#cb8-1" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> config_summary<span class="sc">$</span>time_step_df,<span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">tab.attr =</span> <span class="st">&quot;style=&#39;width:100%;&#39;&quot;</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -282,7 +286,7 @@ Ageing (ageing), instant_mort (mortality_instantaneous), SSB (derived-quantity 0
 </div>
 <div id="the-partition" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> The Partition<a href="inputs.html#the-partition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="inputs.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> config_summary<span class="sc">$</span>full_category_df,<span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">tab.attr =</span> <span class="st">&quot;style=&#39;width:100%;&#39;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="inputs.html#cb9-1" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> config_summary<span class="sc">$</span>full_category_df,<span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">tab.attr =</span> <span class="st">&quot;style=&#39;width:100%;&#39;&quot;</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -334,7 +338,7 @@ normal
 </div>
 <div id="estimated-parameters" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Estimated parameters<a href="inputs.html#estimated-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="inputs.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> config_summary<span class="sc">$</span>estimate_df,<span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">tab.attr =</span> <span class="st">&quot;style=&#39;width:100%;&#39;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="inputs.html#cb10-1" tabindex="-1"></a><span class="fu">kable</span>(<span class="at">x =</span> config_summary<span class="sc">$</span>estimate_df,<span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">tab.attr =</span> <span class="st">&quot;style=&#39;width:100%;&#39;&quot;</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>

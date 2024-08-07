@@ -8,7 +8,7 @@
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Model quantities | A Minimal Book Example" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="John Doe" />
 
 
-<meta name="date" content="2024-02-20" />
+<meta name="date" content="2024-08-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -62,7 +62,7 @@ set in the _output.yml file.</p>" />
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -125,6 +125,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -194,30 +198,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 4</span> Model quantities<a href="modelquantities.html#modelquantities" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="ssb" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> SSB<a href="modelquantities.html#ssb" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelquantities.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_derived_quantities</span>(cas2_mpd)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="modelquantities.html#cb15-1" tabindex="-1"></a><span class="fu">plot_derived_quantities</span>(cas2_mpd)</span></code></pre></div>
 <p><img src="_main_files/figure-html/ssb-1.png" width="672" /></p>
 </div>
 <div id="recruitment" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Recruitment<a href="modelquantities.html#recruitment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="modelquantities.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_recruitment</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;recruitment_multipliers&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Recruitment multipliers&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="modelquantities.html#cb16-1" tabindex="-1"></a><span class="fu">plot_recruitment</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;recruitment_multipliers&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Recruitment multipliers&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/recruit-1.png" width="672" /></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="modelquantities.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_recruitment</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;standardised_recruitment_multipliers&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Standardised recruitment multipliers&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="modelquantities.html#cb17-1" tabindex="-1"></a><span class="fu">plot_recruitment</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;standardised_recruitment_multipliers&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Standardised recruitment multipliers&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/recruit-2.png" width="672" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="modelquantities.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_recruitment</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;recruits&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Recruits (000)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="modelquantities.html#cb18-1" tabindex="-1"></a><span class="fu">plot_recruitment</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;recruits&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Recruits (000)&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/recruit-3.png" width="672" /></p>
 </div>
 <div id="exploitation" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Exploitation<a href="modelquantities.html#exploitation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="modelquantities.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fishery</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;fishing_pressure&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Fishing Pressure&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="modelquantities.html#cb19-1" tabindex="-1"></a><span class="fu">plot_fishery</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;fishing_pressure&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Fishing Pressure&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/exploitation-1.png" width="672" /><img src="_main_files/figure-html/exploitation-2.png" width="672" /></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="modelquantities.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fishery</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;exploitation&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Exploitation&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="modelquantities.html#cb20-1" tabindex="-1"></a><span class="fu">plot_fishery</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;exploitation&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Exploitation&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/exploitation-3.png" width="672" /><img src="_main_files/figure-html/exploitation-4.png" width="672" /></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="modelquantities.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_fishery</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;actual_catch&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Actual Catch&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="modelquantities.html#cb21-1" tabindex="-1"></a><span class="fu">plot_fishery</span>(<span class="at">model =</span> cas2_mpd, <span class="at">quantity =</span> <span class="st">&#39;actual_catch&#39;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;Actual Catch&#39;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/exploitation-5.png" width="672" /><img src="_main_files/figure-html/exploitation-6.png" width="672" /></p>
 </div>
 <div id="selectivities" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Selectivities<a href="modelquantities.html#selectivities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="modelquantities.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_selectivities</span>(<span class="at">model =</span> cas2_mpd)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="modelquantities.html#cb22-1" tabindex="-1"></a><span class="fu">plot_selectivities</span>(<span class="at">model =</span> cas2_mpd)</span></code></pre></div>
 <p><img src="_main_files/figure-html/selectivities-1.png" width="672" /></p>
 
 </div>

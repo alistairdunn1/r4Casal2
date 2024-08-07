@@ -1,14 +1,14 @@
 Package: r4Casal2
 Title: R package for post processing Casal2 model output
 Version: 1.0.4
-Date: 2023-12-26
+Date: 2024-02-23
 Author: C Marsh & A Dunn
 Description: Accessor and utility functions to support the Casal2 R Library.
 Maintainer: Casal2 Development Team <casal2@niwa.co.nz>  Alistair Dunn <alistair.dunn@oceanenvironmental.co.nz>
 License: MIT + file LICENSE
 LazyData: true
 Imports: dplyr,
-    ggplot2,
+ ggplot2,
     reshape2,
     DHARMa,
     tidyr (>= 1.2.0),
@@ -18,7 +18,7 @@ Imports: dplyr,
     stats,
     randtests,
     RColorBrewer
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests: 
     Casal2
 RdMacros: Rdpack
